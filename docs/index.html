@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- saved from url=(0025) -->
+<html class="gr__192_168_0_24"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -217,14 +218,14 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link active" data-title="Introduction">Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
             <a href="#authentication-and-security" class="toc-h1 toc-link" data-title="Authentication and Security">Authentication and Security</a>
           </li>
           <li>
             <a href="#get-trips" class="toc-h1 toc-link" data-title="Get trips">Get trips</a>
-              <ul class="toc-list-h2" style="display: none;">
+              <ul class="toc-list-h2" style="">
                   <li>
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
@@ -244,7 +245,7 @@
           </li>
           <li>
             <a href="#get-seat-map" class="toc-h1 toc-link" data-title="Get seat map">Get seat map</a>
-              <ul class="toc-list-h2" style="">
+              <ul class="toc-list-h2" style="display: none;">
                   <li>
                     <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
@@ -253,6 +254,9 @@
                   </li>
                   <li>
                     <a href="#response-format-2" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
                   </li>
               </ul>
           </li>
@@ -288,8 +292,8 @@
               </ul>
           </li>
           <li>
-            <a href="#get-waybill" class="toc-h1 toc-link" data-title="Get WayBill">Get WayBill</a>
-              <ul class="toc-list-h2" style="display: none;">
+            <a href="#get-waybill" class="toc-h1 toc-link active-parent" data-title="Get WayBill">Get WayBill</a>
+              <ul class="toc-list-h2 active" style="display: block;">
                   <li>
                     <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
@@ -297,7 +301,7 @@
                     <a href="#parameters-2" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
-                    <a href="#response-format-5" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    <a href="#response-format-5" class="toc-h2 toc-link active" data-title="Response Format">Response Format</a>
                   </li>
                   <li>
                     <a href="#waybill-object" class="toc-h2 toc-link" data-title="WayBill Object">WayBill Object</a>
@@ -306,7 +310,7 @@
           </li>
           <li>
             <a href="#retrieve-ticket" class="toc-h1 toc-link" data-title="Retrieve ticket">Retrieve ticket</a>
-              <ul class="toc-list-h2" style="display: none;">
+              <ul class="toc-list-h2" style="">
                   <li>
                     <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
@@ -317,13 +321,13 @@
                     <a href="#response-format-6" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                   </li>
                   <li>
-                    <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                    <a href="#error-descriptions-3" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#cancel-ticket" class="toc-h1 toc-link" data-title="Cancel ticket">Cancel ticket</a>
-              <ul class="toc-list-h2" style="display: none;">
+              <ul class="toc-list-h2" style="">
                   <li>
                     <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
@@ -334,7 +338,7 @@
                     <a href="#response-format-7" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                   </li>
                   <li>
-                    <a href="#error-descriptions-3" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                    <a href="#error-descriptions-4" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
                   </li>
               </ul>
           </li>
@@ -376,7 +380,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Integrations to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
+<p>CTS will call the bus operator syatem to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
 <h3 id="http-request">HTTP Request</h3>
 <p><code>GET {getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28</code></p>
 <h3 id="query-parameters">Query Parameters</h3>
@@ -422,7 +426,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Refer below</td>
 </tr>
 <tr>
-<td>data</td>
+<td>trips</td>
 <td>Array of Trips</td>
 <td>Refer below</td>
 </tr>
@@ -500,7 +504,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Trip does not exist</td>
 </tr>
 <tr>
-<td>103</td>
+<td>104</td>
 <td>Any other error needs to be sent here</td>
 </tr>
 </tbody></table>
@@ -517,7 +521,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"seatMapObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"lowerDeck"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -617,7 +621,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Integrations to get seat map or bus seat details for the trip using tripId or tripCode </p>
+<p>CTS will call the bus operator system to get seat map or bus seat details for the trip using tripId</p>
 <h3 id="http-request-2">HTTP Request</h3>
 <p><code>GET {getSeatMapApiURL}?TripId=0B101010&amp;OperatorCode=OPM&amp;OperatorId=42</code></p>
 <h3 id="query-parameters-2">Query Parameters</h3>
@@ -663,9 +667,37 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Refer below</td>
 </tr>
 <tr>
-<td>data</td>
-<td>SeatMap object</td>
+<td>seatMapObject</td>
+<td>JSON object</td>
 <td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id="error-descriptions-2">Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Trips Cancelled</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Trip does not exist</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Any other error needs to be sent here</td>
 </tr>
 </tbody></table>
 
@@ -687,7 +719,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="s2">"OperatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Integrations before call make booking we need to make sure the selected seats are available and no changes happened on selected trip</p>
+<p>CTS will call the bus operator system before call make booking we need to make sure the selected seats are available and no changes happened on selected trip</p>
 <h3 id="http-request-3">HTTP Request</h3>
 <p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
 <h3 id="query-parameters-3">Query Parameters</h3>
@@ -745,7 +777,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <tr>
 <td>errorMessage</td>
 <td>String</td>
-<td>Brief description for failure</td>
+<td>Success / The reason for failure</td>
 </tr>
 <tr>
 <td>TripId</td>
@@ -819,7 +851,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Integrations to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We'll get pnr and ticket numbers if the booking is successful.</p>
+<p>CTS will call the bus operator system to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We'll get pnr and ticket numbers if the booking is successful.</p>
 <h3 id="parameters">Parameters</h3>
 <table><thead>
 <tr>
@@ -920,7 +952,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <th>Type</th>
 <th>Format / Example</th>
 </tr>
-</thead><tbody>
+</thead><tbody class="">
 <tr>
 <td>errorCode</td>
 <td>Integer</td>
@@ -1024,13 +1056,18 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBUS707"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"destinationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28 20:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"driverName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adrian Pang"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"waybillList"</span><span class="p">:</span><span class="w"> 
   </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128A"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBUS707"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
@@ -1040,7 +1077,6 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
       </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128B"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783929"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBUS707"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JaneDoe42"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A"</span><span class="p">,</span><span class="w">
@@ -1049,7 +1085,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Integrations to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
+<p>CTS will call the bus operator system to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
 <h3 id="http-request-4">HTTP Request</h3>
 <p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
 <h3 id="parameters-2">Parameters</h3>
@@ -1095,7 +1131,32 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Success / The reason for failure</td>
 </tr>
 <tr>
-<td>data</td>
+<td>SourceId</td>
+<td>String</td>
+<td>42</td>
+</tr>
+<tr>
+<td>destinationId</td>
+<td>String</td>
+<td>73</td>
+</tr>
+<tr>
+<td>tripCode</td>
+<td>String</td>
+<td>Unique trip code to be printed in ticket</td>
+</tr>
+<tr>
+<td>driverName</td>
+<td>String</td>
+<td>Bus river name for the trip</td>
+</tr>
+<tr>
+<td>departTime</td>
+<td>String</td>
+<td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>waybillList</td>
 <td>Array of WayBill</td>
 <td>Refer below</td>
 </tr>
@@ -1176,7 +1237,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Integrations at any given time to get the booking details of a successful booking using pnr.</p>
+<p>CTS will call the bus operator system at any given time to get the booking details of a successful booking using pnr.</p>
 <h3 id="http-request-5">HTTP Request</h3>
 <p><code>GET {retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
 <h3 id="parameters-3">Parameters</h3>
@@ -1282,7 +1343,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>OPM4273201801284B</td>
 </tr>
 </tbody></table>
-<h3 id="error-descriptions-2">Error descriptions</h3>
+<h3 id="error-descriptions-3">Error descriptions</h3>
 <table><thead>
 <tr>
 <th>Error code</th>
@@ -1317,7 +1378,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Integrations to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
+<p>CTS will call the bus operator system to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
 <h3 id="http-request-6">HTTP Request</h3>
 <p><code>GET {cancelTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
 <h3 id="parameters-4">Parameters</h3>
@@ -1363,7 +1424,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Refer below</td>
 </tr>
 </tbody></table>
-<h3 id="error-descriptions-3">Error descriptions</h3>
+<h3 id="error-descriptions-4">Error descriptions</h3>
 <table><thead>
 <tr>
 <th>Error code</th>
