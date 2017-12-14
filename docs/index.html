@@ -1,206 +1,278 @@
 <!DOCTYPE html>
-<!-- saved from url=(0025) -->
-<html class="gr__192_168_0_24"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html class="gr__192_168_0_24">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>KLANG SENTRAL API Specification</title>
-
     <style>
-      .highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
-}
-.highlight .sr {
-  color: #f6aa11;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-}
-.highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .cd {
-  color: #75715e;
-}
-.highlight .err {
-  color: #960050;
-}
-.highlight .gr {
-  color: #960050;
-}
-.highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
-}
-.highlight .kc {
-  color: #66d9ef;
-}
-.highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .ow {
-  color: #f92672;
-}
-.highlight .nt {
-  color: #f92672;
-}
-.highlight .k, .highlight .kv {
-  color: #f92672;
-}
-.highlight .kn {
-  color: #f92672;
-}
-.highlight .kp {
-  color: #f92672;
-}
-.highlight .o {
-  color: #f92672;
-}
+    .highlight table td {
+        padding: 5px;
+    }
+
+    .highlight table pre {
+        margin: 0;
+    }
+
+    .highlight .gh {
+        color: #999999;
+    }
+
+    .highlight .sr {
+        color: #f6aa11;
+    }
+
+    .highlight .go {
+        color: #888888;
+    }
+
+    .highlight .gp {
+        color: #555555;
+    }
+
+    .highlight .gs {}
+
+    .highlight .gu {
+        color: #aaaaaa;
+    }
+
+    .highlight .nb {
+        color: #f6aa11;
+    }
+
+    .highlight .cm {
+        color: #75715e;
+    }
+
+    .highlight .cp {
+        color: #75715e;
+    }
+
+    .highlight .c1 {
+        color: #75715e;
+    }
+
+    .highlight .cs {
+        color: #75715e;
+    }
+
+    .highlight .c,
+    .highlight .cd {
+        color: #75715e;
+    }
+
+    .highlight .err {
+        color: #960050;
+    }
+
+    .highlight .gr {
+        color: #960050;
+    }
+
+    .highlight .gt {
+        color: #960050;
+    }
+
+    .highlight .gd {
+        color: #49483e;
+    }
+
+    .highlight .gi {
+        color: #49483e;
+    }
+
+    .highlight .ge {
+        color: #49483e;
+    }
+
+    .highlight .kc {
+        color: #66d9ef;
+    }
+
+    .highlight .kd {
+        color: #66d9ef;
+    }
+
+    .highlight .kr {
+        color: #66d9ef;
+    }
+
+    .highlight .no {
+        color: #66d9ef;
+    }
+
+    .highlight .kt {
+        color: #66d9ef;
+    }
+
+    .highlight .mf {
+        color: #ae81ff;
+    }
+
+    .highlight .mh {
+        color: #ae81ff;
+    }
+
+    .highlight .il {
+        color: #ae81ff;
+    }
+
+    .highlight .mi {
+        color: #ae81ff;
+    }
+
+    .highlight .mo {
+        color: #ae81ff;
+    }
+
+    .highlight .m,
+    .highlight .mb,
+    .highlight .mx {
+        color: #ae81ff;
+    }
+
+    .highlight .sc {
+        color: #ae81ff;
+    }
+
+    .highlight .se {
+        color: #ae81ff;
+    }
+
+    .highlight .ss {
+        color: #ae81ff;
+    }
+
+    .highlight .sd {
+        color: #e6db74;
+    }
+
+    .highlight .s2 {
+        color: #e6db74;
+    }
+
+    .highlight .sb {
+        color: #e6db74;
+    }
+
+    .highlight .sh {
+        color: #e6db74;
+    }
+
+    .highlight .si {
+        color: #e6db74;
+    }
+
+    .highlight .sx {
+        color: #e6db74;
+    }
+
+    .highlight .s1 {
+        color: #e6db74;
+    }
+
+    .highlight .s {
+        color: #e6db74;
+    }
+
+    .highlight .na {
+        color: #a6e22e;
+    }
+
+    .highlight .nc {
+        color: #a6e22e;
+    }
+
+    .highlight .nd {
+        color: #a6e22e;
+    }
+
+    .highlight .ne {
+        color: #a6e22e;
+    }
+
+    .highlight .nf {
+        color: #a6e22e;
+    }
+
+    .highlight .vc {
+        color: #ffffff;
+    }
+
+    .highlight .nn {
+        color: #ffffff;
+    }
+
+    .highlight .nl {
+        color: #ffffff;
+    }
+
+    .highlight .ni {
+        color: #ffffff;
+    }
+
+    .highlight .bp {
+        color: #ffffff;
+    }
+
+    .highlight .vg {
+        color: #ffffff;
+    }
+
+    .highlight .vi {
+        color: #ffffff;
+    }
+
+    .highlight .nv {
+        color: #ffffff;
+    }
+
+    .highlight .w {
+        color: #ffffff;
+    }
+
+    .highlight {
+        color: #ffffff;
+    }
+
+    .highlight .n,
+    .highlight .py,
+    .highlight .nx {
+        color: #ffffff;
+    }
+
+    .highlight .ow {
+        color: #f92672;
+    }
+
+    .highlight .nt {
+        color: #f92672;
+    }
+
+    .highlight .k,
+    .highlight .kv {
+        color: #f92672;
+    }
+
+    .highlight .kn {
+        color: #f92672;
+    }
+
+    .highlight .kp {
+        color: #f92672;
+    }
+
+    .highlight .o {
+        color: #f92672;
+    }
     </style>
     <link href="screen.css" rel="stylesheet" media="screen">
     <link href="print.css" rel="stylesheet" media="print">
-      <script src="all.js.download"></script>
-  </head>
+    <script src="all.js.download"></script>
+</head>
 
-  <body class="index" data-languages="[&quot;cURL&quot;]" data-gr-c-s-loaded="true">
+<body class="index" data-languages="[&quot;cURL&quot;]" data-gr-c-s-loaded="true">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -208,164 +280,159 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="logo.png" class="logo" alt="Logo">
+        <img src="logo.png" class="logo" alt="Logo">
         <div class="lang-selector">
-              <a href="#" data-language-name="cURL" class="active">cURL</a>
+            <a href="#" data-language-name="cURL" class="active">cURL</a>
         </div>
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
+            <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <div id="toc" class="toc-list-h1">
-          <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication-and-security" class="toc-h1 toc-link" data-title="Authentication and Security">Authentication and Security</a>
-          </li>
-          <li>
-            <a href="#get-trips" class="toc-h1 toc-link" data-title="Get trips">Get trips</a>
-              <ul class="toc-list-h2" style="">
-                  <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#response-format" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
-                  </li>
-                  <li>
-                    <a href="#trip-object" class="toc-h2 toc-link" data-title="Trip Object">Trip Object</a>
-                  </li>
-                  <li>
-                    <a href="#error-descriptions" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#get-seat-map" class="toc-h1 toc-link" data-title="Get seat map">Get seat map</a>
-              <ul class="toc-list-h2" style="display: none;">
-                  <li>
-                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#query-parameters-2" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#response-format-2" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
-                  </li>
-                  <li>
-                    <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#get-seat-availability" class="toc-h1 toc-link" data-title="Get seat availability">Get seat availability</a>
-              <ul class="toc-list-h2" style="display: none;">
-                  <li>
-                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#query-parameters-3" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#response-format-3" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#make-booking" class="toc-h1 toc-link" data-title="Make booking">Make booking</a>
-              <ul class="toc-list-h2" style="display: none;">
-                  <li>
-                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#passengerdetails-object" class="toc-h2 toc-link" data-title="PassengerDetails Object">PassengerDetails Object</a>
-                  </li>
-                  <li>
-                    <a href="#response-format-4" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
-                  </li>
-                  <li>
-                    <a href="#passengerdetails-object-2" class="toc-h2 toc-link" data-title="PassengerDetails Object">PassengerDetails Object</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#get-waybill" class="toc-h1 toc-link active-parent" data-title="Get WayBill">Get WayBill</a>
-              <ul class="toc-list-h2 active" style="display: block;">
-                  <li>
-                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#parameters-2" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#response-format-5" class="toc-h2 toc-link active" data-title="Response Format">Response Format</a>
-                  </li>
-                  <li>
-                    <a href="#waybill-object" class="toc-h2 toc-link" data-title="WayBill Object">WayBill Object</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#retrieve-ticket" class="toc-h1 toc-link" data-title="Retrieve ticket">Retrieve ticket</a>
-              <ul class="toc-list-h2" style="">
-                  <li>
-                    <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#parameters-3" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#response-format-6" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
-                  </li>
-                  <li>
-                    <a href="#error-descriptions-3" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#cancel-ticket" class="toc-h1 toc-link" data-title="Cancel ticket">Cancel ticket</a>
-              <ul class="toc-list-h2" style="">
-                  <li>
-                    <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#parameters-4" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
-                  </li>
-                  <li>
-                    <a href="#response-format-7" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
-                  </li>
-                  <li>
-                    <a href="#error-descriptions-4" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
-                  </li>
-              </ul>
-          </li>
-      </div>
+        <div id="toc" class="toc-list-h1">
+            <li>
+                <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            </li>
+            <li>
+                <a href="#authentication-and-security" class="toc-h1 toc-link" data-title="Authentication and Security">Authentication and Security</a>
+            </li>
+            <li>
+                <a href="#get-trips" class="toc-h1 toc-link" data-title="Get trips">Get trips</a>
+                <ul class="toc-list-h2" style="">
+                    <li>
+                        <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    </li>
+                    <li>
+                        <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                    </li>
+                    <li>
+                        <a href="#response-format" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    </li>
+                    <li>
+                        <a href="#trip-object" class="toc-h2 toc-link" data-title="Trip Object">Trip Object</a>
+                    </li>
+                    <li>
+                        <a href="#error-descriptions" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#get-seat-map" class="toc-h1 toc-link" data-title="Get seat map">Get seat map</a>
+                <ul class="toc-list-h2" style="display: none;">
+                    <li>
+                        <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    </li>
+                    <li>
+                        <a href="#query-parameters-2" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                    </li>
+                    <li>
+                        <a href="#response-format-2" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    </li>
+                    <li>
+                        <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#get-seat-availability" class="toc-h1 toc-link" data-title="Get seat availability">Get seat availability</a>
+                <ul class="toc-list-h2" style="display: none;">
+                    <li>
+                        <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    </li>
+                    <li>
+                        <a href="#query-parameters-3" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                    </li>
+                    <li>
+                        <a href="#response-format-3" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#make-booking" class="toc-h1 toc-link" data-title="Make booking">Make booking</a>
+                <ul class="toc-list-h2" style="display: none;">
+                    <li>
+                        <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    </li>
+                    <li>
+                        <a href="#passengerdetails-object" class="toc-h2 toc-link" data-title="PassengerDetails Object">PassengerDetails Object</a>
+                    </li>
+                    <li>
+                        <a href="#response-format-4" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    </li>
+                    <li>
+                        <a href="#passengerdetails-object-2" class="toc-h2 toc-link" data-title="PassengerDetails Object">PassengerDetails Object</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#get-waybill" class="toc-h1 toc-link active-parent" data-title="Get WayBill">Get WayBill</a>
+                <ul class="toc-list-h2 active" style="display: block;">
+                    <li>
+                        <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    </li>
+                    <li>
+                        <a href="#parameters-2" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    </li>
+                    <li>
+                        <a href="#response-format-5" class="toc-h2 toc-link active" data-title="Response Format">Response Format</a>
+                    </li>
+                    <li>
+                        <a href="#waybill-object" class="toc-h2 toc-link" data-title="WayBill Object">WayBill Object</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#retrieve-ticket" class="toc-h1 toc-link" data-title="Retrieve ticket">Retrieve ticket</a>
+                <ul class="toc-list-h2" style="">
+                    <li>
+                        <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    </li>
+                    <li>
+                        <a href="#parameters-3" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    </li>
+                    <li>
+                        <a href="#response-format-6" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    </li>
+                    <li>
+                        <a href="#error-descriptions-3" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#cancel-ticket" class="toc-h1 toc-link" data-title="Cancel ticket">Cancel ticket</a>
+                <ul class="toc-list-h2" style="">
+                    <li>
+                        <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    </li>
+                    <li>
+                        <a href="#parameters-4" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    </li>
+                    <li>
+                        <a href="#response-format-7" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    </li>
+                    <li>
+                        <a href="#error-descriptions-4" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                    </li>
+                </ul>
+            </li>
+        </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id="introduction">Introduction</h1>
-<p>The technical document specifies the interaction point for Bus Operator System and the Centralised Ticketing system Klang Terminal. The project will enable the stake holder of Centralised Ticketing system sell the Bus operator inventory via real time API integrations. </p>
-
-<p>The Bus Operator System integrating with Klang Centralised System need to provide the following RESTFUL API with the mentioned JSON Structure. </p>
-<h1 id="authentication-and-security">Authentication and Security</h1>
-<p>Authenticate your account when using the API by including your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
-Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.</p>
-
-<p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: <code>-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"</code> 
- instead of: <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code></p>
-
-<p>All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.</p>
-<h1 id="get-trips">Get trips</h1><pre class="highlight plaintext"><code>curl "{getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28"
+        <div class="dark-box"></div>
+        <div class="content">
+            <h1 id="introduction">Introduction</h1>
+            <p>The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the stake holder of Centralised Ticketing system sell the Bus operator inventory via real time API integrations. </p>
+            <p>The Bus Operator System(BOS) integrating with Klang Centralised System need to provide the following RESTFUL API with the mentioned JSON Structure. </p>
+            <h1 id="authentication-and-security">Authentication and Security</h1>
+            <p>Authenticate your account when using the API by including your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth. Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.</p>
+            <p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: <code>-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"</code> instead of: <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code></p>
+            <p>All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.</p>
+            <h1 id="get-trips">Get trips</h1><pre class="highlight plaintext"><code>curl "{getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
-<blockquote>
-<p>The above command should return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"trips"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -380,145 +447,156 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the bus operator syatem to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
-<h3 id="http-request">HTTP Request</h3>
-<p><code>GET {getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28</code></p>
-<h3 id="query-parameters">Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>sourceCityId</td>
-<td>Integer</td>
-<td>42</td>
-</tr>
-<tr>
-<td>destinationCityId</td>
-<td>Integer</td>
-<td>73</td>
-</tr>
-<tr>
-<td>departDate</td>
-<td>String</td>
-<td>yyyy-MM-dd</td>
-</tr>
-</tbody></table>
-<h3 id="response-format">Response Format</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorCode</td>
-<td>Integer</td>
-<td>Refer below</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>String</td>
-<td>Refer below</td>
-</tr>
-<tr>
-<td>trips</td>
-<td>Array of Trips</td>
-<td>Refer below</td>
-</tr>
-</tbody></table>
-<h3 id="trip-object">Trip Object</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>tripCode</td>
-<td>String</td>
-<td>Trip Identifier for bus operator usage. Will be printed in the ticket.  MLM .. etc</td>
-</tr>
-<tr>
-<td>departTime</td>
-<td>String</td>
-<td>yyyy-MM-dd HH:mm:ss</td>
-</tr>
-<tr>
-<td>arrivalTime</td>
-<td>String</td>
-<td>yyyy-MM-dd HH:mm:ss</td>
-</tr>
-<tr>
-<td>adultFare</td>
-<td>double</td>
-<td>42.0</td>
-</tr>
-<tr>
-<td>childFare</td>
-<td>double</td>
-<td>37.0</td>
-</tr>
-<tr>
-<td>seniorFare</td>
-<td>double</td>
-<td>37.0</td>
-</tr>
-<tr>
-<td>disabledFare</td>
-<td>double</td>
-<td>37.0</td>
-</tr>
-</tbody></table>
-<h3 id="error-descriptions">Error descriptions</h3>
-<table><thead>
-<tr>
-<th>Error code</th>
-<th>Error message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>Success</td>
-</tr>
-<tr>
-<td>0</td>
-<td>Failure</td>
-</tr>
-<tr>
-<td>101</td>
-<td>Trips Cancelled</td>
-</tr>
-<tr>
-<td>103</td>
-<td>Trip does not exist</td>
-</tr>
-<tr>
-<td>104</td>
-<td>Any other error needs to be sent here</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-{getTripsApiURL} — Operator specific trips API URL that we'll call
-</aside>
-<h1 id="get-seat-map">Get seat map</h1><pre class="highlight plaintext"><code>curl "{getSeatMapApiURL}?TripId=0B101010&amp;OperatorCode=OPM&amp;OperatorId=421"
+            <p>CTS will call the Bus Operator System(BOS)(BOS) to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
+            <h3 id="http-request">HTTP Request</h3>
+            <p><code>GET {getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28</code></p>
+            <h3 id="query-parameters">Query Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>sourceCityId</td>
+                        <td>Integer</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td>destinationCityId</td>
+                        <td>Integer</td>
+                        <td>73</td>
+                    </tr>
+                    <tr>
+                        <td>departDate</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>Refer below</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Refer below</td>
+                    </tr>
+                    <tr>
+                        <td>trips</td>
+                        <td>Array of Trips</td>
+                        <td>Refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="trip-object">Trip Object</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>tripCode</td>
+                        <td>String</td>
+                        <td>Trip Identifier for bus operator usage. Will be printed in the ticket. MLM .. etc</td>
+                    </tr>
+                    <tr>
+                        <td>departTime</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd HH:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>arrivalTime</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd HH:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>adultFare</td>
+                        <td>double</td>
+                        <td>42.0</td>
+                    </tr>
+                    <tr>
+                        <td>childFare</td>
+                        <td>double</td>
+                        <td>37.0</td>
+                    </tr>
+                    <tr>
+                        <td>seniorFare</td>
+                        <td>double</td>
+                        <td>37.0</td>
+                    </tr>
+                    <tr>
+                        <td>disabledFare</td>
+                        <td>double</td>
+                        <td>37.0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="error-descriptions">Error descriptions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error code</th>
+                        <th>Error message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Success</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Failure</td>
+                    </tr>
+                    <tr>
+                        <td>101</td>
+                        <td>Trips Cancelled</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>Trip does not exist</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>Any other error needs to be sent here</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {getTripsApiURL} — Operator specific trips API URL that we'll call
+            </aside>
+            <h1 id="get-seat-map">Get seat map</h1><pre class="highlight plaintext"><code>curl "{getSeatMapApiURL}?TripId=0B101010&amp;OperatorCode=OPM&amp;OperatorId=421"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
-<blockquote>
-<p>The above command should return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"seatMapObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -621,96 +699,104 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the bus operator system to get seat map or bus seat details for the trip using tripId</p>
-<h3 id="http-request-2">HTTP Request</h3>
-<p><code>GET {getSeatMapApiURL}?TripId=0B101010&amp;OperatorCode=OPM&amp;OperatorId=42</code></p>
-<h3 id="query-parameters-2">Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>TripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>OperatorCode</td>
-<td>String</td>
-<td>OPM</td>
-</tr>
-<tr>
-<td>OperatorId</td>
-<td>String</td>
-<td>421</td>
-</tr>
-</tbody></table>
-<h3 id="response-format-2">Response Format</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorCode</td>
-<td>Integer</td>
-<td>Refer below</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>String</td>
-<td>Refer below</td>
-</tr>
-<tr>
-<td>seatMapObject</td>
-<td>JSON object</td>
-<td>Refer below</td>
-</tr>
-</tbody></table>
-<h3 id="error-descriptions-2">Error descriptions</h3>
-<table><thead>
-<tr>
-<th>Error code</th>
-<th>Error message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>Success</td>
-</tr>
-<tr>
-<td>0</td>
-<td>Failure</td>
-</tr>
-<tr>
-<td>101</td>
-<td>Trips Cancelled</td>
-</tr>
-<tr>
-<td>103</td>
-<td>Trip does not exist</td>
-</tr>
-<tr>
-<td>104</td>
-<td>Any other error needs to be sent here</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-{getSeatMapApiURL} — Operator specific seat map API URL that we'll call
-</aside>
-<h1 id="get-seat-availability">Get seat availability</h1><pre class="highlight plaintext"><code>curl "{getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73"
+            <p>CTS will call the Bus Operator System(BOS) to get seat map or bus seat details for the trip using tripId</p>
+            <h3 id="http-request-2">HTTP Request</h3>
+            <p><code>GET {getSeatMapApiURL}?TripId=0B101010&amp;OperatorCode=OPM&amp;OperatorId=42</code></p>
+            <h3 id="query-parameters-2">Query Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorId</td>
+                        <td>String</td>
+                        <td>421</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format-2">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>Refer below</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Refer below</td>
+                    </tr>
+                    <tr>
+                        <td>seatMapObject</td>
+                        <td>JSON object</td>
+                        <td>Refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="error-descriptions-2">Error descriptions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error code</th>
+                        <th>Error message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Success</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>Failure</td>
+                    </tr>
+                    <tr>
+                        <td>101</td>
+                        <td>Trips Cancelled</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>Trip does not exist</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>Any other error needs to be sent here</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
+            </aside>
+            <h1 id="get-seat-availability">Get seat availability</h1><pre class="highlight plaintext"><code>curl "{getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
-<blockquote>
-<p>The above command should return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"TripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
@@ -719,92 +805,97 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="s2">"OperatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the bus operator system before call make booking we need to make sure the selected seats are available and no changes happened on selected trip</p>
-<h3 id="http-request-3">HTTP Request</h3>
-<p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
-<h3 id="query-parameters-3">Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>TripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>SeatNo</td>
-<td>String</td>
-<td>4B</td>
-</tr>
-<tr>
-<td>OperatorId</td>
-<td>String</td>
-<td>421</td>
-</tr>
-<tr>
-<td>OperatorCode</td>
-<td>String</td>
-<td>OPM</td>
-</tr>
-<tr>
-<td>SourceId</td>
-<td>String</td>
-<td>42</td>
-</tr>
-<tr>
-<td>destinationId</td>
-<td>String</td>
-<td>73</td>
-</tr>
-</tbody></table>
-<h3 id="response-format-3">Response Format</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorCode</td>
-<td>Integer</td>
-<td>0: Failure 1: Success</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>String</td>
-<td>Success / The reason for failure</td>
-</tr>
-<tr>
-<td>TripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>SeatNo</td>
-<td>String</td>
-<td>4B</td>
-</tr>
-<tr>
-<td>OperatorId</td>
-<td>String</td>
-<td>421</td>
-</tr>
-<tr>
-<td>OperatorCode</td>
-<td>String</td>
-<td>OPM</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-{getSeatAvailabilityApiURL} — Operator specific seat availability API URL that we'll call
-</aside>
-<h1 id="make-booking">Make booking</h1><pre class="highlight plaintext"><code>curl "{makeBookingApiURL}"
+            <p>CTS will call the Bus Operator System(BOS) before call make booking we need to make sure the selected seats are available and no changes happened on selected trip</p>
+            <h3 id="http-request-3">HTTP Request</h3>
+            <p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
+            <h3 id="query-parameters-3">Query Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>SeatNo</td>
+                        <td>String</td>
+                        <td>4B</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorId</td>
+                        <td>String</td>
+                        <td>421</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>SourceId</td>
+                        <td>String</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td>destinationId</td>
+                        <td>String</td>
+                        <td>73</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format-3">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>0: Failure 1: Success</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Success / The reason for failure</td>
+                    </tr>
+                    <tr>
+                        <td>TripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>SeatNo</td>
+                        <td>String</td>
+                        <td>4B</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorId</td>
+                        <td>String</td>
+                        <td>421</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {getSeatAvailabilityApiURL} — Operator specific seat availability API URL that we'll call
+            </aside>
+            <h1 id="make-booking">Make booking</h1><pre class="highlight plaintext"><code>curl "{makeBookingApiURL}"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
   -d "{
       "tripId": "0B101010",
@@ -826,10 +917,10 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
       ]
     }"
 </code></pre>
-<blockquote>
-<p>The above command should return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
@@ -851,209 +942,220 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the bus operator system to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We'll get pnr and ticket numbers if the booking is successful.</p>
-<h3 id="parameters">Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>TripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>SourceId</td>
-<td>String</td>
-<td>42</td>
-</tr>
-<tr>
-<td>destinationId</td>
-<td>String</td>
-<td>73</td>
-</tr>
-<tr>
-<td>OperatorCode</td>
-<td>String</td>
-<td>OPM</td>
-</tr>
-<tr>
-<td>OperatorId</td>
-<td>String</td>
-<td>421</td>
-</tr>
-<tr>
-<td>departDate</td>
-<td>String</td>
-<td>yyyy-MM-dd</td>
-</tr>
-<tr>
-<td>passengerTicketList</td>
-<td>Array of PassengerDetails</td>
-<td>Refer below</td>
-</tr>
-</tbody></table>
-<h3 id="passengerdetails-object">PassengerDetails Object</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>John Doe</td>
-</tr>
-<tr>
-<td>email</td>
-<td>String</td>
-<td>john@doe.co</td>
-</tr>
-<tr>
-<td>phoneNumber</td>
-<td>String</td>
-<td>+605864783920</td>
-</tr>
-<tr>
-<td>idNumber</td>
-<td>String</td>
-<td>JohnDoe42</td>
-</tr>
-<tr>
-<td>category</td>
-<td>String</td>
-<td>Adult / Child / Senior Citizen / Disabled</td>
-</tr>
-<tr>
-<td>seatNumber</td>
-<td>String</td>
-<td>4B</td>
-</tr>
-<tr>
-<td>gender</td>
-<td>String</td>
-<td>M / F</td>
-</tr>
-<tr>
-<td>nationality</td>
-<td>String</td>
-<td>Malaysian / Singaporean etc</td>
-</tr>
-</tbody></table>
-<h3 id="response-format-4">Response Format</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody class="">
-<tr>
-<td>errorCode</td>
-<td>Integer</td>
-<td>0:Failure 1: Success</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>String</td>
-<td>Success / The reason for failure</td>
-</tr>
-<tr>
-<td>TripId</td>
-<td>String</td>
-<td>Unique Trip id for validation</td>
-</tr>
-<tr>
-<td>TripCode</td>
-<td>String</td>
-<td>Unique trip code to be printed in ticket</td>
-</tr>
-<tr>
-<td>pnr</td>
-<td>String</td>
-<td>Unique booking ID</td>
-</tr>
-<tr>
-<td>totalAmount</td>
-<td>String</td>
-<td>154.00 (It will be used for data validity)</td>
-</tr>
-<tr>
-<td>passengerTicketList</td>
-<td>Array of PassengerDetails</td>
-<td>Refer below</td>
-</tr>
-</tbody></table>
-<h3 id="passengerdetails-object-2">PassengerDetails Object</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>John Doe</td>
-</tr>
-<tr>
-<td>email</td>
-<td>String</td>
-<td>john@doe.co</td>
-</tr>
-<tr>
-<td>phoneNumber</td>
-<td>String</td>
-<td>+605864783920</td>
-</tr>
-<tr>
-<td>idNumber</td>
-<td>String</td>
-<td>JohnDoe42</td>
-</tr>
-<tr>
-<td>category</td>
-<td>String</td>
-<td>Adult / Child / Senior Citizen / Disabled</td>
-</tr>
-<tr>
-<td>seatNumber</td>
-<td>String</td>
-<td>4B</td>
-</tr>
-<tr>
-<td>gender</td>
-<td>String</td>
-<td>M / F</td>
-</tr>
-<tr>
-<td>nationality</td>
-<td>String</td>
-<td>Malaysian / Singaporean etc</td>
-</tr>
-<tr>
-<td>ticketNumber</td>
-<td>String</td>
-<td>OPM4273201801284B</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-{makeBookingApiURL} — Operator specific make booking API URL that we'll call
-</aside>
-<h1 id="get-waybill">Get WayBill</h1><pre class="highlight plaintext"><code>curl "{waybillApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;DepartDate=2018-01-28"
+            <p>CTS will call the Bus Operator System(BOS) to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We'll get pnr and ticket numbers if the booking is successful.</p>
+            <h3 id="parameters">Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>SourceId</td>
+                        <td>String</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td>destinationId</td>
+                        <td>String</td>
+                        <td>73</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorId</td>
+                        <td>String</td>
+                        <td>421</td>
+                    </tr>
+                    <tr>
+                        <td>departDate</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd</td>
+                    </tr>
+                    <tr>
+                        <td>passengerTicketList</td>
+                        <td>Array of PassengerDetails</td>
+                        <td>Refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="passengerdetails-object">PassengerDetails Object</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>John Doe</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>String</td>
+                        <td>john@doe.co</td>
+                    </tr>
+                    <tr>
+                        <td>phoneNumber</td>
+                        <td>String</td>
+                        <td>+605864783920</td>
+                    </tr>
+                    <tr>
+                        <td>idNumber</td>
+                        <td>String</td>
+                        <td>JohnDoe42</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>String</td>
+                        <td>Adult / Child / Senior Citizen / Disabled</td>
+                    </tr>
+                    <tr>
+                        <td>seatNumber</td>
+                        <td>String</td>
+                        <td>4B</td>
+                    </tr>
+                    <tr>
+                        <td>gender</td>
+                        <td>String</td>
+                        <td>M / F</td>
+                    </tr>
+                    <tr>
+                        <td>nationality</td>
+                        <td>String</td>
+                        <td>Malaysian / Singaporean etc</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format-4">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>0:Failure 1: Success</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Success / The reason for failure</td>
+                    </tr>
+                    <tr>
+                        <td>TripId</td>
+                        <td>String</td>
+                        <td>Unique Trip id for validation</td>
+                    </tr>
+                    <tr>
+                        <td>TripCode</td>
+                        <td>String</td>
+                        <td>Unique trip code to be printed in ticket</td>
+                    </tr>
+                    <tr>
+                        <td>pnr</td>
+                        <td>String</td>
+                        <td>Unique booking ID</td>
+                    </tr>
+                    <tr>
+                        <td>totalAmount</td>
+                        <td>String</td>
+                        <td>154.00 (It will be used for data validity)</td>
+                    </tr>
+                    <tr>
+                        <td>passengerTicketList</td>
+                        <td>Array of PassengerDetails</td>
+                        <td>Refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="passengerdetails-object-2">PassengerDetails Object</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>John Doe</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>String</td>
+                        <td>john@doe.co</td>
+                    </tr>
+                    <tr>
+                        <td>phoneNumber</td>
+                        <td>String</td>
+                        <td>+605864783920</td>
+                    </tr>
+                    <tr>
+                        <td>idNumber</td>
+                        <td>String</td>
+                        <td>JohnDoe42</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>String</td>
+                        <td>Adult / Child / Senior Citizen / Disabled</td>
+                    </tr>
+                    <tr>
+                        <td>seatNumber</td>
+                        <td>String</td>
+                        <td>4B</td>
+                    </tr>
+                    <tr>
+                        <td>gender</td>
+                        <td>String</td>
+                        <td>M / F</td>
+                    </tr>
+                    <tr>
+                        <td>nationality</td>
+                        <td>String</td>
+                        <td>Malaysian / Singaporean etc</td>
+                    </tr>
+                    <tr>
+                        <td>ticketNumber</td>
+                        <td>String</td>
+                        <td>OPM4273201801284B</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {makeBookingApiURL} — Operator specific make booking API URL that we'll call
+            </aside>
+            <h1 id="get-waybill">Get WayBill</h1><pre class="highlight plaintext"><code>curl "{waybillApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;DepartDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
-<blockquote>
-<p>The above command should return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBUS707"</span><span class="p">,</span><span class="w">
@@ -1085,142 +1187,150 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the bus operator system to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
-<h3 id="http-request-4">HTTP Request</h3>
-<p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
-<h3 id="parameters-2">Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>OperatorCode</td>
-<td>String</td>
-<td>OPM</td>
-</tr>
-<tr>
-<td>departDate</td>
-<td>String</td>
-<td>yyyy-MM-dd</td>
-</tr>
-</tbody></table>
-<h3 id="response-format-5">Response Format</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorCode</td>
-<td>Integer</td>
-<td>0:Failure 1: Success</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>String</td>
-<td>Success / The reason for failure</td>
-</tr>
-<tr>
-<td>SourceId</td>
-<td>String</td>
-<td>42</td>
-</tr>
-<tr>
-<td>destinationId</td>
-<td>String</td>
-<td>73</td>
-</tr>
-<tr>
-<td>tripCode</td>
-<td>String</td>
-<td>Unique trip code to be printed in ticket</td>
-</tr>
-<tr>
-<td>driverName</td>
-<td>String</td>
-<td>Bus river name for the trip</td>
-</tr>
-<tr>
-<td>departTime</td>
-<td>String</td>
-<td>yyyy-MM-dd HH:mm:ss</td>
-</tr>
-<tr>
-<td>waybillList</td>
-<td>Array of WayBill</td>
-<td>Refer below</td>
-</tr>
-</tbody></table>
-<h3 id="waybill-object">WayBill Object</h3>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>pnr</td>
-<td>String</td>
-<td>PNR of the booking</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>Passenger name</td>
-</tr>
-<tr>
-<td>phoneNumber</td>
-<td>String</td>
-<td>Passenger contact number</td>
-</tr>
-<tr>
-<td>busNumber</td>
-<td>String</td>
-<td>Bus number</td>
-</tr>
-<tr>
-<td>idNumber</td>
-<td>String</td>
-<td>JohnDoe42</td>
-</tr>
-<tr>
-<td>category</td>
-<td>String</td>
-<td>Adult / Child / Senior Citizen / Disabled</td>
-</tr>
-<tr>
-<td>seatNumber</td>
-<td>String</td>
-<td>Passenger seat number</td>
-</tr>
-<tr>
-<td>ticketNumber</td>
-<td>String</td>
-<td>Passenger ticket number (unique to each passenger in a bus)</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-{waybillApiURL} — Operator specific waybill API URL that we'll call
-</aside>
-<h1 id="retrieve-ticket">Retrieve ticket</h1><pre class="highlight plaintext"><code>curl "{retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A"
+            <p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
+            <h3 id="http-request-4">HTTP Request</h3>
+            <p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
+            <h3 id="parameters-2">Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>departDate</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format-5">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>0:Failure 1: Success</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Success / The reason for failure</td>
+                    </tr>
+                    <tr>
+                        <td>SourceId</td>
+                        <td>String</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td>destinationId</td>
+                        <td>String</td>
+                        <td>73</td>
+                    </tr>
+                    <tr>
+                        <td>tripCode</td>
+                        <td>String</td>
+                        <td>Unique trip code to be printed in ticket</td>
+                    </tr>
+                    <tr>
+                        <td>driverName</td>
+                        <td>String</td>
+                        <td>Bus river name for the trip</td>
+                    </tr>
+                    <tr>
+                        <td>departTime</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd HH:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>waybillList</td>
+                        <td>Array of WayBill</td>
+                        <td>Refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="waybill-object">WayBill Object</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>pnr</td>
+                        <td>String</td>
+                        <td>PNR of the booking</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>Passenger name</td>
+                    </tr>
+                    <tr>
+                        <td>phoneNumber</td>
+                        <td>String</td>
+                        <td>Passenger contact number</td>
+                    </tr>
+                    <tr>
+                        <td>busNumber</td>
+                        <td>String</td>
+                        <td>Bus number</td>
+                    </tr>
+                    <tr>
+                        <td>idNumber</td>
+                        <td>String</td>
+                        <td>JohnDoe42</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>String</td>
+                        <td>Adult / Child / Senior Citizen / Disabled</td>
+                    </tr>
+                    <tr>
+                        <td>seatNumber</td>
+                        <td>String</td>
+                        <td>Passenger seat number</td>
+                    </tr>
+                    <tr>
+                        <td>ticketNumber</td>
+                        <td>String</td>
+                        <td>Passenger ticket number (unique to each passenger in a bus)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {waybillApiURL} — Operator specific waybill API URL that we'll call
+            </aside>
+            <h1 id="retrieve-ticket">Retrieve ticket</h1><pre class="highlight plaintext"><code>curl "{retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
-<blockquote>
-<p>The above command should return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
@@ -1237,229 +1347,244 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the bus operator system at any given time to get the booking details of a successful booking using pnr.</p>
-<h3 id="http-request-5">HTTP Request</h3>
-<p><code>GET {retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
-<h3 id="parameters-3">Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>OperatorCode</td>
-<td>String</td>
-<td>OPM</td>
-</tr>
-<tr>
-<td>pnr</td>
-<td>String</td>
-<td>Unique booking ID</td>
-</tr>
-</tbody></table>
-<h3 id="response-format-6">Response Format</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorCode</td>
-<td>Integer</td>
-<td>Refer below</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>String</td>
-<td>Refer below</td>
-</tr>
-<tr>
-<td>TripId</td>
-<td>String</td>
-<td>Unique Trip id for validation</td>
-</tr>
-<tr>
-<td>TripCode</td>
-<td>String</td>
-<td>Unique trip code to be printed in ticket</td>
-</tr>
-<tr>
-<td>departTime</td>
-<td>String</td>
-<td>yyyy-MM-dd HH:mm:ss</td>
-</tr>
-<tr>
-<td>arrivalTime</td>
-<td>String</td>
-<td>yyyy-MM-dd HH:mm:ss</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>John Doe</td>
-</tr>
-<tr>
-<td>email</td>
-<td>String</td>
-<td>john@doe.co</td>
-</tr>
-<tr>
-<td>phoneNumber</td>
-<td>String</td>
-<td>+605864783920</td>
-</tr>
-<tr>
-<td>idNumber</td>
-<td>String</td>
-<td>JohnDoe42</td>
-</tr>
-<tr>
-<td>category</td>
-<td>String</td>
-<td>Adult / Child / Senior Citizen / Disabled</td>
-</tr>
-<tr>
-<td>seatNumber</td>
-<td>String</td>
-<td>4B</td>
-</tr>
-<tr>
-<td>ticketFare</td>
-<td>String</td>
-<td>Fare for the ticket</td>
-</tr>
-<tr>
-<td>ticketNumber</td>
-<td>String</td>
-<td>OPM4273201801284B</td>
-</tr>
-</tbody></table>
-<h3 id="error-descriptions-3">Error descriptions</h3>
-<table><thead>
-<tr>
-<th>Error code</th>
-<th>Error message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>Success</td>
-</tr>
-<tr>
-<td>104</td>
-<td>PNR not found</td>
-</tr>
-<tr>
-<td>105</td>
-<td>Any other error needs to be sent here.</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-{retrieveTicketApiURL} — Operator specific retrieve ticket API URL that we'll call
-</aside>
-<h1 id="cancel-ticket">Cancel ticket</h1><pre class="highlight plaintext"><code>curl "{cancelTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A"
+            <p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
+            <h3 id="http-request-5">HTTP Request</h3>
+            <p><code>GET {retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+            <h3 id="parameters-3">Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>pnr</td>
+                        <td>String</td>
+                        <td>Unique booking ID</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format-6">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>Refer below</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Refer below</td>
+                    </tr>
+                    <tr>
+                        <td>TripId</td>
+                        <td>String</td>
+                        <td>Unique Trip id for validation</td>
+                    </tr>
+                    <tr>
+                        <td>TripCode</td>
+                        <td>String</td>
+                        <td>Unique trip code to be printed in ticket</td>
+                    </tr>
+                    <tr>
+                        <td>departTime</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd HH:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>arrivalTime</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd HH:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>John Doe</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>String</td>
+                        <td>john@doe.co</td>
+                    </tr>
+                    <tr>
+                        <td>phoneNumber</td>
+                        <td>String</td>
+                        <td>+605864783920</td>
+                    </tr>
+                    <tr>
+                        <td>idNumber</td>
+                        <td>String</td>
+                        <td>JohnDoe42</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>String</td>
+                        <td>Adult / Child / Senior Citizen / Disabled</td>
+                    </tr>
+                    <tr>
+                        <td>seatNumber</td>
+                        <td>String</td>
+                        <td>4B</td>
+                    </tr>
+                    <tr>
+                        <td>ticketFare</td>
+                        <td>String</td>
+                        <td>Fare for the ticket</td>
+                    </tr>
+                    <tr>
+                        <td>ticketNumber</td>
+                        <td>String</td>
+                        <td>OPM4273201801284B</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="error-descriptions-3">Error descriptions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error code</th>
+                        <th>Error message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Success</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>PNR not found</td>
+                    </tr>
+                    <tr>
+                        <td>105</td>
+                        <td>Any other error needs to be sent here.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {retrieveTicketApiURL} — Operator specific retrieve ticket API URL that we'll call
+            </aside>
+            <h1 id="cancel-ticket">Cancel ticket</h1><pre class="highlight plaintext"><code>curl "{cancelTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
-<blockquote>
-<p>The above command should return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the bus operator system to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
-<h3 id="http-request-6">HTTP Request</h3>
-<p><code>GET {cancelTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
-<h3 id="parameters-4">Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip</td>
-</tr>
-<tr>
-<td>OperatorCode</td>
-<td>String</td>
-<td>OPM</td>
-</tr>
-<tr>
-<td>pnr</td>
-<td>String</td>
-<td>Unique booking ID</td>
-</tr>
-</tbody></table>
-<h3 id="response-format-7">Response Format</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Format / Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>errorCode</td>
-<td>Integer</td>
-<td>Refer below</td>
-</tr>
-<tr>
-<td>errorMessage</td>
-<td>String</td>
-<td>Refer below</td>
-</tr>
-</tbody></table>
-<h3 id="error-descriptions-4">Error descriptions</h3>
-<table><thead>
-<tr>
-<th>Error code</th>
-<th>Error message</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>Success</td>
-</tr>
-<tr>
-<td>-1</td>
-<td>PNR not found</td>
-</tr>
-<tr>
-<td>-2</td>
-<td>Already cancelled</td>
-</tr>
-<tr>
-<td>-3</td>
-<td>Failed to cancel</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-{cancelTicketApiURL} — Operator specific cancel ticket API URL that we'll call
-</aside>
-
-      </div>
-      <div class="dark-box">
-          <div class="lang-selector">
+            <p>CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
+            <h3 id="http-request-6">HTTP Request</h3>
+            <p><code>GET {cancelTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+            <h3 id="parameters-4">Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>OperatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>pnr</td>
+                        <td>String</td>
+                        <td>Unique booking ID</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format-7">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>Refer below</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="error-descriptions-4">Error descriptions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Error code</th>
+                        <th>Error message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Success</td>
+                    </tr>
+                    <tr>
+                        <td>-1</td>
+                        <td>PNR not found</td>
+                    </tr>
+                    <tr>
+                        <td>-2</td>
+                        <td>Already cancelled</td>
+                    </tr>
+                    <tr>
+                        <td>-3</td>
+                        <td>Failed to cancel</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {cancelTicketApiURL} — Operator specific cancel ticket API URL that we'll call
+            </aside>
+        </div>
+        <div class="dark-box">
+            <div class="lang-selector">
                 <a href="#" data-language-name="cURL" class="active">cURL</a>
-          </div>
-      </div>
+            </div>
+        </div>
     </div>
-  
+</body>
 
-</body></html>
+</html>
