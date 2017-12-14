@@ -323,6 +323,9 @@ errorMessage | String | Brief description for failure
 data | JSON object | Refer below
 
 ### Seat availability JSON object
+
+Field | Type | Format / Example
+--------- | ------- | -----------
 tripId | String | Unique Identifier representing the trip
 seatNumber | String | ["4B", "5B"]
 operatorId | String | 421
@@ -479,22 +482,22 @@ curl "{waybillApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
       "driverName": "Adrian Pang",
       "passengerTicketList": [
         {
-	        "pnr": "OPM20180128A",
-	        "name": "John Doe",
-	        "phoneNumber": "+605864783920",
-	        "idNumber": "JohnDoe42",
-	        "category": "Adult",
-	        "seatNumber": "4B",
-	        "ticketNumber": "OPM4273201801284B"
+          "pnr": "OPM20180128A",
+          "name": "John Doe",
+          "phoneNumber": "+605864783920",
+          "idNumber": "JohnDoe42",
+          "category": "Adult",
+          "seatNumber": "4B",
+          "ticketNumber": "OPM4273201801284B"
         },
         {
-	        "pnr": "OPM20180128B",
-	        "name": "Jane Doe",
-	        "phoneNumber": "+605864783929",
-	        "idNumber": "JaneDoe42",
-	        "category": "Adult",
-	        "seatNumber": "4A",
-	        "ticketNumber": "OPM4273201801284A"
+          "pnr": "OPM20180128B",
+          "name": "Jane Doe",
+          "phoneNumber": "+605864783929",
+          "idNumber": "JaneDoe42",
+          "category": "Adult",
+          "seatNumber": "4A",
+          "ticketNumber": "OPM4273201801284A"
         }
       ]
    }
@@ -554,10 +557,10 @@ ticketNumber | String | OPM4273201801284B
 </aside>
 
 
-# Retrieve ticket
+# Retrieve booking
 
 ```cURL
-curl "{retrieveTicketApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
+curl "{retrieveBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -602,7 +605,7 @@ CTS will call the Bus Operator System(BOS) at any given time to get the booking 
 
 ### HTTP Request
 
-`GET {retrieveTicketApiURL}?tripId=0B101010&OperatorCode=OPM&pnr=OPM20180128A`
+`GET {retrieveBookingApiURL}?tripId=0B101010&OperatorCode=OPM&pnr=OPM20180128A`
 
 ### Parameters
 
@@ -657,13 +660,13 @@ Error code | Error message
 105 | Any other error needs to be sent here.
 
 <aside class="notice">
-{retrieveTicketApiURL} — Operator specific retrieve ticket API URL that we'll call
+{retrieveBookingApiURL} — Operator specific retrieve booking API URL that we'll call
 </aside>
 
-# Cancel ticket
+# Cancel booking
 
 ```cURL
-curl "{cancelTicketApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
+curl "{cancelBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -680,7 +683,7 @@ CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which
 
 ### HTTP Request
 
-`GET {cancelTicketApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A`
+`GET {cancelBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A`
 
 ### Parameters
 
@@ -707,5 +710,5 @@ Error code | Error message
 -3 | Failed to cancel
 
 <aside class="notice">
-{cancelTicketApiURL} — Operator specific cancel ticket API URL that we'll call
-</aside>
+{cancelBookingApiURL} — Operator specific cancel booking API URL that we'll call
+</aside> 
