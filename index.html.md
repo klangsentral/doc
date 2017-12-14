@@ -121,7 +121,7 @@ Error code | Error message
 # Get seat map
 
 ```cURL
-curl "{getSeatMapApiURL}?TripId=0B101010&OperatorCode=OPM&OperatorId=421"
+curl "{getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=421"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -273,7 +273,7 @@ Error code | Error message
 # Get seat availability
 
 ```cURL
-curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&operatorCode=OPM&sourceId=42&destinationId=73"
+curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12&adultFare=10.0&childFare=10.0&seniorFare=120.0&disabledFare=10.0`
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
