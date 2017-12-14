@@ -390,7 +390,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#retrieve-ticket" class="toc-h1 toc-link" data-title="Retrieve ticket">Retrieve ticket</a>
+                <a href="#retrieve-booking" class="toc-h1 toc-link" data-title="Retrieve booking">Retrieve booking</a>
                 <ul class="toc-list-h2" style="">
                     <li>
                         <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -413,7 +413,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#cancel-ticket" class="toc-h1 toc-link" data-title="Cancel ticket">Cancel ticket</a>
+                <a href="#cancel-booking" class="toc-h1 toc-link" data-title="Cancel booking">Cancel booking</a>
                 <ul class="toc-list-h2" style="">
                     <li>
                         <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -762,7 +762,7 @@
                     <tr>
                         <th>Field</th>
                         <th>Type</th>
-                        <th>Format / Example</th>
+                        <th class="">Format / Example</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -836,7 +836,7 @@
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) before call make booking we need to make sure the selected seats are available and no changes happened on selected trip</p>
             <h3 id="http-request-3">HTTP Request</h3>
-            <p class=""><code>GET {getSeatAvailabilityApiURL}?tripId=0B101010&amp;seatNo=4B&amp;operatorId=421&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12&amp;adultFare=10.0&amp;childFare=10.0&amp;seniorFare=120.0&amp;disabledFare=10.0</code></p>
+            <p><code>GET {getSeatAvailabilityApiURL}?tripId=0B101010&amp;seatNo=4B&amp;operatorId=421&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12&amp;adultFare=10.0&amp;childFare=10.0&amp;seniorFare=120.0&amp;disabledFare=10.0</code></p>
             <h3 id="query-parameters-3">Query Parameters</h3>
             <table>
                 <thead>
@@ -932,7 +932,47 @@
                 </tbody>
             </table>
             <h3 id="seat-availability-json-object">Seat availability JSON object</h3>
-            <p>tripId | String | Unique Identifier representing the trip seatNumber | String | ["4B", "5B"] operatorId | String | 421 operatorCode | String | OPM sourceCityId | Integer | 1 destinationCityId | Integer | 2</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>seatNumber</td>
+                        <td>String</td>
+                        <td>["4B", "5B"]</td>
+                    </tr>
+                    <tr>
+                        <td>operatorId</td>
+                        <td>String</td>
+                        <td>421</td>
+                    </tr>
+                    <tr>
+                        <td>operatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>sourceCityId</td>
+                        <td>Integer</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>destinationCityId</td>
+                        <td>Integer</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
             <aside class="notice">
                 {getSeatAvailabilityApiURL} — Operator specific seat availability API URL that we'll call
             </aside>
@@ -1041,7 +1081,7 @@
                     <tr>
                         <th>Field</th>
                         <th>Type</th>
-                        <th>Format / Example</th>
+                        <th class="">Format / Example</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1409,7 +1449,7 @@
             <aside class="notice">
                 {waybillApiURL} — Operator specific waybill API URL that we'll call
             </aside>
-            <h1 id="retrieve-ticket">Retrieve ticket</h1><pre class="highlight plaintext"><code>curl "{retrieveTicketApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+            <h1 id="retrieve-booking">Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{retrieveBookingApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
             <blockquote>
@@ -1450,7 +1490,7 @@
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
             <h3 id="http-request-5">HTTP Request</h3>
-            <p><code>GET {retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+            <p><code>GET {retrieveBookingApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
             <h3 id="parameters-3">Parameters</h3>
             <table>
                 <thead>
@@ -1638,9 +1678,9 @@
                 </tbody>
             </table>
             <aside class="notice">
-                {retrieveTicketApiURL} — Operator specific retrieve ticket API URL that we'll call
+                {retrieveBookingApiURL} — Operator specific retrieve booking API URL that we'll call
             </aside>
-            <h1 id="cancel-ticket">Cancel ticket</h1><pre class="highlight plaintext"><code>curl "{cancelTicketApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+            <h1 id="cancel-booking">Cancel booking</h1><pre class="highlight plaintext"><code>curl "{cancelBookingApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
             <blockquote>
@@ -1653,7 +1693,7 @@
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
             <h3 id="http-request-6">HTTP Request</h3>
-            <p><code>GET {cancelTicketApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+            <p><code>GET {cancelBookingApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
             <h3 id="parameters-4">Parameters</h3>
             <table>
                 <thead>
@@ -1731,7 +1771,7 @@
                 </tbody>
             </table>
             <aside class="notice">
-                {cancelTicketApiURL} — Operator specific cancel ticket API URL that we'll call
+                {cancelBookingApiURL} — Operator specific cancel booking API URL that we'll call
             </aside>
         </div>
         <div class="dark-box">
