@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="gr__192_168_0_24">
+<html class="gr__10_23_21_33">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -316,8 +316,8 @@
                 </ul>
             </li>
             <li>
-                <a href="#get-seat-map" class="toc-h1 toc-link" data-title="Get seat map">Get seat map</a>
-                <ul class="toc-list-h2" style="display: none;">
+                <a href="#get-seat-map" class="toc-h1 toc-link active-parent" data-title="Get seat map">Get seat map</a>
+                <ul class="toc-list-h2 active" style="display: block;">
                     <li>
                         <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                     </li>
@@ -328,7 +328,7 @@
                         <a href="#response-format-2" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                     </li>
                     <li>
-                        <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                        <a href="#error-descriptions-2" class="toc-h2 toc-link active" data-title="Error descriptions">Error descriptions</a>
                     </li>
                 </ul>
             </li>
@@ -344,6 +344,9 @@
                     <li>
                         <a href="#response-format-3" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                     </li>
+                    <li>
+                        <a href="#seat-availability-json-object" class="toc-h2 toc-link" data-title="Seat availability JSON object">Seat availability JSON object</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -353,19 +356,22 @@
                         <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                     </li>
                     <li>
-                        <a href="#passengerdetails-object" class="toc-h2 toc-link" data-title="PassengerDetails Object">PassengerDetails Object</a>
+                        <a href="#passengerticket-object" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
                     </li>
                     <li>
                         <a href="#response-format-4" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                     </li>
                     <li>
-                        <a href="#passengerdetails-object-2" class="toc-h2 toc-link" data-title="PassengerDetails Object">PassengerDetails Object</a>
+                        <a href="#makebooking-data-object" class="toc-h2 toc-link" data-title="MakeBooking Data Object">MakeBooking Data Object</a>
+                    </li>
+                    <li>
+                        <a href="#passengerticket-object-2" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#get-waybill" class="toc-h1 toc-link active-parent" data-title="Get WayBill">Get WayBill</a>
-                <ul class="toc-list-h2 active" style="display: block;">
+                <a href="#get-waybill" class="toc-h1 toc-link" data-title="Get WayBill">Get WayBill</a>
+                <ul class="toc-list-h2" style="">
                     <li>
                         <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                     </li>
@@ -373,10 +379,13 @@
                         <a href="#parameters-2" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                     </li>
                     <li>
-                        <a href="#response-format-5" class="toc-h2 toc-link active" data-title="Response Format">Response Format</a>
+                        <a href="#response-format-5" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                     </li>
                     <li>
                         <a href="#waybill-object" class="toc-h2 toc-link" data-title="WayBill Object">WayBill Object</a>
+                    </li>
+                    <li>
+                        <a href="#passengerticket-object-3" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
                     </li>
                 </ul>
             </li>
@@ -391,6 +400,12 @@
                     </li>
                     <li>
                         <a href="#response-format-6" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                    </li>
+                    <li>
+                        <a href="#retrieve-booking-object" class="toc-h2 toc-link" data-title="Retrieve Booking Object">Retrieve Booking Object</a>
+                    </li>
+                    <li>
+                        <a href="#passengerticket-object-4" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
                     </li>
                     <li>
                         <a href="#error-descriptions-3" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
@@ -435,7 +450,8 @@
             <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"trips"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
       </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28 20:15:00"</span><span class="p">,</span><span class="w">
@@ -444,7 +460,18 @@
       </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.0"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.0"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.0"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101012"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4274"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28 22:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"arrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-29  04:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adultFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42.5"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.5"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.5"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37.5"</span><span class="p">,</span><span class="w">
     </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
@@ -498,7 +525,7 @@
                         <td>Refer below</td>
                     </tr>
                     <tr>
-                        <td>trips</td>
+                        <td>data</td>
                         <td>Array of Trips</td>
                         <td>Refer below</td>
                     </tr>
@@ -590,7 +617,7 @@
             <aside class="notice">
                 {getTripsApiURL} — Operator specific trips API URL that we'll call
             </aside>
-            <h1 id="get-seat-map">Get seat map</h1><pre class="highlight plaintext"><code>curl "{getSeatMapApiURL}?TripId=0B101010&amp;OperatorCode=OPM&amp;OperatorId=421"
+            <h1 id="get-seat-map">Get seat map</h1><pre class="highlight plaintext"><code>curl "{getSeatMapApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;operatorId=421"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
             <blockquote>
@@ -599,7 +626,7 @@
             <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"seatMapObject"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"lowerDeck"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -651,7 +678,7 @@
     </span><span class="s2">"upperDeck"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21A"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
@@ -660,13 +687,13 @@
           </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1B"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21B"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1C"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21C"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
@@ -674,7 +701,7 @@
       </span><span class="p">],</span><span class="w">
       </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2A"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22A"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
@@ -683,13 +710,13 @@
           </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2B"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22B"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2C"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22C"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
@@ -701,7 +728,7 @@
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) to get seat map or bus seat details for the trip using tripId</p>
             <h3 id="http-request-2">HTTP Request</h3>
-            <p><code>GET {getSeatMapApiURL}?TripId=0B101010&amp;OperatorCode=OPM&amp;OperatorId=42</code></p>
+            <p><code>GET {getSeatMapApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;operatorId=42</code></p>
             <h3 id="query-parameters-2">Query Parameters</h3>
             <table>
                 <thead>
@@ -713,17 +740,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>TripId</td>
+                        <td>tripId</td>
                         <td>String</td>
                         <td>Unique Identifier representing the trip</td>
                     </tr>
                     <tr>
-                        <td>OperatorCode</td>
+                        <td>operatorCode</td>
                         <td>String</td>
                         <td>OPM</td>
                     </tr>
                     <tr>
-                        <td>OperatorId</td>
+                        <td>operatorId</td>
                         <td>String</td>
                         <td>421</td>
                     </tr>
@@ -750,9 +777,9 @@
                         <td>Refer below</td>
                     </tr>
                     <tr>
-                        <td>seatMapObject</td>
+                        <td>data</td>
                         <td>JSON object</td>
-                        <td>Refer below</td>
+                        <td>As mentioned in the response example</td>
                     </tr>
                 </tbody>
             </table>
@@ -790,7 +817,7 @@
             <aside class="notice">
                 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
             </aside>
-            <h1 id="get-seat-availability">Get seat availability</h1><pre class="highlight plaintext"><code>curl "{getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73"
+            <h1 id="get-seat-availability">Get seat availability</h1><pre class="highlight plaintext"><code>curl "{getSeatAvailabilityApiURL}?tripId=0B101010&amp;seatNo=4B&amp;operatorId=421&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12&amp;adultFare=10.0&amp;childFare=10.0&amp;seniorFare=120.0&amp;disabledFare=10.0`
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
             <blockquote>
@@ -799,15 +826,17 @@
             <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"TripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"SeatNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"OperatorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"421"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"OperatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM"</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seatNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operatorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"421"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) before call make booking we need to make sure the selected seats are available and no changes happened on selected trip</p>
             <h3 id="http-request-3">HTTP Request</h3>
-            <p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
+            <p class=""><code>GET {getSeatAvailabilityApiURL}?tripId=0B101010&amp;seatNo=4B&amp;operatorId=421&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12&amp;adultFare=10.0&amp;childFare=10.0&amp;seniorFare=120.0&amp;disabledFare=10.0</code></p>
             <h3 id="query-parameters-3">Query Parameters</h3>
             <table>
                 <thead>
@@ -819,34 +848,59 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>TripId</td>
+                        <td>tripId</td>
                         <td>String</td>
                         <td>Unique Identifier representing the trip</td>
                     </tr>
                     <tr>
-                        <td>SeatNo</td>
+                        <td>seatNumber</td>
                         <td>String</td>
-                        <td>4B</td>
+                        <td>4B, but if multiple seats we will send same parameter multiple times</td>
                     </tr>
                     <tr>
-                        <td>OperatorId</td>
+                        <td>operatorId</td>
                         <td>String</td>
                         <td>421</td>
                     </tr>
                     <tr>
-                        <td>OperatorCode</td>
+                        <td>operatorCode</td>
                         <td>String</td>
                         <td>OPM</td>
                     </tr>
                     <tr>
-                        <td>SourceId</td>
+                        <td>sourceCityId</td>
                         <td>String</td>
                         <td>42</td>
                     </tr>
                     <tr>
-                        <td>destinationId</td>
+                        <td>destinationCityId</td>
                         <td>String</td>
                         <td>73</td>
+                    </tr>
+                    <tr>
+                        <td>departDate</td>
+                        <td>String</td>
+                        <td>2017-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>adultFare</td>
+                        <td>double</td>
+                        <td>12.0</td>
+                    </tr>
+                    <tr>
+                        <td>childFare</td>
+                        <td>double</td>
+                        <td>12.0</td>
+                    </tr>
+                    <tr>
+                        <td>seniorFare</td>
+                        <td>double</td>
+                        <td>12.0</td>
+                    </tr>
+                    <tr>
+                        <td>disabledFare</td>
+                        <td>double</td>
+                        <td>12.0</td>
                     </tr>
                 </tbody>
             </table>
@@ -868,40 +922,28 @@
                     <tr>
                         <td>errorMessage</td>
                         <td>String</td>
-                        <td>Success / The reason for failure</td>
+                        <td>Brief description for failure</td>
                     </tr>
                     <tr>
-                        <td>TripId</td>
-                        <td>String</td>
-                        <td>Unique Identifier representing the trip</td>
-                    </tr>
-                    <tr>
-                        <td>SeatNo</td>
-                        <td>String</td>
-                        <td>4B</td>
-                    </tr>
-                    <tr>
-                        <td>OperatorId</td>
-                        <td>String</td>
-                        <td>421</td>
-                    </tr>
-                    <tr>
-                        <td>OperatorCode</td>
-                        <td>String</td>
-                        <td>OPM</td>
+                        <td>data</td>
+                        <td>JSON object</td>
+                        <td>Refer below</td>
                     </tr>
                 </tbody>
             </table>
+            <h3 id="seat-availability-json-object">Seat availability JSON object</h3>
+            <p>tripId | String | Unique Identifier representing the trip seatNumber | String | ["4B", "5B"] operatorId | String | 421 operatorCode | String | OPM sourceCityId | Integer | 1 destinationCityId | Integer | 2</p>
             <aside class="notice">
                 {getSeatAvailabilityApiURL} — Operator specific seat availability API URL that we'll call
             </aside>
             <h1 id="make-booking">Make booking</h1><pre class="highlight plaintext"><code>curl "{makeBookingApiURL}"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
   -d "{
-      "tripId": "0B101010",
-      "SourceId": "42",
-      "destinationId": "73",
-      "OperatorCode": "OPM",
+      "tripId": "123456",
+      "tripCode": "0B101010",
+      "sourceCityId": "42",
+      "destinationCityId": "2",
+      "operatorCode": "OPM",
       "departDate": "2018-01-28",
       "passengerTicketList": [
         {
@@ -923,23 +965,26 @@
             <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"142.95"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.co"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"142.95"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.co"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We'll get pnr and ticket numbers if the booking is successful.</p>
@@ -990,7 +1035,7 @@
                     </tr>
                 </tbody>
             </table>
-            <h3 id="passengerdetails-object">PassengerDetails Object</h3>
+            <h3 id="passengerticket-object">PassengerTicket Object</h3>
             <table>
                 <thead>
                     <tr>
@@ -1051,7 +1096,7 @@
                         <th>Format / Example</th>
                     </tr>
                 </thead>
-                <tbody class="">
+                <tbody>
                     <tr>
                         <td>errorCode</td>
                         <td>Integer</td>
@@ -1063,12 +1108,29 @@
                         <td>Success / The reason for failure</td>
                     </tr>
                     <tr>
-                        <td>TripId</td>
+                        <td>data</td>
+                        <td>JSON Object</td>
+                        <td>Refer Below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="makebooking-data-object">MakeBooking Data Object</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
                         <td>String</td>
                         <td>Unique Trip id for validation</td>
                     </tr>
                     <tr>
-                        <td>TripCode</td>
+                        <td>tripCode</td>
                         <td>String</td>
                         <td>Unique trip code to be printed in ticket</td>
                     </tr>
@@ -1089,7 +1151,7 @@
                     </tr>
                 </tbody>
             </table>
-            <h3 id="passengerdetails-object-2">PassengerDetails Object</h3>
+            <h3 id="passengerticket-object-2">PassengerTicket Object</h3>
             <table>
                 <thead>
                     <tr>
@@ -1149,7 +1211,7 @@
             <aside class="notice">
                 {makeBookingApiURL} — Operator specific make booking API URL that we'll call
             </aside>
-            <h1 id="get-waybill">Get WayBill</h1><pre class="highlight plaintext"><code>curl "{waybillApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;DepartDate=2018-01-28"
+            <h1 id="get-waybill">Get WayBill</h1><pre class="highlight plaintext"><code>curl "{waybillApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
             <blockquote>
@@ -1158,38 +1220,39 @@
             <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBUS707"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"destinationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28 20:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"driverName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adrian Pang"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"waybillList"</span><span class="p">:</span><span class="w"> 
-  </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128A"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128B"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783929"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JaneDoe42"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284A"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBUS707"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SourceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destinationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28 20:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"driverName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adrian Pang"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128A"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128B"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783929"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JaneDoe42"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284A"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
             <h3 id="http-request-4">HTTP Request</h3>
-            <p><code>GET {getSeatAvailabilityApiURL}?TripId=0B101010&amp;SeatNo=4B&amp;OperatorId=421&amp;OperatorCode=OPM&amp;SourceId=42&amp;destinationId=73</code></p>
+            <p><code>GET {getSeatAvailabilityApiURL}?tripId=0B101010&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12</code></p>
             <h3 id="parameters-2">Parameters</h3>
             <table>
                 <thead>
@@ -1206,7 +1269,12 @@
                         <td>Unique Identifier representing the trip</td>
                     </tr>
                     <tr>
-                        <td>OperatorCode</td>
+                        <td>operatorId</td>
+                        <td>Integer</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>operatorCode</td>
                         <td>String</td>
                         <td>OPM</td>
                     </tr>
@@ -1238,33 +1306,8 @@
                         <td>Success / The reason for failure</td>
                     </tr>
                     <tr>
-                        <td>SourceId</td>
-                        <td>String</td>
-                        <td>42</td>
-                    </tr>
-                    <tr>
-                        <td>destinationId</td>
-                        <td>String</td>
-                        <td>73</td>
-                    </tr>
-                    <tr>
-                        <td>tripCode</td>
-                        <td>String</td>
-                        <td>Unique trip code to be printed in ticket</td>
-                    </tr>
-                    <tr>
-                        <td>driverName</td>
-                        <td>String</td>
-                        <td>Bus river name for the trip</td>
-                    </tr>
-                    <tr>
-                        <td>departTime</td>
-                        <td>String</td>
-                        <td>yyyy-MM-dd HH:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>waybillList</td>
-                        <td>Array of WayBill</td>
+                        <td>data</td>
+                        <td>JSON Object</td>
                         <td>Refer below</td>
                     </tr>
                 </tbody>
@@ -1300,123 +1343,22 @@
                         <td>Bus number</td>
                     </tr>
                     <tr>
-                        <td>idNumber</td>
-                        <td>String</td>
-                        <td>JohnDoe42</td>
-                    </tr>
-                    <tr>
-                        <td>category</td>
-                        <td>String</td>
-                        <td>Adult / Child / Senior Citizen / Disabled</td>
-                    </tr>
-                    <tr>
-                        <td>seatNumber</td>
-                        <td>String</td>
-                        <td>Passenger seat number</td>
-                    </tr>
-                    <tr>
-                        <td>ticketNumber</td>
-                        <td>String</td>
-                        <td>Passenger ticket number (unique to each passenger in a bus)</td>
+                        <td>passengerTicketList</td>
+                        <td>JSON Array</td>
+                        <td>refer below</td>
                     </tr>
                 </tbody>
             </table>
-            <aside class="notice">
-                {waybillApiURL} — Operator specific waybill API URL that we'll call
-            </aside>
-            <h1 id="retrieve-ticket">Retrieve ticket</h1><pre class="highlight plaintext"><code>curl "{retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
-</code></pre>
-            <blockquote>
-                <p>The above command should return JSON structured like this:</p>
-            </blockquote>
-            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28 20:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"arrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-29  02:15:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.co"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42.95"</span><span class="w">
-  </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-            <p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
-            <h3 id="http-request-5">HTTP Request</h3>
-            <p><code>GET {retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
-            <h3 id="parameters-3">Parameters</h3>
+            <h3 id="passengerticket-object-3">PassengerTicket Object</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Parameter</th>
+                        <th>Field</th>
                         <th>Type</th>
                         <th>Format / Example</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>tripId</td>
-                        <td>String</td>
-                        <td>Unique Identifier representing the trip</td>
-                    </tr>
-                    <tr>
-                        <td>OperatorCode</td>
-                        <td>String</td>
-                        <td>OPM</td>
-                    </tr>
-                    <tr>
-                        <td>pnr</td>
-                        <td>String</td>
-                        <td>Unique booking ID</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3 id="response-format-6">Response Format</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Parameter</th>
-                        <th>Type</th>
-                        <th>Format / Example</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>errorCode</td>
-                        <td>Integer</td>
-                        <td>Refer below</td>
-                    </tr>
-                    <tr>
-                        <td>errorMessage</td>
-                        <td>String</td>
-                        <td>Refer below</td>
-                    </tr>
-                    <tr>
-                        <td>TripId</td>
-                        <td>String</td>
-                        <td>Unique Trip id for validation</td>
-                    </tr>
-                    <tr>
-                        <td>TripCode</td>
-                        <td>String</td>
-                        <td>Unique trip code to be printed in ticket</td>
-                    </tr>
-                    <tr>
-                        <td>departTime</td>
-                        <td>String</td>
-                        <td>yyyy-MM-dd HH:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>arrivalTime</td>
-                        <td>String</td>
-                        <td>yyyy-MM-dd HH:mm:ss</td>
-                    </tr>
                     <tr>
                         <td>name</td>
                         <td>String</td>
@@ -1448,14 +1390,227 @@
                         <td>4B</td>
                     </tr>
                     <tr>
-                        <td>ticketFare</td>
+                        <td>gender</td>
                         <td>String</td>
-                        <td>Fare for the ticket</td>
+                        <td>M / F</td>
+                    </tr>
+                    <tr>
+                        <td>nationality</td>
+                        <td>String</td>
+                        <td>Malaysian / Singaporean etc</td>
                     </tr>
                     <tr>
                         <td>ticketNumber</td>
                         <td>String</td>
                         <td>OPM4273201801284B</td>
+                    </tr>
+                </tbody>
+            </table>
+            <aside class="notice">
+                {waybillApiURL} — Operator specific waybill API URL that we'll call
+            </aside>
+            <h1 id="retrieve-ticket">Retrieve ticket</h1><pre class="highlight plaintext"><code>curl "{retrieveTicketApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+            <blockquote>
+                <p>The above command should return JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-28 20:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"arrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-29  02:15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sourceCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"destinationCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.co"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42.95"</span><span class="w">
+        </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"david@doe.co"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783921"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42.95"</span><span class="w">
+        </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+            <p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
+            <h3 id="http-request-5">HTTP Request</h3>
+            <p><code>GET {retrieveTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+            <h3 id="parameters-3">Parameters</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
+                        <td>String</td>
+                        <td>Unique Identifier representing the trip</td>
+                    </tr>
+                    <tr>
+                        <td>operatorCode</td>
+                        <td>String</td>
+                        <td>OPM</td>
+                    </tr>
+                    <tr>
+                        <td>pnr</td>
+                        <td>String</td>
+                        <td>Unique booking ID</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="response-format-6">Response Format</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>errorCode</td>
+                        <td>Integer</td>
+                        <td>0:Failure 1: Success</td>
+                    </tr>
+                    <tr>
+                        <td>errorMessage</td>
+                        <td>String</td>
+                        <td>Success / The reason for failure</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>JSON Object</td>
+                        <td>Refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="retrieve-booking-object">Retrieve Booking Object</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>tripId</td>
+                        <td>String</td>
+                        <td>Unique Trip id for validation</td>
+                    </tr>
+                    <tr>
+                        <td>tripCode</td>
+                        <td>String</td>
+                        <td>Unique trip code to be printed in ticket</td>
+                    </tr>
+                    <tr>
+                        <td>departTime</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd HH:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>arrivalTime</td>
+                        <td>String</td>
+                        <td>yyyy-MM-dd HH:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>sourceCityId</td>
+                        <td>Integer</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>destinationCityId</td>
+                        <td>Integer</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>passengerTicketList</td>
+                        <td>JSON Array</td>
+                        <td>refer below</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="passengerticket-object-4">PassengerTicket Object</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Format / Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>name</td>
+                        <td>String</td>
+                        <td>John Doe</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>String</td>
+                        <td>john@doe.co</td>
+                    </tr>
+                    <tr>
+                        <td>phoneNumber</td>
+                        <td>String</td>
+                        <td>+605864783920</td>
+                    </tr>
+                    <tr>
+                        <td>idNumber</td>
+                        <td>String</td>
+                        <td>JohnDoe42</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>String</td>
+                        <td>Adult / Child / Senior Citizen / Disabled</td>
+                    </tr>
+                    <tr>
+                        <td>seatNumber</td>
+                        <td>String</td>
+                        <td>4B</td>
+                    </tr>
+                    <tr>
+                        <td>gender</td>
+                        <td>String</td>
+                        <td>M / F</td>
+                    </tr>
+                    <tr>
+                        <td>nationality</td>
+                        <td>String</td>
+                        <td>Malaysian / Singaporean etc</td>
+                    </tr>
+                    <tr>
+                        <td>ticketNumber</td>
+                        <td>String</td>
+                        <td>OPM4273201801284B</td>
+                    </tr>
+                    <tr>
+                        <td>ticketFare</td>
+                        <td>double</td>
+                        <td>10.0</td>
                     </tr>
                 </tbody>
             </table>
@@ -1485,7 +1640,7 @@
             <aside class="notice">
                 {retrieveTicketApiURL} — Operator specific retrieve ticket API URL that we'll call
             </aside>
-            <h1 id="cancel-ticket">Cancel ticket</h1><pre class="highlight plaintext"><code>curl "{cancelTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A"
+            <h1 id="cancel-ticket">Cancel ticket</h1><pre class="highlight plaintext"><code>curl "{cancelTicketApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
             <blockquote>
@@ -1498,7 +1653,7 @@
 </span></code></pre>
             <p>CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
             <h3 id="http-request-6">HTTP Request</h3>
-            <p><code>GET {cancelTicketApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+            <p><code>GET {cancelTicketApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
             <h3 id="parameters-4">Parameters</h3>
             <table>
                 <thead>
@@ -1515,7 +1670,7 @@
                         <td>Unique Identifier representing the trip</td>
                     </tr>
                     <tr>
-                        <td>OperatorCode</td>
+                        <td>operatorCode</td>
                         <td>String</td>
                         <td>OPM</td>
                     </tr>
