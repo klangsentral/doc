@@ -12,9 +12,9 @@ search: true
 
 # Introduction
 
-The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the stake holder of Centralised Ticketing system sell the Bus operator inventory via real time API integrations. 
+The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the Klang Sentral CTS to sell the Bus operator inventory via real time API integration. 
 
-The Bus Operator System(BOS) integrating with Klang Centralised System need to provide the following RESTFUL API with the mentioned JSON Structure. 
+The Bus Operator System(BOS) integrating with Klang Sentral CTS needs to provide the following RESTFUL API with the mentioned JSON Structure. 
 
 # Authentication and Security
 
@@ -292,7 +292,7 @@ curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&opera
 }
 ```
 
-CTS will call the Bus Operator System(BOS) before call make booking we need to make sure the selected seats are available and no changes happened on selected trip
+CTS will call the Bus Operator System(BOS) before calling make booking. The system needs to ensure that the selected seats are available and no changes happened on the selected trip.
 
 ### HTTP Request
 
