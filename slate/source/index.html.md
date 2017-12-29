@@ -37,29 +37,35 @@ curl "{getTripsApiURL}?sourceCityId=42&destinationCityId=73&departDate=2018-01-2
 
 ```json
 {
-    "errorCode": 0,
-    "errorMessage": "Success",
+    "errorCode": 1,
+    "errorMessage": "SUCCESS",
     "data": [
-    {
-      "tripId": "0B101010",
-      "tripCode": "OP4273",
-      "departTime": "2018-01-28 20:15:00",
-      "arrivalTime": "2018-01-29  02:15:00",
-      "adultFare": "42.0",
-      "childFare": "37.0",
-      "seniorFare": "37.0",
-      "disabledFare": "37.0",
-    },
-    {
-      "tripId": "0B101012",
-      "tripCode": "OP4274",
-      "departTime": "2018-01-28 22:15:00",
-      "arrivalTime": "2018-01-29  04:15:00",
-      "adultFare": "42.5",
-      "childFare": "37.5",
-      "seniorFare": "37.5",
-      "disabledFare": "37.5",
-    }
+        {
+            "tripId": "2012778",
+            "tripCode": "KLGKB",
+            "fromCityId": "35",
+            "toCityId": "6",
+            "departTime": "2017-12-29 01:00:00",
+            "arrivalTime": "2017-12-29 10:00:00",
+            "adultFare": 100,
+            "childFare": 90,
+            "seniorFare": 80,
+            "disabledFare": 70,
+            "operatorCode": "CTBH"
+        },
+        {
+            "tripId": "2012789",
+            "tripCode": "UIKD",
+            "fromCityId": "35",
+            "toCityId": "6",
+            "departTime": "2017-12-29 01:00:00",
+            "arrivalTime": "2017-12-29 10:00:00",
+            "adultFare": 80,
+            "childFare": 60,
+            "seniorFare": 60,
+            "disabledFare": 50,
+            "operatorCode": "UI"
+        }
     ]
 }
 ```
@@ -129,7 +135,7 @@ curl "{getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=421"
 
 ```json
 {
-  "errorCode": 0,
+  "errorCode": 1,
   "errorMessage": "SUCCESS",
   "data": {
     "lowerDeck": [
@@ -273,7 +279,7 @@ Error code | Error message
 # Get seat availability
 
 ```cURL
-curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12&adultFare=10.0&childFare=10.0&seniorFare=120.0&disabledFare=10.0`
+curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12`
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -281,14 +287,26 @@ curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&opera
 
 ```json
 {
-  "errorCode": 0,
-  "errorMessage": "SUCCESS",
-  "data": {
-    "tripId": "0B101010",
-    "seatNo": "4B",
-    "operatorId": "421",
-    "operatorCode": "OPM"
-  }
+    "errorCode": 1,
+    "errorMessage": "Success",
+    "data": {
+        "sourceCityId": "35",
+        "destinationCityId": "6",
+        "operatorCode": "CTBH",
+        "departDate": "2017-12-29 01:00:00",
+        "arrivalDate": "2017-12-29 10:00:00",
+        "fareDetails": {
+            "adultFare": "100.0",
+            "childFare": "0.0",
+            "seniorCitizenFare": "0.0",
+            "disabledFare": "0.0",
+            "currency": "MYR"
+        },
+        "seatAvailability": {
+            "2B": true,
+            "3C": true
+        }
+    }
 }
 ```
 
@@ -296,7 +314,7 @@ CTS will call the Bus Operator System(BOS) before calling make booking. The syst
 
 ### HTTP Request
 
-`GET {getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12&adultFare=10.0&childFare=10.0&seniorFare=120.0&disabledFare=10.0`
+`GET {getSeatAvailabilityApiURL}?tripId=0B101010&operatorId=421&operatorCode=OPM&departDate=2017-12-12&seatNumber=2B&seatNumber=3C`
 
 ### Query Parameters
 
@@ -306,13 +324,7 @@ tripId | String | Unique Identifier representing the trip
 seatNumber | String | 4B, but if multiple seats we will send same parameter multiple times
 operatorId | String | 421
 operatorCode | String | OPM
-sourceCityId | String | 42
-destinationCityId | String | 73
 departDate | String | 2017-12-12
-adultFare | double | 12.0
-childFare | double | 12.0
-seniorFare | double | 12.0
-disabledFare | double | 12.0
 
 ### Response Format
 
@@ -369,7 +381,7 @@ curl "{makeBookingApiURL}"
 
 ```json
 {
-  "errorCode": 0,
+  "errorCode": 1,
   "errorMessage": "SUCCESS",
   "data": {
       "tripId": "0B101010",
@@ -471,36 +483,50 @@ curl "{waybillApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
 
 ```json
 {
-  "errorCode": 0,
-  "errorMessage": "SUCCESS",
-  "data": {
-      "busNumber": "SBUS707",
-      "SourceId": "42",
-      "destinationId": "73",
-      "departTime": "2018-01-28 20:15:00",
-      "tripCode": "OP4273",
-      "driverName": "Adrian Pang",
-      "passengerTicketList": [
-        {
-          "pnr": "OPM20180128A",
-          "name": "John Doe",
-          "phoneNumber": "+605864783920",
-          "idNumber": "JohnDoe42",
-          "category": "Adult",
-          "seatNumber": "4B",
-          "ticketNumber": "OPM4273201801284B"
-        },
-        {
-          "pnr": "OPM20180128B",
-          "name": "Jane Doe",
-          "phoneNumber": "+605864783929",
-          "idNumber": "JaneDoe42",
-          "category": "Adult",
-          "seatNumber": "4A",
-          "ticketNumber": "OPM4273201801284A"
-        }
-      ]
-   }
+    "errorCode": 1,
+    "errorMessage": "SUCCESS",
+    "data": {
+        "operator": "Ctb Holidays",
+        "completeRoute": "Klang - Shah Alam - Kuala Lumpur - Bentong - Gua Musang - Kuala Krai - Kok Lanas - Pengkalan Chepa - Pengkalan Kubor - Teluk Mesira - Kota Bharu",
+        "tripId": "KLGKB",
+        "busDriver1": null,
+        "busDriver2": null,
+        "departDate": "2017-12-29",
+        "departTime": "01:00:00.0",
+        "busPlateNo": null,
+        "passengerList": [
+            {
+                "idNumber": "83884343",
+                "name": "Ashrith test",
+                "route": "Klang - Kota Bharu",
+                "phoneNumber": "601234567890",
+                "category": "A",
+                "seatNumber": "4C",
+                "ticketNumber": "CTBH10047"
+            },
+            {
+                "idNumber": "83884343",
+                "name": "John Smith",
+                "route": "Klang - Kota Bharu",
+                "phoneNumber": "601234567890",
+                "category": "A",
+                "seatNumber": "4A",
+                "ticketNumber": "CTBH10049"
+            }
+        ],
+        "pickUp": [
+            {
+                "pointName": "Klang",
+                "noOfPax": 2
+            }
+        ],
+        "dropOff": [
+            {
+                "pointName": "Kota Bharu",
+                "noOfPax": 2
+            }
+        ]
+    }
 }
 ```
 
@@ -508,7 +534,7 @@ CTS will call the Bus Operator System(BOS) to get the full information (passenge
 
 ### HTTP Request
 
-`GET {getSeatAvailabilityApiURL}?tripId=0B101010&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
+`GET {waybillApiUrl}?tripId=0B101010&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
 
 ### Parameters
 
@@ -532,25 +558,35 @@ data | JSON Object | Refer below
 
 Field | Type | Format / Example
 --------- | ------- | -----------
-pnr | String | PNR of the booking
-name | String | Passenger name
-phoneNumber | String | Passenger contact number
-busNumber | String | Bus number
+operator | String | bus operator name
+completeRoute | String | complete route of the trip
+tripId | String | tripId
+departDate | String | bus depart date (yyyy-MM-dd)
+departTime | String | bus depart time (HH:mm:ss)
+busDriver1 | String | optional
+busDriver2 | String | optional
+busPlateNo | String | bus number plate number
 passengerTicketList | JSON Array | refer below
+pickup | JSON Array | refer below
+dropoff | JSON Array | refer below
 
 ### PassengerTicket Object
 
 Field | Type | Format / Example
 --------- | ------- | -----------
 name | String | John Doe
-email | String | john@doe.co
 phoneNumber | String | +605864783920
 idNumber | String | JohnDoe42
 category | String | Adult / Child / Senior Citizen / Disabled
 seatNumber | String | 4B
-gender | String | M / F
-nationality | String | Malaysian / Singaporean etc
 ticketNumber | String | OPM4273201801284B
+route | String | Passenger travelling route
+
+### Waybill Point Object
+Field | Type | Format / Example
+--------- | ------- | -----------
+pointName | String | pick up or drop off point name
+noOfPax | int | number of passengers picking up or dropping off for this point name
 
 <aside class="notice">
 {waybillApiURL} — Operator specific waybill API URL that we'll call
@@ -568,36 +604,31 @@ curl "{retrieveBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
 
 ```json
 {
-  "errorCode": 0,
-  "errorMessage": "SUCCESS",
-  "tripId": "0B101010",
-  "tripCode": "OP4273",
-  "departTime": "2018-01-28 20:15:00",
-  "arrivalTime": "2018-01-29  02:15:00",
-  "sourceCityId": 12,
-  "destinationCityId": 13,
-  "passengerTicketList": [
-    {
-        "name": "John Doe",
-        "email": "john@doe.co",
-        "phoneNumber": "+605864783920",
-        "idNumber": "JohnDoe42",
-        "category": "Adult",
-        "seatNumber": "4B",
-        "ticketFare": "42.95"
-        "ticketNumber": "OPM4273201801284B"
-    },
-    {
-        "name": "David Doe",
-        "email": "david@doe.co",
-        "phoneNumber": "+605864783921",
-        "idNumber": "David1234",
-        "category": "Adult",
-        "seatNumber": "4B",
-        "ticketFare": "42.95"
-        "ticketNumber": "OPM4273201801284B"
+    "errorCode": 1,
+    "errorMessage": "Success",
+    "data": {
+        "tripId": "2012778",
+        "tripCode": "KLGKB",
+        "departTime": "2017-12-29 01:00:00",
+        "arrivalTime": "2017-12-29 10:00:00",
+        "sourceCityId": 35,
+        "destinationCityId": 6,
+        "passengerTicketList": [
+            {
+                "name": "John Smith",
+                "email": null,
+                "phoneNumberCode": null,
+                "phoneNumber": "1234567890",
+                "idNumber": "83884343",
+                "seatNumber": "4A",
+                "category": "A",
+                "gender": "m",
+                "nationality": null,
+                "ticketNumber": "CTBH10049",
+                "ticketFare": 100
+            }
+        ]
     }
-  ] 
 }
 ```
 
@@ -674,7 +705,7 @@ curl "{cancelBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
 
 ```json
 {
-  "errorCode": 0,
+  "errorCode": 1,
   "errorMessage": "SUCCESS"
 }
 ```
