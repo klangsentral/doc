@@ -1,4 +1,8 @@
 # cts-api
 CTS Api Documentation
 
-# Refer https://github.com/lord/slate
+# URL to access the API documentation
+https://klangsentral.github.io/doc/
+
+# Slate tool doocumentation
+https://github.com/lord/slate 
