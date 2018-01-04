@@ -319,136 +319,41 @@ curl "{getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=421"
                     "rowIndex": 6,
                     "columnIndex": 3
                 }
-            ],
-            [
-                {
-                    "seatNumber": "22",
-                    "status": 0,
-                    "rowIndex": 7,
-                    "columnIndex": 0
-                },
-                {
-                    "seatNumber": "#",
-                    "status": 0,
-                    "rowIndex": 7,
-                    "columnIndex": 1
-                },
-                {
-                    "seatNumber": "23",
-                    "status": 4,
-                    "rowIndex": 7,
-                    "columnIndex": 2
-                },
-                {
-                    "seatNumber": "24",
-                    "status": 0,
-                    "rowIndex": 7,
-                    "columnIndex": 3
-                }
-            ],
-            [
-                {
-                    "seatNumber": "25",
-                    "status": 0,
-                    "rowIndex": 8,
-                    "columnIndex": 0
-                },
-                {
-                    "seatNumber": "#",
-                    "status": 0,
-                    "rowIndex": 8,
-                    "columnIndex": 1
-                },
-                {
-                    "seatNumber": "26",
-                    "status": 0,
-                    "rowIndex": 8,
-                    "columnIndex": 2
-                },
-                {
-                    "seatNumber": "27",
-                    "status": 0,
-                    "rowIndex": 8,
-                    "columnIndex": 3
-                }
-            ],
-            [
-                {
-                    "seatNumber": "28",
-                    "status": 0,
-                    "rowIndex": 9,
-                    "columnIndex": 0
-                },
-                {
-                    "seatNumber": "#",
-                    "status": 0,
-                    "rowIndex": 9,
-                    "columnIndex": 1
-                },
-                {
-                    "seatNumber": "29",
-                    "status": 0,
-                    "rowIndex": 9,
-                    "columnIndex": 2
-                },
-                {
-                    "seatNumber": "30",
-                    "status": 0,
-                    "rowIndex": 9,
-                    "columnIndex": 3
-                }
             ]
         ],
         "upperDeck": [
             [
                 {
-                  "seatNumber": "21A",
-                  "status": 1,
-                  "rowIndex": 0,
-                  "columnIndex": 0
+                    "seatNumber": "22",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 0
                 },
                 {
-                  "seatNumber": "#"
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 1
                 },
                 {
-                  "seatNumber": "21B",
-                  "status": 1,
-                  "rowIndex": 0,
-                  "columnIndex": 1
+                    "seatNumber": "23",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 2
                 },
                 {
-                  "seatNumber": "21C",
-                  "status": 1,
-                  "rowIndex": 0,
-                  "columnIndex": 2
-                }
-              ],
-              [
-                {
-                  "seatNumber": "22A",
-                  "status": 1,
-                  "rowIndex": 1,
-                  "columnIndex": 0
-                },
-                {
-                  "seatNumber": "#"
-                },
-                {
-                  "seatNumber": "22B",
-                  "status": 1,
-                  "rowIndex": 1,
-                  "columnIndex": 1
-                },
-                {
-                  "seatNumber": "22C",
-                  "status": 1,
-                  "rowIndex": 1,
-                  "columnIndex": 2
+                    "seatNumber": "24",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 3
                 }
             ]
         ]
     }
 }
+```
+```
+status => 0 - AVAILABLE, 1 - NOT AVAILABLE
 ```
 
 CTS will call the Bus Operator System(BOS) to get seat map or bus seat details for the trip using tripId
@@ -482,6 +387,7 @@ Error code | Error message
 0 | Failure - Any other error needs to be sent here
 101 | Trips Cancelled
 103 | Trip does not exist
+
 
 <aside class="notice">
 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
