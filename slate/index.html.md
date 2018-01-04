@@ -113,10 +113,9 @@ disabledFare | double | 37.0
 Error code | Error message
 --------- | -------
 1 | Success
-0 | Failure
+0 | Failure - Send error message if any
 101 | Trips Cancelled
 103 | Trip does not exist
-104 | Any other error needs to be sent here
 
 
 <aside class="notice">
@@ -135,106 +134,320 @@ curl "{getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=421"
 
 ```json
 {
-  "errorCode": 1,
-  "errorMessage": "SUCCESS",
-  "data": {
-    "lowerDeck": [
-      [
-        {
-          "seatNumber": "1A",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "1B",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "1C",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 2
-        }
-      ],
-      [
-        {
-          "seatNumber": "2A",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "2B",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "2C",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 2
-        }
-      ]
-    ],
-    "upperDeck": [
-      [
-        {
-          "seatNumber": "21A",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "21B",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "21C",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 2
-        }
-      ],
-      [
-        {
-          "seatNumber": "22A",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "22B",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "22C",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 2
-        }
-      ]
-    ]
-  }
+    "errorCode": 0,
+    "errorMessage": "SUCCESS",
+    "seatMap": {
+        "lowerDeck": [
+            [
+                {
+                    "seatNumber": "1",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "2",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "3",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "4",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "5",
+                    "status": 4,
+                    "rowIndex": 1,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "6",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "7",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "8",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "9",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "10",
+                    "status": 4,
+                    "rowIndex": 3,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 3,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "11",
+                    "status": 4,
+                    "rowIndex": 3,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "12",
+                    "status": 4,
+                    "rowIndex": 3,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "13",
+                    "status": 0,
+                    "rowIndex": 4,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 4,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "14",
+                    "status": 4,
+                    "rowIndex": 4,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "15",
+                    "status": 0,
+                    "rowIndex": 4,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "16",
+                    "status": 0,
+                    "rowIndex": 5,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 5,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "17",
+                    "status": 0,
+                    "rowIndex": 5,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "18",
+                    "status": 4,
+                    "rowIndex": 5,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "19",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "20",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "21",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "22",
+                    "status": 0,
+                    "rowIndex": 7,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 7,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "23",
+                    "status": 4,
+                    "rowIndex": 7,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "24",
+                    "status": 0,
+                    "rowIndex": 7,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "25",
+                    "status": 0,
+                    "rowIndex": 8,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 8,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "26",
+                    "status": 0,
+                    "rowIndex": 8,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "27",
+                    "status": 0,
+                    "rowIndex": 8,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "28",
+                    "status": 0,
+                    "rowIndex": 9,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 9,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "29",
+                    "status": 0,
+                    "rowIndex": 9,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "30",
+                    "status": 0,
+                    "rowIndex": 9,
+                    "columnIndex": 3
+                }
+            ]
+        ],
+        "upperDeck": [
+            [
+                {
+                  "seatNumber": "21A",
+                  "status": 1,
+                  "rowIndex": 0,
+                  "columnIndex": 0
+                },
+                {
+                  "seatNumber": "#"
+                },
+                {
+                  "seatNumber": "21B",
+                  "status": 1,
+                  "rowIndex": 0,
+                  "columnIndex": 1
+                },
+                {
+                  "seatNumber": "21C",
+                  "status": 1,
+                  "rowIndex": 0,
+                  "columnIndex": 2
+                }
+              ],
+              [
+                {
+                  "seatNumber": "22A",
+                  "status": 1,
+                  "rowIndex": 1,
+                  "columnIndex": 0
+                },
+                {
+                  "seatNumber": "#"
+                },
+                {
+                  "seatNumber": "22B",
+                  "status": 1,
+                  "rowIndex": 1,
+                  "columnIndex": 1
+                },
+                {
+                  "seatNumber": "22C",
+                  "status": 1,
+                  "rowIndex": 1,
+                  "columnIndex": 2
+                }
+            ]
+        ]
+    }
 }
 ```
 
@@ -266,10 +479,9 @@ data | JSON object | As mentioned in the response example
 Error code | Error message
 --------- | -------
 1 | Success
-0 | Failure
+0 | Failure - Any other error needs to be sent here
 101 | Trips Cancelled
 103 | Trip does not exist
-104 | Any other error needs to be sent here
 
 <aside class="notice">
 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
