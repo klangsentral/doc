@@ -113,10 +113,9 @@ disabledFare | double | 37.0
 Error code | Error message
 --------- | -------
 1 | Success
-0 | Failure
+0 | Failure - Send error message if any
 101 | Trips Cancelled
 103 | Trip does not exist
-104 | Any other error needs to be sent here
 
 
 <aside class="notice">
@@ -135,107 +134,226 @@ curl "{getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=421"
 
 ```json
 {
-  "errorCode": 1,
-  "errorMessage": "SUCCESS",
-  "data": {
-    "lowerDeck": [
-      [
-        {
-          "seatNumber": "1A",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "1B",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "1C",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 2
-        }
-      ],
-      [
-        {
-          "seatNumber": "2A",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "2B",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "2C",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 2
-        }
-      ]
-    ],
-    "upperDeck": [
-      [
-        {
-          "seatNumber": "21A",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "21B",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "21C",
-          "status": 1,
-          "rowIndex": 0,
-          "columnIndex": 2
-        }
-      ],
-      [
-        {
-          "seatNumber": "22A",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 0
-        },
-        {
-          "seatNumber": "#"
-        },
-        {
-          "seatNumber": "22B",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 1
-        },
-        {
-          "seatNumber": "22C",
-          "status": 1,
-          "rowIndex": 1,
-          "columnIndex": 2
-        }
-      ]
-    ]
-  }
+    "errorCode": 0,
+    "errorMessage": "SUCCESS",
+    "seatMap": {
+        "lowerDeck": [
+            [
+                {
+                    "seatNumber": "1",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "2",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "3",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "4",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "5",
+                    "status": 4,
+                    "rowIndex": 1,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "6",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "7",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "8",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "9",
+                    "status": 0,
+                    "rowIndex": 2,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "10",
+                    "status": 4,
+                    "rowIndex": 3,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 3,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "11",
+                    "status": 4,
+                    "rowIndex": 3,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "12",
+                    "status": 4,
+                    "rowIndex": 3,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "13",
+                    "status": 0,
+                    "rowIndex": 4,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 4,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "14",
+                    "status": 4,
+                    "rowIndex": 4,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "15",
+                    "status": 0,
+                    "rowIndex": 4,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "16",
+                    "status": 0,
+                    "rowIndex": 5,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 5,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "17",
+                    "status": 0,
+                    "rowIndex": 5,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "18",
+                    "status": 4,
+                    "rowIndex": 5,
+                    "columnIndex": 3
+                }
+            ],
+            [
+                {
+                    "seatNumber": "19",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "20",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "21",
+                    "status": 0,
+                    "rowIndex": 6,
+                    "columnIndex": 3
+                }
+            ]
+        ],
+        "upperDeck": [
+            [
+                {
+                    "seatNumber": "22",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 0
+                },
+                {
+                    "seatNumber": "#",
+                    "status": 0,
+                    "rowIndex": 0,
+                    "columnIndex": 1
+                },
+                {
+                    "seatNumber": "23",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 2
+                },
+                {
+                    "seatNumber": "24",
+                    "status": 0,
+                    "rowIndex": 1,
+                    "columnIndex": 3
+                }
+            ]
+        ]
+    }
 }
+```
+```
+status => 0 - AVAILABLE, 1 - NOT AVAILABLE
 ```
 
 CTS will call the Bus Operator System(BOS) to get seat map or bus seat details for the trip using tripId
@@ -266,10 +384,14 @@ data | JSON object | As mentioned in the response example
 Error code | Error message
 --------- | -------
 1 | Success
-0 | Failure
+0 | Failure - Any other error needs to be sent here
 101 | Trips Cancelled
 103 | Trip does not exist
-104 | Any other error needs to be sent here
+
+### NOTE
+```
+upperdeck will be empty jsonArray if not available
+```
 
 <aside class="notice">
 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
@@ -345,6 +467,12 @@ operatorCode | String | OPM
 sourceCityId | Integer | 1
 destinationCityId | Integer | 2
 
+### Error descriptions
+
+Error code | Error message
+--------- | -------
+1 | Success
+0 | Failure - Any other error needs to be sent here
 
 <aside class="notice">
 {getSeatAvailabilityApiURL} — Operator specific seat availability API URL that we'll call
@@ -368,7 +496,7 @@ curl "{makeBookingApiURL}"
           "email": "john@doe.co",
           "phoneNumber": "+605864783920",
           "idNumber": "JohnDoe42",
-          "category": "Adult",
+          "category": "A",
           "seatNumber": "4B",
           "gender": "M",
           "nationality": "Malaysian"
@@ -395,7 +523,7 @@ curl "{makeBookingApiURL}"
               "email": "john@doe.co",
               "phoneNumber": "+605864783920",
               "idNumber": "JohnDoe42",
-              "category": "Adult",
+              "category": "A",
               "seatNumber": "4B",
               "gender": "M",
               "nationality": "Malaysian",
@@ -419,19 +547,6 @@ OperatorCode | String | OPM
 OperatorId | String | 421
 departDate | String | yyyy-MM-dd
 passengerTicketList | Array of PassengerDetails | Refer below
-
-### PassengerTicket Object
-
-Field | Type | Format / Example
---------- | ------- | -----------
-name | String | John Doe
-email | String | john@doe.co
-phoneNumber | String | +605864783920
-idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
-seatNumber | String | 4B
-gender | String | M / F
-nationality | String | Malaysian / Singaporean etc
 
 
 ### Response Format
@@ -460,12 +575,18 @@ name | String | John Doe
 email | String | john@doe.co
 phoneNumber | String | +605864783920
 idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
+category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 gender | String | M / F
 nationality | String | Malaysian / Singaporean etc
 ticketNumber | String | OPM4273201801284B
 
+### Error descriptions
+
+Error code | Error message
+--------- | -------
+1 | Success
+0 | Failure - Any other error needs to be sent here
 
 <aside class="notice">
 {makeBookingApiURL} — Operator specific make booking API URL that we'll call
@@ -494,7 +615,7 @@ curl "{waybillApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
         "departDate": "2017-12-29",
         "departTime": "01:00:00.0",
         "busPlateNo": null,
-        "passengerList": [
+        "passengerTicketList": [
             {
                 "idNumber": "83884343",
                 "name": "Ashrith test",
@@ -528,6 +649,10 @@ curl "{waybillApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
         ]
     }
 }
+```
+
+```
+If the trip has not sold any tickets, return empty passenger list
 ```
 
 CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. 
@@ -577,16 +702,24 @@ Field | Type | Format / Example
 name | String | John Doe
 phoneNumber | String | +605864783920
 idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
+category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 ticketNumber | String | OPM4273201801284B
 route | String | Passenger travelling route
+
 
 ### Waybill Point Object
 Field | Type | Format / Example
 --------- | ------- | -----------
 pointName | String | pick up or drop off point name
 noOfPax | int | number of passengers picking up or dropping off for this point name
+
+### Error descriptions
+
+Error code | Error message
+--------- | -------
+1 | Success
+0 | Failure - Any other error needs to be sent here.
 
 <aside class="notice">
 {waybillApiURL} — Operator specific waybill API URL that we'll call
@@ -674,7 +807,7 @@ name | String | John Doe
 email | String | john@doe.co
 phoneNumber | String | +605864783920
 idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
+category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 gender | String | M / F
 nationality | String | Malaysian / Singaporean etc
@@ -687,8 +820,8 @@ ticketFare | double | 10.0
 Error code | Error message
 --------- | -------
 1 | Success
+0 | Failure - Any other error needs to be sent here.
 104 | PNR not found
-105 | Any other error needs to be sent here.
 
 <aside class="notice">
 {retrieveBookingApiURL} — Operator specific retrieve booking API URL that we'll call
@@ -736,6 +869,7 @@ errorMessage | String | Refer below
 Error code | Error message
 --------- | -------
 1 | Success
+0 | Failure - Any other error needs to be sent here.
 -1 | PNR not found
 -2 | Already cancelled
 -3 | Failed to cancel
