@@ -603,7 +603,7 @@ curl "{waybillApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
         "departDate": "2017-12-29",
         "departTime": "01:00:00.0",
         "busPlateNo": null,
-        "passengerList": [
+        "passengerTicketList": [
             {
                 "idNumber": "83884343",
                 "name": "Ashrith test",
