@@ -388,6 +388,10 @@ Error code | Error message
 101 | Trips Cancelled
 103 | Trip does not exist
 
+### NOTE
+```
+upperdeck will be empty jsonArray if not available
+```
 
 <aside class="notice">
 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
@@ -486,7 +490,7 @@ curl "{makeBookingApiURL}"
           "email": "john@doe.co",
           "phoneNumber": "+605864783920",
           "idNumber": "JohnDoe42",
-          "category": "Adult",
+          "category": "A",
           "seatNumber": "4B",
           "gender": "M",
           "nationality": "Malaysian"
@@ -513,7 +517,7 @@ curl "{makeBookingApiURL}"
               "email": "john@doe.co",
               "phoneNumber": "+605864783920",
               "idNumber": "JohnDoe42",
-              "category": "Adult",
+              "category": "A",
               "seatNumber": "4B",
               "gender": "M",
               "nationality": "Malaysian",
@@ -537,19 +541,6 @@ OperatorCode | String | OPM
 OperatorId | String | 421
 departDate | String | yyyy-MM-dd
 passengerTicketList | Array of PassengerDetails | Refer below
-
-### PassengerTicket Object
-
-Field | Type | Format / Example
---------- | ------- | -----------
-name | String | John Doe
-email | String | john@doe.co
-phoneNumber | String | +605864783920
-idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
-seatNumber | String | 4B
-gender | String | M / F
-nationality | String | Malaysian / Singaporean etc
 
 
 ### Response Format
@@ -578,7 +569,7 @@ name | String | John Doe
 email | String | john@doe.co
 phoneNumber | String | +605864783920
 idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
+category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 gender | String | M / F
 nationality | String | Malaysian / Singaporean etc
@@ -695,10 +686,11 @@ Field | Type | Format / Example
 name | String | John Doe
 phoneNumber | String | +605864783920
 idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
+category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 ticketNumber | String | OPM4273201801284B
 route | String | Passenger travelling route
+
 
 ### Waybill Point Object
 Field | Type | Format / Example
@@ -792,7 +784,7 @@ name | String | John Doe
 email | String | john@doe.co
 phoneNumber | String | +605864783920
 idNumber | String | JohnDoe42
-category | String | Adult / Child / Senior Citizen / Disabled
+category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 gender | String | M / F
 nationality | String | Malaysian / Singaporean etc
