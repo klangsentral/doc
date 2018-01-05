@@ -1,0 +1,1809 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KLANG SENTRAL API Specification</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;cURL&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="cURL">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication-and-security" class="toc-h1 toc-link" data-title="Authentication and Security">Authentication and Security</a>
+          </li>
+          <li>
+            <a href="#get-trips" class="toc-h1 toc-link" data-title="Get trips">Get trips</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#trip-object" class="toc-h2 toc-link" data-title="Trip Object">Trip Object</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#get-seat-map" class="toc-h1 toc-link" data-title="Get seat map">Get seat map</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters-2" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-2" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+                  <li>
+                    <a href="#note" class="toc-h2 toc-link" data-title="NOTE">NOTE</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#get-seat-availability" class="toc-h1 toc-link" data-title="Get seat availability">Get seat availability</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters-3" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-3" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#seat-availability-json-object" class="toc-h2 toc-link" data-title="Seat availability JSON object">Seat availability JSON object</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-3" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#make-booking" class="toc-h1 toc-link" data-title="Make booking">Make booking</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-4" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#makebooking-data-object" class="toc-h2 toc-link" data-title="MakeBooking Data Object">MakeBooking Data Object</a>
+                  </li>
+                  <li>
+                    <a href="#passengerticket-object" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-4" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#get-waybill" class="toc-h1 toc-link" data-title="Get WayBill">Get WayBill</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-2" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-5" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#waybill-object" class="toc-h2 toc-link" data-title="WayBill Object">WayBill Object</a>
+                  </li>
+                  <li>
+                    <a href="#passengerticket-object-2" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
+                  </li>
+                  <li>
+                    <a href="#waybill-point-object" class="toc-h2 toc-link" data-title="Waybill Point Object">Waybill Point Object</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-5" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#retrieve-booking" class="toc-h1 toc-link" data-title="Retrieve booking">Retrieve booking</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-3" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-6" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-booking-object" class="toc-h2 toc-link" data-title="Retrieve Booking Object">Retrieve Booking Object</a>
+                  </li>
+                  <li>
+                    <a href="#passengerticket-object-3" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-6" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cancel-booking" class="toc-h1 toc-link" data-title="Cancel booking">Cancel booking</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-4" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-7" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-7" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the Klang Sentral CTS to sell the Bus operator inventory via real time API integration. </p>
+
+<p>The Bus Operator System(BOS) integrating with Klang Sentral CTS needs to provide the following RESTFUL API with the mentioned JSON Structure. </p>
+<h1 id='authentication-and-security'>Authentication and Security</h1>
+<p>Authenticate your account when using the API by including your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
+Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.</p>
+
+<p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: <code>-H &quot;Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2&quot;</code> 
+ instead of: <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code></p>
+
+<p>All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.</p>
+<h1 id='get-trips'>Get trips</h1><pre class="highlight plaintext"><code>curl "{getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012778"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLGKB"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fromCityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"toCityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 01:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"arrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 10:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"availableSeats"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"adultFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012789"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UIKD"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fromCityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"toCityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 01:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"arrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 10:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"availableSeats"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"adultFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UI"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>CTS will call the Bus Operator System(BOS) to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET {getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sourceCityId</td>
+<td>Integer</td>
+<td>42</td>
+</tr>
+<tr>
+<td>destinationCityId</td>
+<td>Integer</td>
+<td>73</td>
+</tr>
+<tr>
+<td>departDate</td>
+<td>String</td>
+<td>yyyy-MM-dd</td>
+</tr>
+</tbody></table>
+<h3 id='response-format'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>Refer below</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Refer below</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Array of Trips</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='trip-object'>Trip Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>tripCode</td>
+<td>String</td>
+<td>Trip Identifier for bus operator usage. Will be printed in the ticket.  MLM .. etc</td>
+</tr>
+<tr>
+<td>departTime</td>
+<td>String</td>
+<td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>arrivalTime</td>
+<td>String</td>
+<td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>adultFare</td>
+<td>double</td>
+<td>42.0</td>
+</tr>
+<tr>
+<td>childFare</td>
+<td>double</td>
+<td>37.0</td>
+</tr>
+<tr>
+<td>seniorFare</td>
+<td>double</td>
+<td>37.0</td>
+</tr>
+<tr>
+<td>disabledFare</td>
+<td>double</td>
+<td>37.0</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Send error message if any</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Trips Cancelled</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Trip does not exist</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{getTripsApiURL} — Operator specific trips API URL that we'll call
+</aside>
+<h1 id='get-seat-map'>Get seat map</h1><pre class="highlight plaintext"><code>curl "{getSeatMapApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;operatorId=421"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seatMap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"lowerDeck"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"upperDeck"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rowIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"columnIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight plaintext"><code>status =&gt; 0 - AVAILABLE, 1 - NOT AVAILABLE
+</code></pre>
+<p>CTS will call the Bus Operator System(BOS) to get seat map or bus seat details for the trip using tripId</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET {getSeatMapApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;operatorId=42</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>String</td>
+<td>421</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-2'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>Refer below</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Refer below</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON object</td>
+<td>As mentioned in the response example</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-2'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Trips Cancelled</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Trip does not exist</td>
+</tr>
+</tbody></table>
+<h3 id='note'>NOTE</h3><pre class="highlight plaintext"><code>upperdeck will be empty jsonArray if not available
+</code></pre>
+<aside class="notice">
+{getSeatMapApiURL} — Operator specific seat map API URL that we'll call
+</aside>
+<h1 id='get-seat-availability'>Get seat availability</h1><pre class="highlight plaintext"><code>curl "{getSeatAvailabilityApiURL}?tripId=0B101010&amp;seatNo=4B&amp;operatorId=421&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12`
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"sourceCityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destinationCityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"departDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 01:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"arrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 10:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fareDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"adultFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seniorCitizenFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MYR"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"seatAvailability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"2B"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"3C"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>CTS will call the Bus Operator System(BOS) before calling make booking. The system needs to ensure that the selected seats are available and no changes happened on the selected trip.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET {getSeatAvailabilityApiURL}?tripId=0B101010&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12&amp;seatNumber=2B&amp;seatNumber=3C</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>seatNumber</td>
+<td>String</td>
+<td>4B, but if multiple seats we will send same parameter multiple times</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>String</td>
+<td>421</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>departDate</td>
+<td>String</td>
+<td>2017-12-12</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-3'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>0: Failure 1: Success</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Brief description for failure</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON object</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='seat-availability-json-object'>Seat availability JSON object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>seatNumber</td>
+<td>String</td>
+<td>[&quot;4B&quot;, &quot;5B&quot;]</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>String</td>
+<td>421</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>sourceCityId</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>destinationCityId</td>
+<td>Integer</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-3'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{getSeatAvailabilityApiURL} — Operator specific seat availability API URL that we'll call
+</aside>
+<h1 id='make-booking'>Make booking</h1><pre class="highlight plaintext"><code>curl "{makeBookingApiURL}"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -d "{
+      "tripId": "123456",
+      "tripCode": "0B101010",
+      "sourceCityId": "42",
+      "destinationCityId": "2",
+      "operatorCode": "OPM",
+      "departDate": "2018-01-28",
+      "passengerTicketList": [
+        {
+          "name": "John Doe",
+          "email": "john@doe.co",
+          "phoneNumber": "+605864783920",
+          "idNumber": "JohnDoe42",
+          "category": "A",
+          "seatNumber": "4B",
+          "gender": "M",
+          "nationality": "Malaysian"
+        }
+      ]
+    }"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0B101010"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OP4273"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM20180128"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"142.95"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.co"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+605864783920"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JohnDoe42"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>CTS will call the Bus Operator System(BOS) to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We&#39;ll get pnr and ticket numbers if the booking is successful.</p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>SourceId</td>
+<td>String</td>
+<td>42</td>
+</tr>
+<tr>
+<td>destinationId</td>
+<td>String</td>
+<td>73</td>
+</tr>
+<tr>
+<td>OperatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>OperatorId</td>
+<td>String</td>
+<td>421</td>
+</tr>
+<tr>
+<td>departDate</td>
+<td>String</td>
+<td>yyyy-MM-dd</td>
+</tr>
+<tr>
+<td>passengerTicketList</td>
+<td>Array of PassengerDetails</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-4'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>0:Failure 1: Success</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Success / The reason for failure</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON Object</td>
+<td>Refer Below</td>
+</tr>
+</tbody></table>
+<h3 id='makebooking-data-object'>MakeBooking Data Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Trip id for validation</td>
+</tr>
+<tr>
+<td>tripCode</td>
+<td>String</td>
+<td>Unique trip code to be printed in ticket</td>
+</tr>
+<tr>
+<td>pnr</td>
+<td>String</td>
+<td>Unique booking ID</td>
+</tr>
+<tr>
+<td>totalAmount</td>
+<td>String</td>
+<td>154.00 (It will be used for data validity)</td>
+</tr>
+<tr>
+<td>passengerTicketList</td>
+<td>Array of PassengerDetails</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='passengerticket-object'>PassengerTicket Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>John Doe</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>john@doe.co</td>
+</tr>
+<tr>
+<td>phoneNumber</td>
+<td>String</td>
+<td>+605864783920</td>
+</tr>
+<tr>
+<td>idNumber</td>
+<td>String</td>
+<td>JohnDoe42</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>A - Adult / C - Child / S - Senior Citizen / O - Disabled</td>
+</tr>
+<tr>
+<td>seatNumber</td>
+<td>String</td>
+<td>4B</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>String</td>
+<td>M / F</td>
+</tr>
+<tr>
+<td>nationality</td>
+<td>String</td>
+<td>Malaysian / Singaporean etc</td>
+</tr>
+<tr>
+<td>ticketNumber</td>
+<td>String</td>
+<td>OPM4273201801284B</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-4'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{makeBookingApiURL} — Operator specific make booking API URL that we'll call
+</aside>
+<h1 id='get-waybill'>Get WayBill</h1><pre class="highlight plaintext"><code>curl "{waybillApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;departDate=2018-01-28"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ctb Holidays"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"completeRoute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klang - Shah Alam - Kuala Lumpur - Bentong - Gua Musang - Kuala Krai - Kok Lanas - Pengkalan Chepa - Pengkalan Kubor - Teluk Mesira - Kota Bharu"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLGKB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"busDriver1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"busDriver2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"departDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"busPlateNo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83884343"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ashrith test"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klang - Kota Bharu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"601234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4C"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10047"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83884343"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klang - Kota Bharu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"601234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"pickUp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"pointName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klang"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"noOfPax"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"dropOff"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"pointName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kota Bharu"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"noOfPax"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight plaintext"><code>If the trip has not sold any tickets, return empty passenger list
+</code></pre>
+<p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET {waybillApiUrl}?tripId=0B101010&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>Integer</td>
+<td>12</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>departDate</td>
+<td>String</td>
+<td>yyyy-MM-dd</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-5'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>0:Failure 1: Success</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Success / The reason for failure</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON Object</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='waybill-object'>WayBill Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operator</td>
+<td>String</td>
+<td>bus operator name</td>
+</tr>
+<tr>
+<td>completeRoute</td>
+<td>String</td>
+<td>complete route of the trip</td>
+</tr>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>tripId</td>
+</tr>
+<tr>
+<td>departDate</td>
+<td>String</td>
+<td>bus depart date (yyyy-MM-dd)</td>
+</tr>
+<tr>
+<td>departTime</td>
+<td>String</td>
+<td>bus depart time (HH:mm:ss)</td>
+</tr>
+<tr>
+<td>busDriver1</td>
+<td>String</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>busDriver2</td>
+<td>String</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>busPlateNo</td>
+<td>String</td>
+<td>bus number plate number</td>
+</tr>
+<tr>
+<td>passengerTicketList</td>
+<td>JSON Array</td>
+<td>refer below</td>
+</tr>
+<tr>
+<td>pickup</td>
+<td>JSON Array</td>
+<td>refer below</td>
+</tr>
+<tr>
+<td>dropoff</td>
+<td>JSON Array</td>
+<td>refer below</td>
+</tr>
+</tbody></table>
+<h3 id='passengerticket-object-2'>PassengerTicket Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>John Doe</td>
+</tr>
+<tr>
+<td>phoneNumber</td>
+<td>String</td>
+<td>+605864783920</td>
+</tr>
+<tr>
+<td>idNumber</td>
+<td>String</td>
+<td>JohnDoe42</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>A - Adult / C - Child / S - Senior Citizen / O - Disabled</td>
+</tr>
+<tr>
+<td>seatNumber</td>
+<td>String</td>
+<td>4B</td>
+</tr>
+<tr>
+<td>ticketNumber</td>
+<td>String</td>
+<td>OPM4273201801284B</td>
+</tr>
+<tr>
+<td>route</td>
+<td>String</td>
+<td>Passenger travelling route</td>
+</tr>
+</tbody></table>
+<h3 id='waybill-point-object'>Waybill Point Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pointName</td>
+<td>String</td>
+<td>pick up or drop off point name</td>
+</tr>
+<tr>
+<td>noOfPax</td>
+<td>int</td>
+<td>number of passengers picking up or dropping off for this point name</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-5'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{waybillApiURL} — Operator specific waybill API URL that we'll call
+</aside>
+<h1 id='retrieve-booking'>Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{retrieveBookingApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012778"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLGKB"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 01:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"arrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 10:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sourceCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destinationCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"phoneNumberCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83884343"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET {retrieveBookingApiURL}?tripId=0B101010&amp;OperatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>pnr</td>
+<td>String</td>
+<td>Unique booking ID</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-6'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>0:Failure 1: Success</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Success / The reason for failure</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON Object</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='retrieve-booking-object'>Retrieve Booking Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Trip id for validation</td>
+</tr>
+<tr>
+<td>tripCode</td>
+<td>String</td>
+<td>Unique trip code to be printed in ticket</td>
+</tr>
+<tr>
+<td>departTime</td>
+<td>String</td>
+<td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>arrivalTime</td>
+<td>String</td>
+<td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>sourceCityId</td>
+<td>Integer</td>
+<td>10</td>
+</tr>
+<tr>
+<td>destinationCityId</td>
+<td>Integer</td>
+<td>20</td>
+</tr>
+<tr>
+<td>passengerTicketList</td>
+<td>JSON Array</td>
+<td>refer below</td>
+</tr>
+</tbody></table>
+<h3 id='passengerticket-object-3'>PassengerTicket Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>John Doe</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>john@doe.co</td>
+</tr>
+<tr>
+<td>phoneNumber</td>
+<td>String</td>
+<td>+605864783920</td>
+</tr>
+<tr>
+<td>idNumber</td>
+<td>String</td>
+<td>JohnDoe42</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>A - Adult / C - Child / S - Senior Citizen / O - Disabled</td>
+</tr>
+<tr>
+<td>seatNumber</td>
+<td>String</td>
+<td>4B</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>String</td>
+<td>M / F</td>
+</tr>
+<tr>
+<td>nationality</td>
+<td>String</td>
+<td>Malaysian / Singaporean etc</td>
+</tr>
+<tr>
+<td>ticketNumber</td>
+<td>String</td>
+<td>OPM4273201801284B</td>
+</tr>
+<tr>
+<td>ticketFare</td>
+<td>double</td>
+<td>10.0</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-6'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>PNR not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{retrieveBookingApiURL} — Operator specific retrieve booking API URL that we'll call
+</aside>
+<h1 id='cancel-booking'>Cancel booking</h1><pre class="highlight plaintext"><code>curl "{cancelBookingApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET {cancelBookingApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+<h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tripId</td>
+<td>String</td>
+<td>Unique Identifier representing the trip</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>pnr</td>
+<td>String</td>
+<td>Unique booking ID</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-7'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>Refer below</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-7'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>PNR not found</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>Already cancelled</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Failed to cancel</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{cancelBookingApiURL} — Operator specific cancel booking API URL that we'll call
+</aside> 
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="cURL">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
