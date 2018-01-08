@@ -257,10 +257,13 @@
                     <a href="#response-format-2" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                   </li>
                   <li>
-                    <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                    <a href="#note" class="toc-h2 toc-link" data-title="NOTE">NOTE</a>
                   </li>
                   <li>
-                    <a href="#note" class="toc-h2 toc-link" data-title="NOTE">NOTE</a>
+                    <a href="#seatmap-status" class="toc-h2 toc-link" data-title="Seatmap Status">Seatmap Status</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-2" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
                   </li>
               </ul>
           </li>
@@ -798,8 +801,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight plaintext"><code>status =&gt; 0 - AVAILABLE, 1 - NOT AVAILABLE
-</code></pre>
+</span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) to get seat map or bus seat details for the trip using tripId</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET {getSeatMapApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;operatorId=42</code></p>
@@ -851,6 +853,15 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>As mentioned in the response example</td>
 </tr>
 </tbody></table>
+<h3 id='note'>NOTE</h3>
+<ul>
+<li>upperdeck will be empty jsonArray if not available</li>
+</ul>
+<h3 id='seatmap-status'>Seatmap Status</h3>
+<ul>
+<li><p>status =&gt; 0 - AVAILABLE</p></li>
+<li><p>status =&gt; 1 - NOT AVAILABLE</p></li>
+</ul>
 <h3 id='error-descriptions-2'>Error descriptions</h3>
 <table><thead>
 <tr>
@@ -875,8 +886,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Trip does not exist</td>
 </tr>
 </tbody></table>
-<h3 id='note'>NOTE</h3><pre class="highlight plaintext"><code>upperdeck will be empty jsonArray if not available
-</code></pre>
+
 <aside class="notice">
 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
 </aside>

@@ -357,9 +357,6 @@ curl "{getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=421"
     }
 }
 ```
-```
-status => 0 - AVAILABLE, 1 - NOT AVAILABLE
-```
 
 CTS will call the Bus Operator System(BOS) to get seat map or bus seat details for the trip using tripId
 
@@ -384,6 +381,17 @@ errorCode | Integer | Refer below
 errorMessage | String | Refer below
 data | JSON object | As mentioned in the response example
 
+### NOTE
+
+* upperdeck will be empty jsonArray if not available
+
+
+### Seatmap Status
+
+* status => 0 - AVAILABLE
+
+* status => 1 - NOT AVAILABLE
+
 ### Error descriptions
 
 Error code | Error message
@@ -392,11 +400,6 @@ Error code | Error message
 0 | Failure - Any other error needs to be sent here
 101 | Trips Cancelled
 103 | Trip does not exist
-
-### NOTE
-```
-upperdeck will be empty jsonArray if not available
-```
 
 <aside class="notice">
 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
