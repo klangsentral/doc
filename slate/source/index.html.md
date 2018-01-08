@@ -76,7 +76,7 @@ CTS will call the Bus Operator System(BOS) to get the trip list for the given se
 
 ### HTTP Request
 
-`GET {getTripsApiURL}?sourceCityId=42&destinationCityId=73&departDate=2018-01-28`
+`GET {getTripsApiURL}?sourceCityId=42&destinationCityId=73&operatorCode=CTBH&operatorId=1&departDate=2018-01-28`
 
 ### Query Parameters
 
@@ -84,6 +84,8 @@ Parameter | Type | Format / Example
 --------- | ------- | -----------
 sourceCityId | Integer | 42
 destinationCityId | Integer | 73
+operatorCode | String | operator identifier CTBH
+operatorId | Integer | 1
 departDate | String | yyyy-MM-dd
 
 
@@ -880,3 +882,58 @@ Error code | Error message
 <aside class="notice">
 {cancelBookingApiURL} — Operator specific cancel booking API URL that we'll call
 </aside> 
+
+# City List
+
+```cURL
+curl "https://13.229.32.38/pub/city"
+```
+
+```json
+[
+    {
+        "id": 350,
+        "name": "Jawi",
+        "code": "JAWI"
+    },
+    {
+        "id": 230,
+        "name": "Yong Peng",
+        "code": "YP"
+    },
+    {
+        "id": 351,
+        "name": "Universiti Malaysia Pahang",
+        "code": "UMP"
+    }
+]
+```
+
+###
+
+City List to map
+
+# Operator List
+
+```cURL
+curl "https://13.229.32.38/pub/operator"
+```
+
+```json
+[
+    {
+        "id": 1,
+        "name": "DarulNaim Express",
+        "code": "DNX"
+    },
+    {
+        "id": 3,
+        "name": "CTB-Holidays",
+        "code": "CTBH"
+    }
+]
+```
+
+###
+
+Operator List to map
