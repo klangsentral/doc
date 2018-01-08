@@ -108,6 +108,7 @@ adultFare | double | 42.0
 childFare | double | 37.0
 seniorFare | double | 37.0
 disabledFare | double | 37.0
+operatorCode | String | operator identifier
 
 
 ### Error descriptions
