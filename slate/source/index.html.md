@@ -912,28 +912,3 @@ curl "https://13.229.32.38/pub/city"
 ###
 
 City List to map
-
-# Operator List
-
-```cURL
-curl "https://13.229.32.38/pub/operator"
-```
-
-```json
-[
-    {
-        "id": 1,
-        "name": "DarulNaim Express",
-        "code": "DNX"
-    },
-    {
-        "id": 3,
-        "name": "CTB-Holidays",
-        "code": "CTBH"
-    }
-]
-```
-
-###
-
-Operator List to map
