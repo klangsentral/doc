@@ -370,6 +370,12 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#city-list" class="toc-h1 toc-link" data-title="City List">City List</a>
+          </li>
+          <li>
+            <a href="#operator-list" class="toc-h1 toc-link" data-title="Operator List">Operator List</a>
+          </li>
       </div>
     </div>
     <div class="page-wrapper">
@@ -430,7 +436,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET {getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28</code></p>
+<p><code>GET {getTripsApiURL}?sourceCityId=42&amp;destinationCityId=73&amp;operatorCode=CTBH&amp;operatorId=1&amp;departDate=2018-01-28</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -448,6 +454,16 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>destinationCityId</td>
 <td>Integer</td>
 <td>73</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>operator identifier CTBH</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>Integer</td>
+<td>1</td>
 </tr>
 <tr>
 <td>departDate</td>
@@ -1802,6 +1818,41 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {cancelBookingApiURL} — Operator specific cancel booking API URL that we'll call
 </aside> 
+<h1 id='city-list'>City List</h1><pre class="highlight plaintext"><code>curl "https://13.229.32.38/pub/city"
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jawi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JAWI"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">230</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yong Peng"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YP"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">351</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Universiti Malaysia Pahang"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UMP"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>City List to map</p>
+<h1 id='operator-list'>Operator List</h1><pre class="highlight plaintext"><code>curl "https://13.229.32.38/pub/operator"
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DarulNaim Express"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DNX"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTB-Holidays"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Operator List to map</p>
 
       </div>
       <div class="dark-box">
