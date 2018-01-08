@@ -326,6 +326,9 @@
                     <a href="#passengerticket-object-2" class="toc-h2 toc-link" data-title="PassengerTicket Object">PassengerTicket Object</a>
                   </li>
                   <li>
+                    <a href="#note-2" class="toc-h2 toc-link" data-title="NOTE">NOTE</a>
+                  </li>
+                  <li>
                     <a href="#waybill-point-object" class="toc-h2 toc-link" data-title="Waybill Point Object">Waybill Point Object</a>
                   </li>
                   <li>
@@ -1319,8 +1322,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight plaintext"><code>If the trip has not sold any tickets, return empty passenger list
-</code></pre>
+</span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET {waybillApiUrl}?tripId=0B101010&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12</code></p>
@@ -1485,6 +1487,10 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Passenger travelling route</td>
 </tr>
 </tbody></table>
+<h3 id='note-2'>NOTE</h3>
+<ul>
+<li>If the trip has not sold any tickets, return empty passengerTicketList</li>
+</ul>
 <h3 id='waybill-point-object'>Waybill Point Object</h3>
 <table><thead>
 <tr>

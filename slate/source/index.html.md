@@ -659,10 +659,6 @@ curl "{waybillApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
 }
 ```
 
-```
-If the trip has not sold any tickets, return empty passenger list
-```
-
 CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. 
 
 ### HTTP Request
@@ -715,6 +711,9 @@ seatNumber | String | 4B
 ticketNumber | String | OPM4273201801284B
 route | String | Passenger travelling route
 
+### NOTE
+
+* If the trip has not sold any tickets, return empty passengerTicketList
 
 ### Waybill Point Object
 Field | Type | Format / Example
