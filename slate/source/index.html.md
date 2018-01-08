@@ -886,7 +886,7 @@ Error code | Error message
 # City List
 
 ```cURL
-curl "https://13.229.32.38/pub/city"
+curl "http://13.229.32.38/pub/city"
 ```
 
 ```json
