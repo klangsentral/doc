@@ -409,7 +409,7 @@ Error code | Error message
 # Get seat availability
 
 ```cURL
-curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12`
+curl "{getSeatAvailabilityApiURL}?tripId=0B101010&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12`
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -426,10 +426,10 @@ curl "{getSeatAvailabilityApiURL}?tripId=0B101010&seatNo=4B&operatorId=421&opera
         "departDate": "2017-12-29 01:00:00",
         "arrivalDate": "2017-12-29 10:00:00",
         "fareDetails": {
-            "adultFare": "100.0",
-            "childFare": "0.0",
-            "seniorCitizenFare": "0.0",
-            "disabledFare": "0.0",
+            "adultFare": 100.0,
+            "childFare": 0.0,
+            "seniorFare": 0.0,
+            "disabledFare": 0.0,
             "currency": "MYR"
         },
         "seatAvailability": {
@@ -444,7 +444,7 @@ CTS will call the Bus Operator System(BOS) before calling make booking. The syst
 
 ### HTTP Request
 
-`GET {getSeatAvailabilityApiURL}?tripId=0B101010&operatorId=421&operatorCode=OPM&departDate=2017-12-12&seatNumber=2B&seatNumber=3C`
+`GET {getSeatAvailabilityApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2017-12-12&seatNumber=2B&seatNumber=3C`
 
 ### Query Parameters
 
@@ -452,7 +452,6 @@ Parameter | Type | Format / Example
 --------- | ------- | -----------
 tripId | String | Unique Identifier representing the trip
 seatNumber | String | 4B, but if multiple seats we will send same parameter multiple times
-operatorId | String | 421
 operatorCode | String | OPM
 departDate | String | 2017-12-12
 
@@ -470,7 +469,6 @@ Field | Type | Format / Example
 --------- | ------- | -----------
 tripId | String | Unique Identifier representing the trip
 seatNumber | String | ["4B", "5B"]
-operatorId | String | 421
 operatorCode | String | OPM
 sourceCityId | Integer | 1
 destinationCityId | Integer | 2

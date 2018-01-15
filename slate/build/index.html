@@ -893,7 +893,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {getSeatMapApiURL} — Operator specific seat map API URL that we'll call
 </aside>
-<h1 id='get-seat-availability'>Get seat availability</h1><pre class="highlight plaintext"><code>curl "{getSeatAvailabilityApiURL}?tripId=0B101010&amp;seatNo=4B&amp;operatorId=421&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12`
+<h1 id='get-seat-availability'>Get seat availability</h1><pre class="highlight plaintext"><code>curl "{getSeatAvailabilityApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12`
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
 <blockquote>
@@ -909,10 +909,10 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
         </span><span class="s2">"departDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 01:00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"arrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 10:00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"fareDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"adultFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"seniorCitizenFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"adultFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MYR"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"seatAvailability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -924,7 +924,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) before calling make booking. The system needs to ensure that the selected seats are available and no changes happened on the selected trip.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET {getSeatAvailabilityApiURL}?tripId=0B101010&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12&amp;seatNumber=2B&amp;seatNumber=3C</code></p>
+<p><code>GET {getSeatAvailabilityApiURL}?tripId=0B101010&amp;operatorCode=OPM&amp;departDate=2017-12-12&amp;seatNumber=2B&amp;seatNumber=3C</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -942,11 +942,6 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>seatNumber</td>
 <td>String</td>
 <td>4B, but if multiple seats we will send same parameter multiple times</td>
-</tr>
-<tr>
-<td>operatorId</td>
-<td>String</td>
-<td>421</td>
 </tr>
 <tr>
 <td>operatorCode</td>
@@ -1000,11 +995,6 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>seatNumber</td>
 <td>String</td>
 <td>[&quot;4B&quot;, &quot;5B&quot;]</td>
-</tr>
-<tr>
-<td>operatorId</td>
-<td>String</td>
-<td>421</td>
 </tr>
 <tr>
 <td>operatorCode</td>
