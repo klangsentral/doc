@@ -26,10 +26,16 @@ If you need to authenticate via bearer auth (e.g., for a cross-origin request), 
 
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
+# {integrationUrl} 
+
+This is going to be the operator integration rest api base url and api endpoints must be the same as given below.
+
+For example, If base url is `http://api.testoperator.com/integration/klang/`, then we'll call `http://api.testoperator.com/integration/klang/trips` to get the trips.
+
 # Get trips
 
 ```cURL
-curl "{getTripsApiURL}?sourceCityId=42&destinationCityId=73&departDate=2018-01-28"
+curl "{integrationUrl}/trips?sourceCityId=42&destinationCityId=73&departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -76,7 +82,7 @@ CTS will call the Bus Operator System(BOS) to get the trip list for the given se
 
 ### HTTP Request
 
-`GET {getTripsApiURL}?sourceCityId=42&destinationCityId=73&operatorCode=CTBH&operatorId=1&departDate=2018-01-28`
+`GET {integrationUrl}/trips?sourceCityId=42&destinationCityId=73&operatorCode=CTBH&operatorId=1&departDate=2018-01-28`
 
 ### Query Parameters
 
@@ -124,14 +130,14 @@ Error code | Error message
 
 
 <aside class="notice">
-{getTripsApiURL} — Operator specific trips API URL that we'll call
+{integrationUrl}/trips — Operator specific API URL that we'll call
 </aside>
 
 
 # Get seat map
 
 ```cURL
-curl "{getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=421"
+curl "{integrationUrl}/seatmap?tripId=0B101010&operatorCode=OPM&operatorId=421"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -362,7 +368,7 @@ CTS will call the Bus Operator System(BOS) to get seat map or bus seat details f
 
 ### HTTP Request
 
-`GET {getSeatMapApiURL}?tripId=0B101010&operatorCode=OPM&operatorId=42`
+`GET {integrationUrl}/seatmap?tripId=0B101010&operatorCode=OPM&operatorId=42`
 
 ### Query Parameters
 
@@ -402,14 +408,14 @@ Error code | Error message
 103 | Trip does not exist
 
 <aside class="notice">
-{getSeatMapApiURL} — Operator specific seat map API URL that we'll call
+{integrationUrl}/seatmap — Operator specific seat map API URL that we'll call
 </aside>
 
 
 # Get seat availability
 
 ```cURL
-curl "{getSeatAvailabilityApiURL}?tripId=0B101010&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12`
+curl "{integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12`
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -444,7 +450,7 @@ CTS will call the Bus Operator System(BOS) before calling make booking. The syst
 
 ### HTTP Request
 
-`GET {getSeatAvailabilityApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2017-12-12&seatNumber=2B&seatNumber=3C`
+`GET {integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&departDate=2017-12-12&seatNumber=2B&seatNumber=3C`
 
 ### Query Parameters
 
@@ -481,13 +487,13 @@ Error code | Error message
 0 | Failure - Any other error needs to be sent here
 
 <aside class="notice">
-{getSeatAvailabilityApiURL} — Operator specific seat availability API URL that we'll call
+{integrationUrl}/seatAvailability — Operator specific seat availability API URL that we'll call
 </aside>
 
 # Make booking
 
 ```cURL
-curl "{makeBookingApiURL}"
+curl "{integrationUrl}/makebooking"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
   -d "{
       "tripId": "123456",
@@ -542,6 +548,10 @@ curl "{makeBookingApiURL}"
 
 CTS will call the Bus Operator System(BOS) to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We'll get pnr and ticket numbers if the booking is successful.
 
+### HTTP Request
+
+`POST {integrationUrl}/makebooking
+
 ### Parameters
 
 Parameter | Type | Format / Example
@@ -595,14 +605,14 @@ Error code | Error message
 0 | Failure - Any other error needs to be sent here
 
 <aside class="notice">
-{makeBookingApiURL} — Operator specific make booking API URL that we'll call
+{integrationUrl}/makebooking — Operator specific make booking API URL that we'll call
 </aside>
 
 
 # Get WayBill
 
 ```cURL
-curl "{waybillApiURL}?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
+curl "{integrationUrl}/waybill?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -661,7 +671,7 @@ CTS will call the Bus Operator System(BOS) to get the full information (passenge
 
 ### HTTP Request
 
-`GET {waybillApiUrl}?tripId=0B101010&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
+`GET {integrationUrl}/waybill?tripId=0B101010&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
 
 ### Parameters
 
@@ -727,14 +737,14 @@ Error code | Error message
 0 | Failure - Any other error needs to be sent here.
 
 <aside class="notice">
-{waybillApiURL} — Operator specific waybill API URL that we'll call
+{integrationUrl}/waybill — Operator specific waybill API URL that we'll call
 </aside>
 
 
 # Retrieve booking
 
 ```cURL
-curl "{retrieveBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
+curl "{integrationUrl}/retrieveBooking?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -774,7 +784,7 @@ CTS will call the Bus Operator System(BOS) at any given time to get the booking 
 
 ### HTTP Request
 
-`GET {retrieveBookingApiURL}?tripId=0B101010&OperatorCode=OPM&pnr=OPM20180128A`
+`GET {integrationUrl}/retrieveBooking?tripId=0B101010&OperatorCode=OPM&pnr=OPM20180128A`
 
 ### Parameters
 
@@ -829,13 +839,13 @@ Error code | Error message
 104 | PNR not found
 
 <aside class="notice">
-{retrieveBookingApiURL} — Operator specific retrieve booking API URL that we'll call
+{integrationUrl}/retrieveBooking — Operator specific retrieve booking API URL that we'll call
 </aside>
 
 # Cancel booking
 
 ```cURL
-curl "{cancelBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
+curl "{integrationUrl}/cancelbooking?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -852,7 +862,7 @@ CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which
 
 ### HTTP Request
 
-`GET {cancelBookingApiURL}?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A`
+`GET {integrationUrl}/cancelbooking?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A`
 
 ### Parameters
 
@@ -880,7 +890,7 @@ Error code | Error message
 -3 | Failed to cancel
 
 <aside class="notice">
-{cancelBookingApiURL} — Operator specific cancel booking API URL that we'll call
+{integrationUrl}/cancelbooking — Operator specific cancel booking API URL that we'll call
 </aside> 
 
 # City List
