@@ -501,7 +501,7 @@ curl "{integrationUrl}/makebooking"
       "sourceCityId": "42",
       "destinationCityId": "2",
       "operatorCode": "OPM",
-      "departDate": "2018-01-28",
+      "departDate": "2018-01-28 04:00:00",
       "passengerTicketList": [
         {
           "name": "John Doe",
@@ -561,7 +561,7 @@ SourceId | String | 42
 destinationId | String | 73
 OperatorCode | String | OPM
 OperatorId | String | 421
-departDate | String | yyyy-MM-dd
+departDate | String | yyyy-MM-dd HH:mm:ss
 passengerTicketList | Array of PassengerDetails | Refer below
 
 
@@ -612,7 +612,7 @@ Error code | Error message
 # Get WayBill
 
 ```cURL
-curl "{integrationUrl}/waybill?tripId=0B101010&operatorCode=OPM&departDate=2018-01-28"
+curl "{integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorCode=OPM&departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -671,13 +671,14 @@ CTS will call the Bus Operator System(BOS) to get the full information (passenge
 
 ### HTTP Request
 
-`GET {integrationUrl}/waybill?tripId=0B101010&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
+`GET {integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
 
 ### Parameters
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
 tripId | String | Unique Identifier representing the trip
+tripCode | String | Unique Identifier representing the whole trip
 operatorId | Integer | 12
 operatorCode | String | OPM
 departDate | String | yyyy-MM-dd
