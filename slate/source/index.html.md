@@ -30,6 +30,10 @@ This is going to be the operator integration rest api base url and api endpoints
 
 For example, If base url is `http://api.testoperator.com/integration/klang/`, then we'll call `http://api.testoperator.com/integration/klang/trips` to get the trips.
 
+### Content-Type
+
+All the api response should return `Content-Type` header as `application/json`
+
 # Get trips
 
 ```cURL
