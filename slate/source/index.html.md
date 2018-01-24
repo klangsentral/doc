@@ -24,8 +24,6 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: `-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"` 
  instead of: `-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:`
 
-All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
-
 # {integrationUrl} 
 
 This is going to be the operator integration rest api base url and api endpoints must be the same as given below.
