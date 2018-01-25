@@ -226,6 +226,11 @@
           </li>
           <li>
             <a href="#integrationurl" class="toc-h1 toc-link" data-title="{integrationUrl}">{integrationUrl}</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#content-type" class="toc-h2 toc-link" data-title="Content-Type">Content-Type</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#get-trips" class="toc-h1 toc-link" data-title="Get trips">Get trips</a>
@@ -404,6 +409,8 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <p>This is going to be the operator integration rest api base url and api endpoints must be the same as given below.</p>
 
 <p>For example, If base url is <code>http://api.testoperator.com/integration/klang/</code>, then we&#39;ll call <code>http://api.testoperator.com/integration/klang/trips</code> to get the trips.</p>
+<h3 id='content-type'>Content-Type</h3>
+<p>All the api response should return <code>Content-Type</code> header as <code>application/json</code></p>
 <h1 id='get-trips'>Get trips</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/trips?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
@@ -597,7 +604,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"seatMap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"lowerDeck"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">

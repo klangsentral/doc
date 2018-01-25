@@ -149,7 +149,7 @@ curl "{integrationUrl}/seatmap?tripId=0B101010&operatorCode=OPM&operatorId=421"
 {
     "errorCode": 0,
     "errorMessage": "SUCCESS",
-    "seatMap": {
+    "data": {
         "lowerDeck": [
             [
                 {
