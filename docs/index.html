@@ -377,7 +377,7 @@
                     <a href="#http-request-7" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#parameters-4" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#cancel-booking-object" class="toc-h2 toc-link" data-title="Cancel Booking Object">Cancel Booking Object</a>
                   </li>
                   <li>
                     <a href="#response-format-7" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
@@ -1100,7 +1100,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We&#39;ll get pnr and ticket numbers if the booking is successful.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p>`POST {integrationUrl}/makebooking</p>
+<p><code>POST {integrationUrl}/makebooking</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1754,8 +1754,14 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/retrieveBooking — Operator specific retrieve booking API URL that we'll call
 </aside>
-<h1 id='cancel-booking'>Cancel booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/cancelbooking?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+<h1 id='cancel-booking'>Cancel booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/cancelbooking"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -d "{
+        "pnr":"K3WFW42",
+        "operatorCode": "OPW",
+        "operatorId": 12,
+        "reason":"No reason testing"
+      }"
 </code></pre>
 <blockquote>
 <p>The above command should return JSON structured like this:</p>
@@ -1767,8 +1773,8 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which was given when make booking. Additionally, we might send related trip information as well.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET {integrationUrl}/cancelbooking?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
-<h3 id='parameters-4'>Parameters</h3>
+<p><code>POST {integrationUrl}/cancelbooking</code></p>
+<h3 id='cancel-booking-object'>Cancel Booking Object</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1777,9 +1783,9 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </tr>
 </thead><tbody>
 <tr>
-<td>tripId</td>
+<td>pnr</td>
 <td>String</td>
-<td>Unique Identifier representing the trip</td>
+<td>Unique booking ID</td>
 </tr>
 <tr>
 <td>operatorCode</td>
@@ -1787,9 +1793,14 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>OPM</td>
 </tr>
 <tr>
-<td>pnr</td>
+<td>operatorId</td>
+<td>Integer</td>
+<td>unique identifier of operator</td>
+</tr>
+<tr>
+<td>reason</td>
 <td>String</td>
-<td>Unique booking ID</td>
+<td>reason for canceling</td>
 </tr>
 </tbody></table>
 <h3 id='response-format-7'>Response Format</h3>

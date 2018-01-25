@@ -552,7 +552,7 @@ CTS will call the Bus Operator System(BOS) to make the booking for the given req
 
 ### HTTP Request
 
-`POST {integrationUrl}/makebooking
+`POST {integrationUrl}/makebooking`
 
 ### Parameters
 
@@ -848,8 +848,14 @@ Error code | Error message
 # Cancel booking
 
 ```cURL
-curl "{integrationUrl}/cancelbooking?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
+curl "{integrationUrl}/cancelbooking"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -d "{
+        "pnr":"K3WFW42",
+        "operatorCode": "OPW",
+        "operatorId": 12,
+        "reason":"No reason testing"
+      }"
 ```
 
 > The above command should return JSON structured like this:
@@ -865,15 +871,16 @@ CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which
 
 ### HTTP Request
 
-`GET {integrationUrl}/cancelbooking?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A`
+`POST {integrationUrl}/cancelbooking`
 
-### Parameters
+### Cancel Booking Object
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
-tripId | String | Unique Identifier representing the trip
-operatorCode | String | OPM
 pnr | String | Unique booking ID 
+operatorCode | String | OPM
+operatorId | Integer | unique identifier of operator
+reason | String | reason for canceling
 
 ### Response Format
 
