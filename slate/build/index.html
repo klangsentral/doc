@@ -1290,11 +1290,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
         </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ctb Holidays"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"completeRoute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Klang - Shah Alam - Kuala Lumpur - Bentong - Gua Musang - Kuala Krai - Kok Lanas - Pengkalan Chepa - Pengkalan Kubor - Teluk Mesira - Kota Bharu"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tripId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLGKB"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"busDriver1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"busDriver2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"busDriver1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Driver Name 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"busDriver2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Driver Name 2"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"departDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:00:00.0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"busPlateNo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"busPlateNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-1234"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83884343"</span><span class="p">,</span><span class="w">
@@ -1556,19 +1556,25 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
         </span><span class="s2">"tripCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLGKB"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"departTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 01:00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"arrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29 10:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sourceCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLANG"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destinationCityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KOTA BHARU"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sourceCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
         </span><span class="s2">"destinationCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"soldDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-12 04:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pickupPoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLANG TERMINAL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dropoffPoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TKB"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"phoneNumberCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"phoneNumberCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83884343"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
             </span><span class="p">}</span><span class="w">

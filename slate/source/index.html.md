@@ -628,11 +628,11 @@ curl "{integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorCode=OP
         "operator": "Ctb Holidays",
         "completeRoute": "Klang - Shah Alam - Kuala Lumpur - Bentong - Gua Musang - Kuala Krai - Kok Lanas - Pengkalan Chepa - Pengkalan Kubor - Teluk Mesira - Kota Bharu",
         "tripId": "KLGKB",
-        "busDriver1": null,
-        "busDriver2": null,
+        "busDriver1": "Driver Name 1",
+        "busDriver2": "Driver Name 2",
         "departDate": "2017-12-29",
         "departTime": "01:00:00.0",
-        "busPlateNo": null,
+        "busPlateNo": "AB-1234",
         "passengerTicketList": [
             {
                 "idNumber": "83884343",
@@ -762,19 +762,25 @@ curl "{integrationUrl}/retrieveBooking?tripId=0B101010&operatorCode=OPM&pnr=OPM2
         "tripCode": "KLGKB",
         "departTime": "2017-12-29 01:00:00",
         "arrivalTime": "2017-12-29 10:00:00",
+        "sourceCityName": "KLANG",
+        "destinationCityName": "KOTA BHARU",
         "sourceCityId": 35,
         "destinationCityId": 6,
+        "busNumber": "AB1234",
+        "soldDate": "2018-01-12 04:00:00",
+        "pickupPoint": "KLANG TERMINAL",
+        "dropoffPoint": "TKB",
         "passengerTicketList": [
             {
                 "name": "John Smith",
-                "email": null,
-                "phoneNumberCode": null,
+                "email": "john@example.com",
+                "phoneNumberCode": 60,
                 "phoneNumber": "1234567890",
                 "idNumber": "83884343",
                 "seatNumber": "4A",
                 "category": "A",
                 "gender": "m",
-                "nationality": null,
+                "nationality": "Malaysian",
                 "ticketNumber": "CTBH10049",
                 "ticketFare": 100
             }
