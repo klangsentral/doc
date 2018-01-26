@@ -765,14 +765,10 @@ curl "{integrationUrl}/retrieveBooking?tripId=0B101010&operatorCode=OPM&pnr=OPM2
         "tripCode": "KLGKB",
         "departTime": "2017-12-29 01:00:00",
         "arrivalTime": "2017-12-29 10:00:00",
-        "sourceCityName": "KLANG",
-        "destinationCityName": "KOTA BHARU",
         "sourceCityId": 35,
         "destinationCityId": 6,
         "busNumber": "AB1234",
         "soldDate": "2018-01-12 04:00:00",
-        "pickupPoint": "KLANG TERMINAL",
-        "dropoffPoint": "TKB",
         "passengerTicketList": [
             {
                 "name": "John Smith",
@@ -824,6 +820,8 @@ departTime | String | yyyy-MM-dd HH:mm:ss
 arrivalTime | String | yyyy-MM-dd HH:mm:ss
 sourceCityId | Integer | 10
 destinationCityId | Integer | 20
+busNumber | String | bus plate number
+soldDate | String | The date ticket was sold (yyyy-MM-dd HH:mm:ss)
 passengerTicketList | JSON Array | refer below
 
 ### PassengerTicket Object
