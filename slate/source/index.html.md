@@ -641,7 +641,8 @@ curl "{integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorCode=OP
                 "phoneNumber": "601234567890",
                 "category": "A",
                 "seatNumber": "4C",
-                "ticketNumber": "CTBH10047"
+                "ticketNumber": "CTBH10047",
+                "pnr": "ABC1234"
             },
             {
                 "idNumber": "83884343",
@@ -650,7 +651,8 @@ curl "{integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorCode=OP
                 "phoneNumber": "601234567890",
                 "category": "A",
                 "seatNumber": "4A",
-                "ticketNumber": "CTBH10049"
+                "ticketNumber": "CTBH10049",
+                "pnr": "CBA321"
             }
         ],
         "pickUp": [
@@ -721,6 +723,7 @@ category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 ticketNumber | String | OPM4273201801284B
 route | String | Passenger travelling route
+pnr | String | Unique identifier for a booking
 
 ### NOTE
 
