@@ -86,6 +86,12 @@ CTS will call the Bus Operator System(BOS) to get the trip list for the given se
 
 `GET {integrationUrl}/trips?sourceCityId=42&destinationCityId=73&operatorCode=CTBH&operatorId=1&departDate=2018-01-28`
 
+### City List
+
+You can get the cts system supported city list from below link
+
+`http://api.klangsentral.com/pub/city`
+
 ### Query Parameters
 
 Parameter | Type | Format / Example
@@ -913,7 +919,7 @@ Error code | Error message
 # City List
 
 ```cURL
-curl "http://13.229.32.38/pub/city"
+curl "http://api.klangsentral.com/pub/city"
 ```
 
 ```json

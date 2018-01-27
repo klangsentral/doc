@@ -239,6 +239,9 @@
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
+                    <a href="#city-list" class="toc-h2 toc-link" data-title="City List">City List</a>
+                  </li>
+                  <li>
                     <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
                   </li>
                   <li>
@@ -388,7 +391,7 @@
               </ul>
           </li>
           <li>
-            <a href="#city-list" class="toc-h1 toc-link" data-title="City List">City List</a>
+            <a href="#city-list-2" class="toc-h1 toc-link" data-title="City List">City List</a>
           </li>
       </div>
     </div>
@@ -455,6 +458,10 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <p>CTS will call the Bus Operator System(BOS) to get the trip list for the given search criteria (source city, destination city, journey date). The response will have trip information and fare details.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET {integrationUrl}/trips?sourceCityId=42&amp;destinationCityId=73&amp;operatorCode=CTBH&amp;operatorId=1&amp;departDate=2018-01-28</code></p>
+<h3 id='city-list'>City List</h3>
+<p>You can get the cts system supported city list from below link</p>
+
+<p><code>http://api.klangsentral.com/pub/city</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1873,7 +1880,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/cancelbooking — Operator specific cancel booking API URL that we'll call
 </aside> 
-<h1 id='city-list'>City List</h1><pre class="highlight plaintext"><code>curl "http://13.229.32.38/pub/city"
+<h1 id='city-list-2'>City List</h1><pre class="highlight plaintext"><code>curl "http://api.klangsentral.com/pub/city"
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w">
