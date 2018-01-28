@@ -775,6 +775,7 @@ curl "{integrationUrl}/retrieveBooking?tripId=0B101010&operatorCode=OPM&pnr=OPM2
         "destinationCityId": 6,
         "busNumber": "AB1234",
         "soldDate": "2018-01-12 04:00:00",
+        "bookingStatus": 3,
         "passengerTicketList": [
             {
                 "name": "John Smith",
@@ -828,6 +829,7 @@ sourceCityId | Integer | 10
 destinationCityId | Integer | 20
 busNumber | String | bus plate number
 soldDate | String | The date ticket was sold (yyyy-MM-dd HH:mm:ss)
+bookingStatus | Integer | 3 - booked status, -3 - cancelled status, 0 - other status
 passengerTicketList | JSON Array | refer below
 
 ### PassengerTicket Object
