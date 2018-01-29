@@ -833,7 +833,7 @@ sourceCityId | Integer | 10
 destinationCityId | Integer | 20
 busNumber | String | bus plate number
 soldDate | String | The date ticket was sold (yyyy-MM-dd HH:mm:ss)
-bookingStatus | Integer | 3 => booked / -3 => cancelled / 0 => other
+bookingStatus | Integer | 3 => booked / -3 => cancelled / 4 => reserved / 0 => other
 passengerTicketList | JSON Array | refer below
 
 ### PassengerTicket Object
