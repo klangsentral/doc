@@ -1574,6 +1574,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
         </span><span class="s2">"destinationCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
         </span><span class="s2">"busNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1234"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"soldDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-12 04:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"passengerTicketList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
@@ -1690,6 +1691,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>soldDate</td>
 <td>String</td>
 <td>The date ticket was sold (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td>bookingStatus</td>
+<td>Integer</td>
+<td>3 - booked status, -3 - cancelled status, 0 - other status</td>
 </tr>
 <tr>
 <td>passengerTicketList</td>
