@@ -404,7 +404,11 @@ data | JSON object | As mentioned in the response example
 
 * status => 0 - AVAILABLE
 
-* status => 1 - NOT AVAILABLE
+* status => 1 - BOOKED
+
+* status => 2 - BLOCKED
+
+* status => 3 - RESERVED
 
 ### Error descriptions
 
@@ -829,7 +833,7 @@ sourceCityId | Integer | 10
 destinationCityId | Integer | 20
 busNumber | String | bus plate number
 soldDate | String | The date ticket was sold (yyyy-MM-dd HH:mm:ss)
-bookingStatus | Integer | 3 - booked status, -3 - cancelled status, 0 - other status
+bookingStatus | Integer | 3 => booked / -3 => cancelled / 0 => other
 passengerTicketList | JSON Array | refer below
 
 ### PassengerTicket Object

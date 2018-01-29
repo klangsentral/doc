@@ -885,7 +885,9 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <h3 id='seatmap-status'>Seatmap Status</h3>
 <ul>
 <li><p>status =&gt; 0 - AVAILABLE</p></li>
-<li><p>status =&gt; 1 - NOT AVAILABLE</p></li>
+<li><p>status =&gt; 1 - BOOKED</p></li>
+<li><p>status =&gt; 2 - BLOCKED</p></li>
+<li><p>status =&gt; 3 - RESERVED</p></li>
 </ul>
 <h3 id='error-descriptions-2'>Error descriptions</h3>
 <table><thead>
@@ -1695,7 +1697,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <tr>
 <td>bookingStatus</td>
 <td>Integer</td>
-<td>3 - booked status, -3 - cancelled status, 0 - other status</td>
+<td>3 =&gt; booked / -3 =&gt; cancelled / 0 =&gt; other</td>
 </tr>
 <tr>
 <td>passengerTicketList</td>
