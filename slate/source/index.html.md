@@ -637,7 +637,8 @@ curl "{integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorCode=OP
     "data": {
         "operator": "Ctb Holidays",
         "completeRoute": "Klang - Shah Alam - Kuala Lumpur - Bentong - Gua Musang - Kuala Krai - Kok Lanas - Pengkalan Chepa - Pengkalan Kubor - Teluk Mesira - Kota Bharu",
-        "tripId": "KLGKB",
+        "tripId": "123456",
+        "tripCode": "KLGKB",
         "busDriver1": "Driver Name 1",
         "busDriver2": "Driver Name 2",
         "departDate": "2017-12-29",
@@ -712,7 +713,8 @@ Field | Type | Format / Example
 --------- | ------- | -----------
 operator | String | bus operator name
 completeRoute | String | complete route of the trip
-tripId | String | tripId
+tripId | String | unique identifier of the trip
+tripCode | String | unique identifier of the whole trip
 departDate | String | bus depart date (yyyy-MM-dd)
 departTime | String | bus depart time (HH:mm:ss)
 busDriver1 | String | optional
