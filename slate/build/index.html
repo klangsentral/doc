@@ -1286,7 +1286,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/makebooking — Operator specific make booking API URL that we'll call
 </aside>
-<h1 id='get-waybill'>Get WayBill</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/waybill?tripId=0B101010&amp;tripCode=KLKB1234&amp;operatorCode=OPM&amp;departDate=2018-01-28"
+<h1 id='get-waybill'>Get WayBill</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/waybill?tripId=123456&amp;tripCode=KLGKB&amp;operatorCode=OPM&amp;departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
 <blockquote>
@@ -1344,7 +1344,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET {integrationUrl}/waybill?tripId=0B101010&amp;tripCode=KLKB1234&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12</code></p>
+<p><code>GET {integrationUrl}/waybill?tripId=123456&amp;tripCode=KLGKB&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1564,7 +1564,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/waybill — Operator specific waybill API URL that we'll call
 </aside>
-<h1 id='retrieve-booking'>Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/retrieveBooking?tripId=0B101010&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+<h1 id='retrieve-booking'>Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/retrieveBooking?tripId=2012778&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
 <blockquote>

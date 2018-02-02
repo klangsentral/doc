@@ -624,7 +624,7 @@ Error code | Error message
 # Get WayBill
 
 ```cURL
-curl "{integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorCode=OPM&departDate=2018-01-28"
+curl "{integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorCode=OPM&departDate=2018-01-28"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -686,7 +686,7 @@ CTS will call the Bus Operator System(BOS) to get the full information (passenge
 
 ### HTTP Request
 
-`GET {integrationUrl}/waybill?tripId=0B101010&tripCode=KLKB1234&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
+`GET {integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorId=421&operatorCode=OPM&departDate=2017-12-12`
 
 ### Parameters
 
@@ -762,7 +762,7 @@ Error code | Error message
 # Retrieve booking
 
 ```cURL
-curl "{integrationUrl}/retrieveBooking?tripId=0B101010&operatorCode=OPM&pnr=OPM20180128A"
+curl "{integrationUrl}/retrieveBooking?tripId=2012778&operatorCode=OPM&pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
