@@ -363,9 +363,6 @@
                     <a href="#parameters-3" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
-                    <a href="#note-3" class="toc-h2 toc-link" data-title="Note">Note</a>
-                  </li>
-                  <li>
                     <a href="#response-format-6" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                   </li>
                   <li>
@@ -1634,7 +1631,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/waybill — Operator specific waybill API URL that we'll call
 </aside>
-<h1 id='retrieve-booking'>Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/retrieveBooking?tripId=2012778&amp;tripCode=KLGKB&amp;operatorCode=OPM&amp;pnr=OPM20180128A"
+<h1 id='retrieve-booking'>Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&amp;pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 </code></pre>
 <blockquote>
@@ -1673,7 +1670,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET {integrationUrl}/retrieveBooking?tripId=2012778&amp;tripCode=KLGKB&amp;operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+<p><code>GET {integrationUrl}/retrieveBooking?operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1682,16 +1679,6 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <th>Format / Example</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>tripId</td>
-<td>String</td>
-<td>Unique Identifier representing the trip (Optional, may not be required)</td>
-</tr>
-<tr>
-<td>tripCode</td>
-<td>String</td>
-<td>Unique Identifier representing the whole trip (Optional, may not be required)</td>
-</tr>
 <tr>
 <td>operatorCode</td>
 <td>String</td>
@@ -1703,10 +1690,6 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Unique booking ID</td>
 </tr>
 </tbody></table>
-<h3 id='note-3'>Note</h3>
-<ul>
-<li>Please contact Klang-sentral tech team for tripId and tripCode usage</li>
-</ul>
 <h3 id='response-format-6'>Response Format</h3>
 <table><thead>
 <tr>
