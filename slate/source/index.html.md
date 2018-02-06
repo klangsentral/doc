@@ -118,8 +118,11 @@ Field | Type | Format / Example
 --------- | ------- | -----------
 tripId | String | Unique Identifier representing the trip 
 tripCode | String | Trip Identifier for bus operator usage. Will be printed in the ticket.  MLM .. etc
+fromCityId | String | source city id
+toCityId | String | destination city id
 departTime | String | yyyy-MM-dd HH:mm:ss
 arrivalTime | String | yyyy-MM-dd HH:mm:ss
+availableSeats | Integer | Number of seats available for booking, exculde booked already
 adultFare | double | 42.0
 childFare | double | 37.0
 seniorFare | double | 37.0
@@ -485,11 +488,22 @@ data | JSON object | Refer below
 
 Field | Type | Format / Example
 --------- | ------- | -----------
-tripId | String | Unique Identifier representing the trip
-seatNumber | String | ["4B", "5B"]
+sourceCityId | String | source city id
+destinationCityId | String | destination city id
+departDate | String | yyyy-MM-dd HH:mm:ss
+arrivalDate | String | yyyy-MM-dd HH:mm:ss
+fareDetails | JSONObject | refer below
 operatorCode | String | OPM
-sourceCityId | Integer | 1
-destinationCityId | Integer | 2
+seatAvailability | JSONObject | key will be the seatNumber and value will be the boolean(true if available, false if not available) Example: "4B": true
+
+### Fare Details JSON Object
+Field | Type | Format / Example
+--------- | ------- | -----------
+adultFare | double | 20.0
+childFare | double | 10.0
+seniorFare | double | 12.0
+disabledFare | double | 10.0
+currency | String | currency code (iso format)
 
 ### Error descriptions
 
@@ -568,11 +582,11 @@ CTS will call the Bus Operator System(BOS) to make the booking for the given req
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
-TripId | String | Unique Identifier representing the trip
-SourceId | String | 42
-destinationId | String | 73
-OperatorCode | String | OPM
-OperatorId | String | 421
+tripId | String | Unique Identifier representing the trip
+tripCode | String | Unique Identifier representing the whole trip
+sourceCityId | String | 42
+destinationCityId | String | 73
+operatorCode | String | OPM
 departDate | String | yyyy-MM-dd HH:mm:ss
 passengerTicketList | Array of PassengerDetails | Refer below
 
@@ -593,6 +607,7 @@ tripId | String | Unique Trip id for validation
 tripCode | String | Unique trip code to be printed in ticket
 pnr | String | Unique booking ID
 totalAmount | String | 154.00 (It will be used for data validity)
+operatorCode | String | OPM
 passengerTicketList | Array of PassengerDetails | Refer below
 
 ### PassengerTicket Object
@@ -844,7 +859,8 @@ Field | Type | Format / Example
 --------- | ------- | -----------
 name | String | John Doe
 email | String | john@doe.co
-phoneNumber | String | +605864783920
+phoneNumberCode | Integer | phone number country code iso format
+phoneNumber | String | 5864783920
 idNumber | String | JohnDoe42
 category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B

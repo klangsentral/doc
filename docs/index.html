@@ -294,6 +294,9 @@
                     <a href="#seat-availability-json-object" class="toc-h2 toc-link" data-title="Seat availability JSON object">Seat availability JSON object</a>
                   </li>
                   <li>
+                    <a href="#fare-details-json-object" class="toc-h2 toc-link" data-title="Fare Details JSON Object">Fare Details JSON Object</a>
+                  </li>
+                  <li>
                     <a href="#error-descriptions-3" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
                   </li>
               </ul>
@@ -539,6 +542,16 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>Trip Identifier for bus operator usage. Will be printed in the ticket.  MLM .. etc</td>
 </tr>
 <tr>
+<td>fromCityId</td>
+<td>String</td>
+<td>source city id</td>
+</tr>
+<tr>
+<td>toCityId</td>
+<td>String</td>
+<td>destination city id</td>
+</tr>
+<tr>
 <td>departTime</td>
 <td>String</td>
 <td>yyyy-MM-dd HH:mm:ss</td>
@@ -547,6 +560,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>arrivalTime</td>
 <td>String</td>
 <td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>availableSeats</td>
+<td>Integer</td>
+<td>Number of seats available for booking, exculde booked already</td>
 </tr>
 <tr>
 <td>adultFare</td>
@@ -1011,14 +1029,29 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </tr>
 </thead><tbody>
 <tr>
-<td>tripId</td>
+<td>sourceCityId</td>
 <td>String</td>
-<td>Unique Identifier representing the trip</td>
+<td>source city id</td>
 </tr>
 <tr>
-<td>seatNumber</td>
+<td>destinationCityId</td>
 <td>String</td>
-<td>[&quot;4B&quot;, &quot;5B&quot;]</td>
+<td>destination city id</td>
+</tr>
+<tr>
+<td>departDate</td>
+<td>String</td>
+<td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>arrivalDate</td>
+<td>String</td>
+<td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>fareDetails</td>
+<td>JSONObject</td>
+<td>refer below</td>
 </tr>
 <tr>
 <td>operatorCode</td>
@@ -1026,14 +1059,43 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>OPM</td>
 </tr>
 <tr>
-<td>sourceCityId</td>
-<td>Integer</td>
-<td>1</td>
+<td>seatAvailability</td>
+<td>JSONObject</td>
+<td>key will be the seatNumber and value will be the boolean(true if available, false if not available) Example: &quot;4B&quot;: true</td>
+</tr>
+</tbody></table>
+<h3 id='fare-details-json-object'>Fare Details JSON Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>adultFare</td>
+<td>double</td>
+<td>20.0</td>
 </tr>
 <tr>
-<td>destinationCityId</td>
-<td>Integer</td>
-<td>2</td>
+<td>childFare</td>
+<td>double</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>seniorFare</td>
+<td>double</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>disabledFare</td>
+<td>double</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>currency code (iso format)</td>
 </tr>
 </tbody></table>
 <h3 id='error-descriptions-3'>Error descriptions</h3>
@@ -1119,29 +1181,29 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </tr>
 </thead><tbody>
 <tr>
-<td>TripId</td>
+<td>tripId</td>
 <td>String</td>
 <td>Unique Identifier representing the trip</td>
 </tr>
 <tr>
-<td>SourceId</td>
+<td>tripCode</td>
+<td>String</td>
+<td>Unique Identifier representing the whole trip</td>
+</tr>
+<tr>
+<td>sourceCityId</td>
 <td>String</td>
 <td>42</td>
 </tr>
 <tr>
-<td>destinationId</td>
+<td>destinationCityId</td>
 <td>String</td>
 <td>73</td>
 </tr>
 <tr>
-<td>OperatorCode</td>
+<td>operatorCode</td>
 <td>String</td>
 <td>OPM</td>
-</tr>
-<tr>
-<td>OperatorId</td>
-<td>String</td>
-<td>421</td>
 </tr>
 <tr>
 <td>departDate</td>
@@ -1205,6 +1267,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>totalAmount</td>
 <td>String</td>
 <td>154.00 (It will be used for data validity)</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
 </tr>
 <tr>
 <td>passengerTicketList</td>
@@ -1730,9 +1797,14 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>john@doe.co</td>
 </tr>
 <tr>
+<td>phoneNumberCode</td>
+<td>Integer</td>
+<td>phone number country code iso format</td>
+</tr>
+<tr>
 <td>phoneNumber</td>
 <td>String</td>
-<td>+605864783920</td>
+<td>5864783920</td>
 </tr>
 <tr>
 <td>idNumber</td>
