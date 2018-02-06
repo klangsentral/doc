@@ -777,7 +777,7 @@ Error code | Error message
 # Retrieve booking
 
 ```cURL
-curl "{integrationUrl}/retrieveBooking?tripId=2012778&operatorCode=OPM&pnr=OPM20180128A"
+curl "{integrationUrl}/retrieveBooking?tripId=2012778&tripCode=KLGKB&operatorCode=OPM&pnr=OPM20180128A"
   -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
 ```
 
@@ -820,15 +820,19 @@ CTS will call the Bus Operator System(BOS) at any given time to get the booking 
 
 ### HTTP Request
 
-`GET {integrationUrl}/retrieveBooking?tripId=0B101010&OperatorCode=OPM&pnr=OPM20180128A`
+`GET {integrationUrl}/retrieveBooking?tripId=2012778&tripCode=KLGKB&operatorCode=OPM&pnr=OPM20180128A`
 
 ### Parameters
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
-tripId | String | Unique Identifier representing the trip
+tripId | String | Unique Identifier representing the trip (Optional, may not be required)
+tripCode | String | Unique Identifier representing the whole trip (Optional, may not be required)
 operatorCode | String | OPM
-pnr | String | Unique booking ID 
+pnr | String | Unique booking ID
+
+### Note
+* Please contact Klang-sentral tech team for tripId and tripCode usage
 
 ### Response Format
 
