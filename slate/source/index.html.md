@@ -663,6 +663,8 @@ curl "{integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorCode=OPM&dep
             {
                 "idNumber": "83884343",
                 "name": "Ashrith test",
+                "sourceCityId": 35,
+                "destinationCityId": 6,
                 "route": "Klang - Kota Bharu",
                 "phoneNumber": "601234567890",
                 "category": "A",
@@ -673,6 +675,8 @@ curl "{integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorCode=OPM&dep
             {
                 "idNumber": "83884343",
                 "name": "John Smith",
+                "sourceCityId": 35,
+                "destinationCityId": 6,
                 "route": "Klang - Kota Bharu",
                 "phoneNumber": "601234567890",
                 "category": "A",
@@ -749,6 +753,8 @@ idNumber | String | JohnDoe42
 category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
 ticketNumber | String | OPM4273201801284B
+sourceCityId | Integer | 35
+destinationCityId | Integer | 6
 route | String | Passenger travelling route
 pnr | String | Unique identifier for a booking
 
