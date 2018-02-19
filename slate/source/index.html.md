@@ -532,7 +532,8 @@ curl "{integrationUrl}/makebooking"
         {
           "name": "John Doe",
           "email": "john@doe.co",
-          "phoneNumber": "+605864783920",
+          "phoneNumberCode": 60,
+          "phoneNumber": "5864783920",
           "idNumber": "JohnDoe42",
           "category": "A",
           "seatNumber": "4B",
@@ -559,7 +560,8 @@ curl "{integrationUrl}/makebooking"
           {
               "name": "John Doe",
               "email": "john@doe.co",
-              "phoneNumber": "+605864783920",
+              "phoneNumberCode": 60,
+              "phoneNumber": "5864783920",
               "idNumber": "JohnDoe42",
               "category": "A",
               "seatNumber": "4B",
@@ -616,7 +618,8 @@ Field | Type | Format / Example
 --------- | ------- | -----------
 name | String | John Doe
 email | String | john@doe.co
-phoneNumber | String | +605864783920
+phoneNumberCode | Integer | phone number country code iso format
+phoneNumber | String | 5864783920
 idNumber | String | JohnDoe42
 category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
