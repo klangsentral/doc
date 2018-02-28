@@ -401,6 +401,7 @@ data | JSON object | As mentioned in the response example
 ### NOTE
 
 * upperdeck will be empty jsonArray if not available
+* # as a seatNumber can be passed to show empty or walking space in the seat map
 
 
 ### Seatmap Status
