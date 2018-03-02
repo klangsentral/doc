@@ -1328,7 +1328,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <tr>
 <td>gender</td>
 <td>String</td>
-<td>M / F</td>
+<td>M - Male / F - Female / U - Unspecified</td>
 </tr>
 <tr>
 <td>nationality</td>
@@ -1498,7 +1498,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <tr>
 <td>completeRoute</td>
 <td>String</td>
-<td>complete route of the trip</td>
+<td>complete route of the trip (Concatenation pickup and dropoff city names in a sequence order)</td>
 </tr>
 <tr>
 <td>tripId</td>
@@ -1541,12 +1541,12 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>refer below</td>
 </tr>
 <tr>
-<td>pickup</td>
+<td>pickUp</td>
 <td>JSON Array</td>
 <td>refer below</td>
 </tr>
 <tr>
-<td>dropoff</td>
+<td>dropOff</td>
 <td>JSON Array</td>
 <td>refer below</td>
 </tr>
@@ -1602,7 +1602,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <tr>
 <td>route</td>
 <td>String</td>
-<td>Passenger travelling route</td>
+<td>Passenger travelling route(pickup and dropoff city name)</td>
 </tr>
 <tr>
 <td>pnr</td>
@@ -1681,7 +1681,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
                 </span><span class="s2">"idNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83884343"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4A"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
@@ -1841,7 +1841,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <tr>
 <td>gender</td>
 <td>String</td>
-<td>M / F</td>
+<td>M - Male / F - Female / U - Unspecified</td>
 </tr>
 <tr>
 <td>nationality</td>

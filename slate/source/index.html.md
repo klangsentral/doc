@@ -624,7 +624,7 @@ phoneNumber | String | 5864783920
 idNumber | String | JohnDoe42
 category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
-gender | String | M / F
+gender | String | M - Male / F - Female / U - Unspecified
 nationality | String | Malaysian / Singaporean etc
 ticketNumber | String | OPM4273201801284B
 
@@ -735,7 +735,7 @@ data | JSON Object | Refer below
 Field | Type | Format / Example
 --------- | ------- | -----------
 operator | String | bus operator name
-completeRoute | String | complete route of the trip
+completeRoute | String | complete route of the trip (Concatenation pickup and dropoff city names in a sequence order)
 tripId | String | unique identifier of the trip
 tripCode | String | unique identifier of the whole trip
 departDate | String | bus depart date (yyyy-MM-dd)
@@ -744,8 +744,8 @@ busDriver1 | String | optional
 busDriver2 | String | optional
 busPlateNo | String | bus number plate number
 passengerTicketList | JSON Array | refer below
-pickup | JSON Array | refer below
-dropoff | JSON Array | refer below
+pickUp | JSON Array | refer below
+dropOff | JSON Array | refer below
 
 ### PassengerTicket Object
 
@@ -759,7 +759,7 @@ seatNumber | String | 4B
 ticketNumber | String | OPM4273201801284B
 sourceCityId | Integer | 35
 destinationCityId | Integer | 6
-route | String | Passenger travelling route
+route | String | Passenger travelling route(pickup and dropoff city name)
 pnr | String | Unique identifier for a booking
 
 ### NOTE
@@ -816,7 +816,7 @@ curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&pnr=OPM20180128A"
                 "idNumber": "83884343",
                 "seatNumber": "4A",
                 "category": "A",
-                "gender": "m",
+                "gender": "M",
                 "nationality": "Malaysian",
                 "ticketNumber": "CTBH10049",
                 "ticketFare": 100
@@ -873,7 +873,7 @@ phoneNumber | String | 5864783920
 idNumber | String | JohnDoe42
 category | String | A - Adult / C - Child / S - Senior Citizen / O - Disabled
 seatNumber | String | 4B
-gender | String | M / F
+gender | String | M - Male / F - Female / U - Unspecified
 nationality | String | Malaysian / Singaporean etc
 ticketNumber | String | OPM4273201801284B
 ticketFare | double | 10.0
