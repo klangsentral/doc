@@ -402,14 +402,14 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the Klang Sentral CTS to sell the Bus operator inventory via real time API integration. </p>
+<p>The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the Klang Sentral CTS to sell the Bus operator inventory via real time API integration.</p>
 
-<p>The Bus Operator System(BOS) integrating with Klang Sentral CTS needs to provide the following RESTFUL API with the mentioned JSON Structure. </p>
+<p>The Bus Operator System(BOS) integrating with Klang Sentral CTS needs to provide the following RESTFUL API with the mentioned JSON Structure.</p>
 <h1 id='authentication-and-security'>Authentication and Security</h1>
 <p>Authenticate your account when using the API by including your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
 Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.</p>
 
-<p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: <code>-H &quot;Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2&quot;</code> 
+<p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: <code>-H &quot;Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2&quot;</code>
  instead of: <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code></p>
 <h1 id='integrationurl'>{integrationUrl}</h1>
 <p>This is going to be the operator integration rest api base url and api endpoints must be the same as given below.</p>
@@ -439,6 +439,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
             </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
             </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
             </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -453,6 +454,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
             </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
             </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
             </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UI"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -585,6 +587,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>disabledFare</td>
 <td>double</td>
 <td>37.0</td>
+</tr>
+<tr>
+<td>insurance</td>
+<td>double</td>
+<td>2.0 (Optional) Not inclusive of above fares</td>
 </tr>
 <tr>
 <td>operatorCode</td>
@@ -956,6 +963,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
             </span><span class="s2">"childFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MYR"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"seatAvailability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1092,6 +1100,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>disabledFare</td>
 <td>double</td>
 <td>10.0</td>
+</tr>
+<tr>
+<td>insurance</td>
+<td>double</td>
+<td>2.0 (Optional) Not inclusive of above fares</td>
 </tr>
 <tr>
 <td>currency</td>
@@ -1421,7 +1434,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. </p>
+<p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET {integrationUrl}/waybill?tripId=123456&amp;tripCode=KLGKB&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12</code></p>
 <h3 id='parameters-2'>Parameters</h3>
@@ -1684,7 +1697,8 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
                 </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+                </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1858,6 +1872,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>double</td>
 <td>10.0</td>
 </tr>
+<tr>
+<td>insurance</td>
+<td>double</td>
+<td>2.0 (Optional) Not inclusive of ticketFare</td>
+</tr>
 </tbody></table>
 <h3 id='error-descriptions-6'>Error descriptions</h3>
 <table><thead>
@@ -1982,7 +2001,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 
 <aside class="notice">
 {integrationUrl}/cancelbooking — Operator specific cancel booking API URL that we'll call
-</aside> 
+</aside>
 <h1 id='city-list-2'>City List</h1><pre class="highlight plaintext"><code>curl "http://api.klangsentral.com/pub/city"
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">

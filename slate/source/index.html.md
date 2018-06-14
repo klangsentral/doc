@@ -12,19 +12,19 @@ search: true
 
 # Introduction
 
-The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the Klang Sentral CTS to sell the Bus operator inventory via real time API integration. 
+The technical document specifies the interaction point for Bus Operator System(BOS) and the Centralised Ticketing system Klang Terminal. The project will enable the Klang Sentral CTS to sell the Bus operator inventory via real time API integration.
 
-The Bus Operator System(BOS) integrating with Klang Sentral CTS needs to provide the following RESTFUL API with the mentioned JSON Structure. 
+The Bus Operator System(BOS) integrating with Klang Sentral CTS needs to provide the following RESTFUL API with the mentioned JSON Structure.
 
 # Authentication and Security
 
 Authenticate your account when using the API by including your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
 Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.
 
-If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: `-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"` 
+If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: `-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"`
  instead of: `-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:`
 
-# {integrationUrl} 
+# {integrationUrl}
 
 This is going to be the operator integration rest api base url and api endpoints must be the same as given below.
 
@@ -60,6 +60,7 @@ curl "{integrationUrl}/trips?sourceCityId=42&destinationCityId=73&departDate=201
             "childFare": 90,
             "seniorFare": 80,
             "disabledFare": 70,
+            "insurance": 2,
             "operatorCode": "CTBH"
         },
         {
@@ -74,6 +75,7 @@ curl "{integrationUrl}/trips?sourceCityId=42&destinationCityId=73&departDate=201
             "childFare": 60,
             "seniorFare": 60,
             "disabledFare": 50,
+            "insurance": 2,
             "operatorCode": "UI"
         }
     ]
@@ -116,7 +118,7 @@ data | Array of Trips | Refer below
 
 Field | Type | Format / Example
 --------- | ------- | -----------
-tripId | String | Unique Identifier representing the trip 
+tripId | String | Unique Identifier representing the trip
 tripCode | String | Trip Identifier for bus operator usage. Will be printed in the ticket.  MLM .. etc
 fromCityId | String | source city id
 toCityId | String | destination city id
@@ -127,6 +129,7 @@ adultFare | double | 42.0
 childFare | double | 37.0
 seniorFare | double | 37.0
 disabledFare | double | 37.0
+insurance | double | 2.0 (Optional) Not inclusive of above fares
 operatorCode | String | operator identifier
 
 
@@ -452,6 +455,7 @@ curl "{integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&sourceC
             "childFare": 0.0,
             "seniorFare": 0.0,
             "disabledFare": 0.0,
+            "insurance": 2.0,
             "currency": "MYR"
         },
         "seatAvailability": {
@@ -504,6 +508,7 @@ adultFare | double | 20.0
 childFare | double | 10.0
 seniorFare | double | 12.0
 disabledFare | double | 10.0
+insurance | double | 2.0 (Optional) Not inclusive of above fares
 currency | String | currency code (iso format)
 
 ### Error descriptions
@@ -705,7 +710,7 @@ curl "{integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorCode=OPM&dep
 }
 ```
 
-CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time. 
+CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time.
 
 ### HTTP Request
 
@@ -726,7 +731,7 @@ departDate | String | yyyy-MM-dd
 Parameter | Type | Format / Example
 --------- | ------- | -----------
 errorCode | Integer | 0:Failure 1: Success
-errorMessage | String | Success / The reason for failure 
+errorMessage | String | Success / The reason for failure
 data | JSON Object | Refer below
 
 
@@ -819,7 +824,8 @@ curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&pnr=OPM20180128A"
                 "gender": "M",
                 "nationality": "Malaysian",
                 "ticketNumber": "CTBH10049",
-                "ticketFare": 100
+                "ticketFare": 100,
+                "insurance": 2
             }
         ]
     }
@@ -844,7 +850,7 @@ pnr | String | Unique booking ID
 Field | Type | Format / Example
 --------- | ------- | -----------
 errorCode | Integer | 0:Failure 1: Success
-errorMessage | String | Success / The reason for failure 
+errorMessage | String | Success / The reason for failure
 data | JSON Object | Refer below
 
 ### Retrieve Booking Object
@@ -877,6 +883,7 @@ gender | String | M - Male / F - Female / U - Unspecified
 nationality | String | Malaysian / Singaporean etc
 ticketNumber | String | OPM4273201801284B
 ticketFare | double | 10.0
+insurance | double | 2.0 (Optional) Not inclusive of ticketFare
 
 
 ### Error descriptions
@@ -923,7 +930,7 @@ CTS will call the Bus Operator System(BOS) to cancel the booking using pnr which
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
-pnr | String | Unique booking ID 
+pnr | String | Unique booking ID
 operatorCode | String | OPM
 operatorId | Integer | unique identifier of operator
 reason | String | reason for canceling
@@ -947,7 +954,7 @@ Error code | Error message
 
 <aside class="notice">
 {integrationUrl}/cancelbooking — Operator specific cancel booking API URL that we'll call
-</aside> 
+</aside>
 
 # City List
 
