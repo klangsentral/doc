@@ -679,7 +679,8 @@ curl "{integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorCode=OPM&dep
                 "category": "A",
                 "seatNumber": "4C",
                 "ticketNumber": "CTBH10047",
-                "pnr": "ABC1234"
+                "pnr": "ABC1234",
+                "ctsBooking": 1
             },
             {
                 "idNumber": "83884343",
@@ -691,7 +692,8 @@ curl "{integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorCode=OPM&dep
                 "category": "A",
                 "seatNumber": "4A",
                 "ticketNumber": "CTBH10049",
-                "pnr": "CBA321"
+                "pnr": "CBA321",
+                "ctsBooking": 0
             }
         ],
         "pickUp": [
@@ -766,6 +768,7 @@ sourceCityId | Integer | 35
 destinationCityId | Integer | 6
 route | String | Passenger travelling route(pickup and dropoff city name)
 pnr | String | Unique identifier for a booking
+ctsBooking | Integer | 1 - Booked by Klang terminal / 0 - Booked by others
 
 ### NOTE
 
