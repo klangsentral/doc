@@ -308,7 +308,7 @@
                     <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#make-booking-object" class="toc-h2 toc-link" data-title="Make Booking Object">Make Booking Object</a>
                   </li>
                   <li>
                     <a href="#response-format-4" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
@@ -331,7 +331,7 @@
                     <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#parameters-2" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
                     <a href="#response-format-5" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
@@ -360,7 +360,7 @@
                     <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#parameters-3" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#parameters-2" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
                     <a href="#response-format-6" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
@@ -390,6 +390,26 @@
                   </li>
                   <li>
                     <a href="#error-descriptions-7" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#booking-status" class="toc-h1 toc-link" data-title="Booking Status">Booking Status</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-3" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-8" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#booking-status-object" class="toc-h2 toc-link" data-title="Booking Status Object">Booking Status Object</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-8" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
                   </li>
               </ul>
           </li>
@@ -1141,6 +1161,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
       "destinationCityId": "2",
       "operatorCode": "OPM",
       "departDate": "2018-01-28 04:00:00",
+      "requestId": "22788e3a-9c66-11e8-98d0-529269fb1459",
       "passengerTicketList": [
         {
           "name": "John Doe",
@@ -1188,7 +1209,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <p>CTS will call the Bus Operator System(BOS) to make the booking for the given request. Request will have passenger details, seat numbers selected, trip information. We&#39;ll get pnr and ticket numbers if the booking is successful.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST {integrationUrl}/makebooking</code></p>
-<h3 id='parameters'>Parameters</h3>
+<h3 id='make-booking-object'>Make Booking Object</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1225,6 +1246,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>departDate</td>
 <td>String</td>
 <td>yyyy-MM-dd HH:mm:ss</td>
+</tr>
+<tr>
+<td>requestId</td>
+<td>String</td>
+<td>UUID for the booking request, This will be used to check the booking status if anything goes wrong</td>
 </tr>
 <tr>
 <td>passengerTicketList</td>
@@ -1439,7 +1465,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <p>CTS will call the Bus Operator System(BOS) to get the full information (passenger with seat number and ticket number) about the trip or bus details at any given time.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET {integrationUrl}/waybill?tripId=123456&amp;tripCode=KLGKB&amp;operatorId=421&amp;operatorCode=OPM&amp;departDate=2017-12-12</code></p>
-<h3 id='parameters-2'>Parameters</h3>
+<h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1714,7 +1740,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET {integrationUrl}/retrieveBooking?operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
-<h3 id='parameters-3'>Parameters</h3>
+<h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2008,6 +2034,107 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 
 <aside class="notice">
 {integrationUrl}/cancelbooking — Operator specific cancel booking API URL that we'll call
+</aside>
+<h1 id='booking-status'>Booking Status</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"pnr"</span><span class="p">:</span><span class="s2">"K3WFW42"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>CTS will call the Bus Operator System(BOS) at any given time to get the status of the booking using requestId which is used when make booking.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET {integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requestId</td>
+<td>String</td>
+<td>UUID for the booking request</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-8'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>0:Failure 1: Success</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Success / The reason for failure</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON Object</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='booking-status-object'>Booking Status Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pnr</td>
+<td>String</td>
+<td>Unique identifier for a booking</td>
+</tr>
+<tr>
+<td>ticketNumber</td>
+<td>String</td>
+<td>OPM4273201801284B</td>
+</tr>
+<tr>
+<td>bookingStatus</td>
+<td>String</td>
+<td>3 =&gt; booked / -3 =&gt; cancelled / 0 =&gt; other</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-8'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{integrationUrl}/bookingStatus — Booking Status Api to check the booking status if anything goes wrong when make booking / cancel booking
 </aside>
 <h1 id='city-list-2'>City List</h1><pre class="highlight plaintext"><code>curl "http://api.klangsentral.com/pub/city"
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
