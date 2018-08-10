@@ -534,6 +534,7 @@ curl "{integrationUrl}/makebooking"
       "destinationCityId": "2",
       "operatorCode": "OPM",
       "departDate": "2018-01-28 04:00:00",
+      "requestId": "22788e3a-9c66-11e8-98d0-529269fb1459",
       "passengerTicketList": [
         {
           "name": "John Doe",
@@ -586,7 +587,7 @@ CTS will call the Bus Operator System(BOS) to make the booking for the given req
 
 `POST {integrationUrl}/makebooking`
 
-### Parameters
+### Make Booking Object
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
@@ -596,6 +597,7 @@ sourceCityId | String | 42
 destinationCityId | String | 73
 operatorCode | String | OPM
 departDate | String | yyyy-MM-dd HH:mm:ss
+requestId | String | UUID for the booking request, This will be used to check the booking status if anything goes wrong
 passengerTicketList | Array of PassengerDetails | Refer below
 
 
@@ -958,6 +960,69 @@ Error code | Error message
 <aside class="notice">
 {integrationUrl}/cancelbooking — Operator specific cancel booking API URL that we'll call
 </aside>
+
+
+# Booking Status
+
+```cURL
+curl "{integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459"
+  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+```
+
+> The above command should return JSON structured like this:
+
+```json
+{
+    "errorCode": 1,
+    "errorMessage": "Success",
+    "data": {
+        "pnr":"K3WFW42",
+        "ticketNumber": "CTBH10049",
+        "bookingStatus": 3
+    }
+}
+```
+
+CTS will call the Bus Operator System(BOS) at any given time to get the status of the booking using requestId which is used when make booking.
+
+### HTTP Request
+
+`GET {integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459`
+
+### Parameters
+
+Parameter | Type | Format / Example
+--------- | ------- | -----------
+requestId | String | UUID for the booking request
+
+### Response Format
+
+Field | Type | Format / Example
+--------- | ------- | -----------
+errorCode | Integer | 0:Failure 1: Success
+errorMessage | String | Success / The reason for failure
+data | JSON Object | Refer below
+
+### Booking Status Object
+
+Field | Type | Format / Example
+--------- | ------- | -----------
+pnr | String | Unique identifier for a booking
+ticketNumber | String | OPM4273201801284B
+bookingStatus | String | 3 => booked / -3 => cancelled / 0 => other
+
+### Error descriptions
+
+Error code | Error message
+--------- | -------
+1 | Success
+0 | Failure - Any other error needs to be sent here.
+
+
+<aside class="notice">
+{integrationUrl}/bookingStatus — Booking Status Api to check the booking status if anything goes wrong when make booking / cancel booking
+</aside>
+
 
 # City List
 
