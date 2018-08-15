@@ -975,11 +975,13 @@ curl "{integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1
 {
     "errorCode": 1,
     "errorMessage": "Success",
-    "data": {
-        "pnr":"K3WFW42",
-        "ticketNumber": "CTBH10049",
-        "bookingStatus": 3
-    }
+    "data": [
+        {
+            "pnr":"K3WFW42",
+            "ticketNumber": "CTBH10049",
+            "bookingStatus": 3
+        }
+    ]
 }
 ```
 
@@ -1001,7 +1003,7 @@ Field | Type | Format / Example
 --------- | ------- | -----------
 errorCode | Integer | 0:Failure 1: Success
 errorMessage | String | Success / The reason for failure
-data | JSON Object | Refer below
+data | JSON Array | Refer below
 
 ### Booking Status Object
 

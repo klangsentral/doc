@@ -2044,11 +2044,13 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"pnr"</span><span class="p">:</span><span class="s2">"K3WFW42"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pnr"</span><span class="p">:</span><span class="s2">"K3WFW42"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) at any given time to get the status of the booking using requestId which is used when make booking.</p>
@@ -2088,7 +2090,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </tr>
 <tr>
 <td>data</td>
-<td>JSON Object</td>
+<td>JSON Array</td>
 <td>Refer below</td>
 </tr>
 </tbody></table>
