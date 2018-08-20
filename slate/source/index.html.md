@@ -21,8 +21,8 @@ The Bus Operator System(BOS) integrating with Klang Sentral CTS needs to provide
 Authenticate your account when using the API by including your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
 Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.
 
-If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: `-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"`
- instead of: `-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:`
+If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: `-H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"`
+
 
 # {integrationUrl}
 
@@ -38,7 +38,7 @@ All the api response should return `Content-Type` header as `application/json`
 
 ```cURL
 curl "{integrationUrl}/trips?sourceCityId=42&destinationCityId=73&departDate=2018-01-28"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 ```
 
 > The above command should return JSON structured like this:
@@ -152,7 +152,7 @@ Error code | Error message
 
 ```cURL
 curl "{integrationUrl}/seatmap?tripId=0B101010&operatorCode=OPM&operatorId=421"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 ```
 
 > The above command should return JSON structured like this:
@@ -435,7 +435,7 @@ Error code | Error message
 
 ```cURL
 curl "{integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12`
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 ```
 
 > The above command should return JSON structured like this:
@@ -526,7 +526,7 @@ Error code | Error message
 
 ```cURL
 curl "{integrationUrl}/makebooking"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
   -d "{
       "tripId": "123456",
       "tripCode": "0B101010",
@@ -651,7 +651,7 @@ Error code | Error message
 
 ```cURL
 curl "{integrationUrl}/waybill?tripId=123456&tripCode=KLGKB&operatorCode=OPM&departDate=2018-01-28"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 ```
 
 > The above command should return JSON structured like this:
@@ -797,8 +797,8 @@ Error code | Error message
 # Retrieve booking
 
 ```cURL
-curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&pnr=OPM20180128A"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&operatorId=12&pnr=OPM20180128A"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 ```
 
 > The above command should return JSON structured like this:
@@ -841,13 +841,14 @@ CTS will call the Bus Operator System(BOS) at any given time to get the booking 
 
 ### HTTP Request
 
-`GET {integrationUrl}/retrieveBooking?operatorCode=OPM&pnr=OPM20180128A`
+`GET {integrationUrl}/retrieveBooking?operatorCode=OPM&operatorId=12&pnr=OPM20180128A`
 
 ### Parameters
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
 operatorCode | String | OPM
+operatorId | Integer | 12
 pnr | String | Unique booking ID
 
 ### Response Format
@@ -907,7 +908,7 @@ Error code | Error message
 
 ```cURL
 curl "{integrationUrl}/cancelbooking"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
   -d "{
         "pnr":"K3WFW42",
         "operatorCode": "OPW",
@@ -965,8 +966,8 @@ Error code | Error message
 # Booking Status
 
 ```cURL
-curl "{integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+curl "{integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459&operatorCode=OPW&operatorId=12"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 ```
 
 > The above command should return JSON structured like this:
@@ -989,13 +990,15 @@ CTS will call the Bus Operator System(BOS) at any given time to get the status o
 
 ### HTTP Request
 
-`GET {integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459`
+`GET {integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459&operatorCode=OPW&operatorId=12`
 
 ### Parameters
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
 requestId | String | UUID for the booking request
+operatorCode | String | OPM
+operatorId | Integer | unique identifier of operator
 
 ### Response Format
 
@@ -1023,6 +1026,72 @@ Error code | Error message
 
 <aside class="notice">
 {integrationUrl}/bookingStatus — Booking Status Api to check the booking status if anything goes wrong when make booking / cancel booking
+</aside>
+
+
+# Route Mapping
+
+```cURL
+curl "{integrationUrl}/routeMapping?operatorCode=OPW&operatorId=12"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+```
+
+> The above command should return JSON structured like this:
+
+```json
+{
+    "errorCode": 1,
+    "errorMessage": "Success",
+    "data": [
+        {
+            "sourceCityId": 12,
+            "destinationCityId": 342
+        },
+            "sourceCityId": 111,
+            "destinationCityId": 312
+        }
+    ]
+}
+```
+
+CTS will call the Bus Operator System(BOS) at any given time to get the source and destination city mappings for an operator.
+
+### HTTP Request
+
+`GET {integrationUrl}/routeMapping?operatorCode=OPW&operatorId=12`
+
+### Parameters
+
+Parameter | Type | Format / Example
+--------- | ------- | -----------
+operatorCode | String | OPM
+operatorId | Integer | unique identifier of operator
+
+### Response Format
+
+Field | Type | Format / Example
+--------- | ------- | -----------
+errorCode | Integer | 0:Failure 1: Success
+errorMessage | String | Success / The reason for failure
+data | JSON Array | Refer below
+
+### Route Mapping Object
+
+Field | Type | Format / Example
+--------- | ------- | -----------
+sourceCityId | String | source city id
+destinationCityId | String | destination city id
+
+### Error descriptions
+
+Error code | Error message
+--------- | -------
+1 | Success
+0 | Failure - Any other error needs to be sent here.
+
+
+<aside class="notice">
+{integrationUrl}/routeMapping — Route Mapping Api to get the list of source and destination city mappings for an operator
 </aside>
 
 
@@ -1055,3 +1124,7 @@ curl "http://api.klangsentral.com/pub/city"
 ###
 
 City List to map
+
+<aside class="notice">
+All the responses and requests should respect this city list(id and name)
+</aside>

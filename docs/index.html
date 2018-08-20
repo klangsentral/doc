@@ -414,6 +414,26 @@
               </ul>
           </li>
           <li>
+            <a href="#route-mapping" class="toc-h1 toc-link" data-title="Route Mapping">Route Mapping</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-9" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-4" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#response-format-9" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#route-mapping-object" class="toc-h2 toc-link" data-title="Route Mapping Object">Route Mapping Object</a>
+                  </li>
+                  <li>
+                    <a href="#error-descriptions-9" class="toc-h2 toc-link" data-title="Error descriptions">Error descriptions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#city-list-2" class="toc-h1 toc-link" data-title="City List">City List</a>
           </li>
       </div>
@@ -429,8 +449,7 @@
 <p>Authenticate your account when using the API by including your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
 Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.</p>
 
-<p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: <code>-H &quot;Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2&quot;</code>
- instead of: <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code></p>
+<p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), use: <code>-H &quot;X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2&quot;</code></p>
 <h1 id='integrationurl'>{integrationUrl}</h1>
 <p>This is going to be the operator integration rest api base url and api endpoints must be the same as given below.</p>
 
@@ -438,7 +457,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <h3 id='content-type'>Content-Type</h3>
 <p>All the api response should return <code>Content-Type</code> header as <code>application/json</code></p>
 <h1 id='get-trips'>Get trips</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/trips?sourceCityId=42&amp;destinationCityId=73&amp;departDate=2018-01-28"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 </code></pre>
 <blockquote>
 <p>The above command should return JSON structured like this:</p>
@@ -648,7 +667,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 {integrationUrl}/trips — Operator specific API URL that we'll call
 </aside>
 <h1 id='get-seat-map'>Get seat map</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/seatmap?tripId=0B101010&amp;operatorCode=OPM&amp;operatorId=421"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 </code></pre>
 <blockquote>
 <p>The above command should return JSON structured like this:</p>
@@ -964,7 +983,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 {integrationUrl}/seatmap — Operator specific seat map API URL that we'll call
 </aside>
 <h1 id='get-seat-availability'>Get seat availability</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/seatAvailability?tripId=0B101010&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12`
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 </code></pre>
 <blockquote>
 <p>The above command should return JSON structured like this:</p>
@@ -1153,7 +1172,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 {integrationUrl}/seatAvailability — Operator specific seat availability API URL that we'll call
 </aside>
 <h1 id='make-booking'>Make booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/makebooking"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
   -d "{
       "tripId": "123456",
       "tripCode": "0B101010",
@@ -1401,7 +1420,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 {integrationUrl}/makebooking — Operator specific make booking API URL that we'll call
 </aside>
 <h1 id='get-waybill'>Get WayBill</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/waybill?tripId=123456&amp;tripCode=KLGKB&amp;operatorCode=OPM&amp;departDate=2018-01-28"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 </code></pre>
 <blockquote>
 <p>The above command should return JSON structured like this:</p>
@@ -1699,8 +1718,8 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/waybill — Operator specific waybill API URL that we'll call
 </aside>
-<h1 id='retrieve-booking'>Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&amp;pnr=OPM20180128A"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+<h1 id='retrieve-booking'>Retrieve booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&amp;operatorId=12&amp;pnr=OPM20180128A"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 </code></pre>
 <blockquote>
 <p>The above command should return JSON structured like this:</p>
@@ -1739,7 +1758,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) at any given time to get the booking details of a successful booking using pnr.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET {integrationUrl}/retrieveBooking?operatorCode=OPM&amp;pnr=OPM20180128A</code></p>
+<p><code>GET {integrationUrl}/retrieveBooking?operatorCode=OPM&amp;operatorId=12&amp;pnr=OPM20180128A</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1752,6 +1771,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>operatorCode</td>
 <td>String</td>
 <td>OPM</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>Integer</td>
+<td>12</td>
 </tr>
 <tr>
 <td>pnr</td>
@@ -1936,7 +1960,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 {integrationUrl}/retrieveBooking — Operator specific retrieve booking API URL that we'll call
 </aside>
 <h1 id='cancel-booking'>Cancel booking</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/cancelbooking"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
   -d "{
         "pnr":"K3WFW42",
         "operatorCode": "OPW",
@@ -2035,8 +2059,8 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/cancelbooking — Operator specific cancel booking API URL that we'll call
 </aside>
-<h1 id='booking-status'>Booking Status</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459"
-  -u "sk_test_BQokikJOvBiI2HlWgH4olfQ2:"
+<h1 id='booking-status'>Booking Status</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459&amp;operatorCode=OPW&amp;operatorId=12"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 </code></pre>
 <blockquote>
 <p>The above command should return JSON structured like this:</p>
@@ -2055,7 +2079,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) at any given time to get the status of the booking using requestId which is used when make booking.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET {integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459</code></p>
+<p><code>GET {integrationUrl}/bookingStatus?requestId=22788e3a-9c66-11e8-98d0-529269fb1459&amp;operatorCode=OPW&amp;operatorId=12</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
@@ -2068,6 +2092,16 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>requestId</td>
 <td>String</td>
 <td>UUID for the booking request</td>
+</tr>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>Integer</td>
+<td>unique identifier of operator</td>
 </tr>
 </tbody></table>
 <h3 id='response-format-8'>Response Format</h3>
@@ -2138,6 +2172,111 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/bookingStatus — Booking Status Api to check the booking status if anything goes wrong when make booking / cancel booking
 </aside>
+<h1 id='route-mapping'>Route Mapping</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/routeMapping?operatorCode=OPW&amp;operatorId=12"
+  -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+</code></pre>
+<blockquote>
+<p>The above command should return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sourceCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"destinationCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">342</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"sourceCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"destinationCityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">312</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>CTS will call the Bus Operator System(BOS) at any given time to get the source and destination city mappings for an operator.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET {integrationUrl}/routeMapping?operatorCode=OPW&amp;operatorId=12</code></p>
+<h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operatorCode</td>
+<td>String</td>
+<td>OPM</td>
+</tr>
+<tr>
+<td>operatorId</td>
+<td>Integer</td>
+<td>unique identifier of operator</td>
+</tr>
+</tbody></table>
+<h3 id='response-format-9'>Response Format</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errorCode</td>
+<td>Integer</td>
+<td>0:Failure 1: Success</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>String</td>
+<td>Success / The reason for failure</td>
+</tr>
+<tr>
+<td>data</td>
+<td>JSON Array</td>
+<td>Refer below</td>
+</tr>
+</tbody></table>
+<h3 id='route-mapping-object'>Route Mapping Object</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Format / Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sourceCityId</td>
+<td>String</td>
+<td>source city id</td>
+</tr>
+<tr>
+<td>destinationCityId</td>
+<td>String</td>
+<td>destination city id</td>
+</tr>
+</tbody></table>
+<h3 id='error-descriptions-9'>Error descriptions</h3>
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Error message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Failure - Any other error needs to be sent here.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+{integrationUrl}/routeMapping — Route Mapping Api to get the list of source and destination city mappings for an operator
+</aside>
 <h1 id='city-list-2'>City List</h1><pre class="highlight plaintext"><code>curl "http://api.klangsentral.com/pub/city"
 </code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2158,6 +2297,10 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>City List to map</p>
+
+<aside class="notice">
+All the responses and requests should respect this city list(id and name)
+</aside>
 
       </div>
       <div class="dark-box">
