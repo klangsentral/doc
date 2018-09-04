@@ -1079,8 +1079,8 @@ data | JSON Array | Refer below
 
 Field | Type | Format / Example
 --------- | ------- | -----------
-sourceCityId | String | source city id
-destinationCityId | String | destination city id
+sourceCityId | Integer | source city id
+destinationCityId | Integer | destination city id
 
 ### Error descriptions
 
