@@ -61,6 +61,7 @@ curl "{integrationUrl}/trips?sourceCityId=42&destinationCityId=73&departDate=201
             "seniorFare": 80,
             "disabledFare": 70,
             "insurance": 2,
+            "terminalFee": 1,
             "operatorCode": "CTBH"
         },
         {
@@ -76,6 +77,7 @@ curl "{integrationUrl}/trips?sourceCityId=42&destinationCityId=73&departDate=201
             "seniorFare": 60,
             "disabledFare": 50,
             "insurance": 2,
+            "terminalFee": 1,
             "operatorCode": "UI"
         }
     ]
@@ -130,6 +132,7 @@ childFare | double | 37.0
 seniorFare | double | 37.0
 disabledFare | double | 37.0
 insurance | double | 2.0 (Optional) Not inclusive of above fares
+terminalFee | double | 1.0 Not inclusive of above fares
 operatorCode | String | operator identifier
 
 
@@ -456,6 +459,7 @@ curl "{integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&sourceC
             "seniorFare": 0.0,
             "disabledFare": 0.0,
             "insurance": 2.0,
+            "terminalFee": 1.0,
             "currency": "MYR"
         },
         "seatAvailability": {
@@ -509,6 +513,7 @@ childFare | double | 10.0
 seniorFare | double | 12.0
 disabledFare | double | 10.0
 insurance | double | 2.0 (Optional) Not inclusive of above fares
+terminalFee | double | 1.0 Not inclusive of above fares
 currency | String | currency code (iso format)
 
 ### Error descriptions
@@ -574,7 +579,8 @@ curl "{integrationUrl}/makebooking"
               "seatNumber": "4B",
               "gender": "M",
               "nationality": "Malaysian",
-              "ticketNumber": "OPM4273201801284B"
+              "ticketNumber": "OPM4273201801284B",
+              "terminalFee": 1
           }
       ]
    }
@@ -634,6 +640,7 @@ seatNumber | String | 4B
 gender | String | M - Male / F - Female / U - Unspecified
 nationality | String | Malaysian / Singaporean etc
 ticketNumber | String | OPM4273201801284B
+terminalFee | double | 1.0 Not inclusive of above fares
 
 ### Error descriptions
 
@@ -830,7 +837,8 @@ curl "{integrationUrl}/retrieveBooking?operatorCode=OPM&operatorId=12&pnr=OPM201
                 "nationality": "Malaysian",
                 "ticketNumber": "CTBH10049",
                 "ticketFare": 100,
-                "insurance": 2
+                "insurance": 2,
+                "terminalFee": 1
             }
         ]
     }
@@ -890,6 +898,7 @@ nationality | String | Malaysian / Singaporean etc
 ticketNumber | String | OPM4273201801284B
 ticketFare | double | 10.0
 insurance | double | 2.0 (Optional) Not inclusive of ticketFare
+terminalFee | double | 1.0 Not inclusive of ticketFare
 
 
 ### Error descriptions

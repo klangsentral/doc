@@ -479,6 +479,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
             </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
             </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
             </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"terminalFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -494,6 +495,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
             </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
             </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
             </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"terminalFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"operatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UI"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -631,6 +633,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>insurance</td>
 <td>double</td>
 <td>2.0 (Optional) Not inclusive of above fares</td>
+</tr>
+<tr>
+<td>terminalFee</td>
+<td>double</td>
+<td>1.0 Not inclusive of above fares</td>
 </tr>
 <tr>
 <td>operatorCode</td>
@@ -1003,6 +1010,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
             </span><span class="s2">"seniorFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"disabledFare"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"terminalFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MYR"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"seatAvailability"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1146,6 +1154,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>2.0 (Optional) Not inclusive of above fares</td>
 </tr>
 <tr>
+<td>terminalFee</td>
+<td>double</td>
+<td>1.0 Not inclusive of above fares</td>
+</tr>
+<tr>
 <td>currency</td>
 <td>String</td>
 <td>currency code (iso format)</td>
@@ -1219,7 +1232,8 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
               </span><span class="s2">"seatNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4B"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="w">
+              </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPM4273201801284B"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"terminalFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
           </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -1397,6 +1411,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>ticketNumber</td>
 <td>String</td>
 <td>OPM4273201801284B</td>
+</tr>
+<tr>
+<td>terminalFee</td>
+<td>double</td>
+<td>1.0 Not inclusive of above fares</td>
 </tr>
 </tbody></table>
 <h3 id='error-descriptions-4'>Error descriptions</h3>
@@ -1750,7 +1769,8 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
                 </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malaysian"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ticketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTBH10049"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ticketFare"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="s2">"insurance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"terminalFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1933,6 +1953,11 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <td>insurance</td>
 <td>double</td>
 <td>2.0 (Optional) Not inclusive of ticketFare</td>
+</tr>
+<tr>
+<td>terminalFee</td>
+<td>double</td>
+<td>1.0 Not inclusive of ticketFare</td>
 </tr>
 </tbody></table>
 <h3 id='error-descriptions-6'>Error descriptions</h3>
