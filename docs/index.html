@@ -989,7 +989,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <aside class="notice">
 {integrationUrl}/seatmap — Operator specific seat map API URL that we'll call
 </aside>
-<h1 id='get-seat-availability'>Get seat availability</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/seatAvailability?tripId=0B101010&amp;operatorCode=OPM&amp;sourceCityId=42&amp;destinationCityId=73&amp;seatNumber=12&amp;departDate=2017-12-12`
+<h1 id='get-seat-availability'>Get seat availability</h1><pre class="highlight plaintext"><code>curl "{integrationUrl}/seatAvailability?tripId=0B101010&amp;operatorCode=OPM&amp;sourceCityId=35&amp;destinationCityId=6&amp;seatNumber=2B,2C&amp;departDate=2017-12-29`
   -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 </code></pre>
 <blockquote>
@@ -1022,7 +1022,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 </span></code></pre>
 <p>CTS will call the Bus Operator System(BOS) before calling make booking. The system needs to ensure that the selected seats are available and no changes happened on the selected trip.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET {integrationUrl}/seatAvailability?tripId=0B101010&amp;operatorCode=OPM&amp;departDate=2017-12-12&amp;seatNumber=2B&amp;seatNumber=3C</code></p>
+<p><code>GET {integrationUrl}/seatAvailability?tripId=0B101010&amp;operatorCode=OPM&amp;departDate=2017-12-12&amp;seatNumber=2B,3C</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1039,7 +1039,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 <tr>
 <td>seatNumber</td>
 <td>String</td>
-<td>4B, but if multiple seats we will send same parameter multiple times</td>
+<td>4B, but if multiple seats we will send seats as comma separated</td>
 </tr>
 <tr>
 <td>operatorCode</td>

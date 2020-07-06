@@ -437,7 +437,7 @@ Error code | Error message
 # Get seat availability
 
 ```cURL
-curl "{integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&sourceCityId=42&destinationCityId=73&seatNumber=12&departDate=2017-12-12`
+curl "{integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&sourceCityId=35&destinationCityId=6&seatNumber=2B,2C&departDate=2017-12-29`
   -H "X-KEY: sk_test_BQokikJOvBiI2HlWgH4olfQ2"
 ```
 
@@ -474,14 +474,14 @@ CTS will call the Bus Operator System(BOS) before calling make booking. The syst
 
 ### HTTP Request
 
-`GET {integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&departDate=2017-12-12&seatNumber=2B&seatNumber=3C`
+`GET {integrationUrl}/seatAvailability?tripId=0B101010&operatorCode=OPM&departDate=2017-12-12&seatNumber=2B,3C`
 
 ### Query Parameters
 
 Parameter | Type | Format / Example
 --------- | ------- | -----------
 tripId | String | Unique Identifier representing the trip
-seatNumber | String | 4B, but if multiple seats we will send same parameter multiple times
+seatNumber | String | 4B, but if multiple seats we will send seats as comma separated
 operatorCode | String | OPM
 departDate | String | 2017-12-12
 
